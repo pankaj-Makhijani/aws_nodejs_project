@@ -24,7 +24,7 @@ AWS.config.update({region: 'REGION'});
 
 router.get('/',defaultroute);
 router.post('/',createuser);
-router.post('/updateuserbyid',updateuserbyid);
+router.put('/updateuserbyid',updateuserbyid);
 router.delete('/deleteuser/:id',deleteuserbyid);
 router.post('/findonebyid/:id',getuserbyid);
 router.get('/findallusers',findallusers);

@@ -10,7 +10,7 @@
       }
     },
     "host": "localhost:3000",
-    "basePath": "/api/v1",
+    "basePath": "/api",
     "tags": [
       {
         "name": "Users",
@@ -21,13 +21,26 @@
       "http","https"
     ],
     "consumes": [
-      "application/json"
+      "application/json",
+      "application/x-www-form-urlencoded"
     ],
     "produces": [
-      "application/json"
+      "application/json",
+      "application/x-www-form-urlencoded"
     ],
     "paths": {
-      "/users": {
+      "/": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "Default Get Route",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
         "post": {
           "tags": [
             "Users"
@@ -49,29 +62,15 @@
           ],
           "responses": {
             "200": {
-              "description": "New user is created",
-              "schema": {
-                "$ref": "#/definitions/User"
-              }
-            }
-          }
-        },
-        "get": {
-          "tags": [
-            "Users"
-          ],
-          "summary": "Get all users in system",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "schema": {
-                "$ref": "#/definitions/Users"
-              }
+              "description": "New user is created"
+            },
+            "400":{
+              "description":"User Creation Failed"
             }
           }
         }
       },
-      "/users/{userId}": {
+      "/findonebyid/{userId}": {
         "parameters": [
           {
             "name": "userId",
@@ -81,7 +80,7 @@
             "type": "string"
           }
         ],
-        "get": {
+        "post": {
           "tags": [
             "Users"
           ],
@@ -94,42 +93,59 @@
               }
             }
           }
-        },
-        "delete": {
-          "summary": "Delete user with given ID",
+        }
+      },
+      "/deleteuser/{userId}":{
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "description": "ID of user that we want to Delete",
+            "type": "string"
+          }
+        ],
+        "delete":{
           "tags": [
             "Users"
           ],
+          "summary": "Delete user with given ID",
           "responses": {
             "200": {
-              "description": "User is deleted",
-              "schema": {
-                "$ref": "#/definitions/User"
-              }
+              "description": "User Deleted Successfully"
+            },
+            "400":{
+              "description":"User Deletion Failed"
             }
           }
-        },
+        }
+      },
+      "/updateuserbyid":{
         "put": {
-          "summary": "Update user with give ID",
           "tags": [
             "Users"
           ],
+          "summary": "Create new user in system",
+          "description": "Create new user in system",
           "parameters": [
             {
               "name": "user",
               "in": "body",
-              "description": "User with new values of properties",
+              "description": "User that we want to create",
               "schema": {
-                "$ref": "#/definitions/User"
+                "$ref": "#/definitions/Users"
               }
             }
           ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "200": {
-              "description": "User is updated",
-              "schema": {
-                "$ref": "#/definitions/User"
-              }
+              "description": "User Updated Successfully"
+            },
+            "400":{
+              "description":"User Updation Failed"
             }
           }
         }
@@ -139,22 +155,56 @@
       "User": {
         "required": [
           "email",
-          "_id"
+          "id",
+          "fname",
+          "lname"
         ],
         "properties": {
-          "id": {
+          
+          "email": {
             "type": "string",
             "uniqueItems": true
+          },
+          "lname": {
+            "type": "string",
+            "uniqueItems": true,
+            "length":"2 to 16",
+            "Not In":"Root/Admin"
+          },
+          "fname": {
+            "type": "string",
+            "uniqueItems": true,
+            "length":"2 to 16",
+            "Not In":"Root/Admin"
+          }
+        }
+      },
+      "Users": {
+        "required": [
+          "email",
+          "uid",
+          "fname",
+          "lname"
+        ],
+        "properties": {
+          "uid":{
+            "type":"number"
           },
           "email": {
             "type": "string",
             "uniqueItems": true
           },
-          "lastName": {
-            "type": "string"
+          "lname": {
+            "type": "string",
+            "uniqueItems": true,
+            "length":"2 to 16",
+            "Not In":"Root/Admin"
           },
-          "firstName": {
-            "type": "string"
+          "fname": {
+            "type": "string",
+            "uniqueItems": true,
+            "length":"2 to 16",
+            "Not In":"Root/Admin"
           }
         }
       }

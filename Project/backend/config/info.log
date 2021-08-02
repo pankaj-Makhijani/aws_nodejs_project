@@ -561,3 +561,265 @@
 {"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-07-27T10:00:47.282Z"}
 {"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-07-27T10:02:19.929Z"}
 {"dataValues":{"id":18,"firstname":"pankaj","lastname":"makhijani","email":"pankajmakhijani6@gmail.com","updatedAt":"2021-07-27T10:02:18.943Z","createdAt":"2021-07-27T10:02:18.943Z"},"_previousDataValues":{"firstname":"pankaj","lastname":"makhijani","email":"pankajmakhijani6@gmail.com","id":18,"createdAt":"2021-07-27T10:02:18.943Z","updatedAt":"2021-07-27T10:02:18.943Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-07-27T10:02:20.321Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T13:18:26.904Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T13:18:26.907Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T13:18:51.749Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T13:18:51.753Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:23:57.376Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:24:45.473Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:25:51.466Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:26:13.061Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T13:29:18.986Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T13:29:18.989Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:29:36.168Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T13:30:14.770Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T13:30:14.774Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:30:19.383Z"}
+{"level":"error","timestamp":"2021-08-01T13:30:19.385Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:30:27.191Z"}
+{"level":"error","timestamp":"2021-08-01T13:30:27.192Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T13:30:43.119Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T13:30:43.122Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:30:49.357Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T13:31:45.001Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T13:31:45.007Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:31:48.469Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:32:04.742Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:32:31.671Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:32:57.952Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:33:06.616Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-01T13:55:08.318Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:55:21.838Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T13:55:45.608Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:02:45.036Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:02:45.039Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:02:54.865Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T14:04:03.854Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:04:03.855Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:04:03.858Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:04:15.807Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:04:25.854Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:05:01.723Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:18:27.209Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:18:27.213Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:21:58.955Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:24:37.357Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:24:37.362Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:24:41.148Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:25:44.762Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:25:44.768Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:25:47.753Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:27:14.343Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:27:32.718Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:28:04.036Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:28:04.039Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:28:09.986Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:30:44.785Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:36:16.698Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:36:16.706Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:36:24.399Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:36:58.270Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:37:57.330Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:39:33.763Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:39:33.767Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:39:55.300Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:39:55.305Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:40:51.451Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:41:19.978Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T14:41:35.741Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T14:41:35.748Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T14:41:40.416Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:14:05.215Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:14:05.218Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:14:17.223Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:14:17.232Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:14:22.473Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:14:35.913Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:15:05.886Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:15:05.896Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:15:18.534Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:16:10.108Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:19:05.620Z"}
+{"level":"error","timestamp":"2021-08-01T15:19:05.635Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:20:43.578Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:20:43.582Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:20:47.522Z"}
+{"level":"error","timestamp":"2021-08-01T15:20:47.528Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:21:14.930Z"}
+{"level":"error","timestamp":"2021-08-01T15:21:14.944Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:21:43.811Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:21:58.968Z"}
+{"level":"error","timestamp":"2021-08-01T15:21:58.970Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:24:03.681Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:24:03.687Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:24:10.068Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:24:25.198Z"}
+{"level":"error","timestamp":"2021-08-01T15:24:25.200Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:33:16.886Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:33:16.890Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:33:22.704Z"}
+{"level":"error","timestamp":"2021-08-01T15:33:22.710Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:35:23.029Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:35:23.031Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:35:27.441Z"}
+{"level":"error","timestamp":"2021-08-01T15:35:27.447Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T15:42:17.979Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:42:17.982Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:42:17.987Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:43:14.485Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:43:14.488Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:43:25.299Z"}
+{"level":"error","timestamp":"2021-08-01T15:43:25.306Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:44:20.789Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:44:55.459Z"}
+{"level":"error","timestamp":"2021-08-01T15:44:55.461Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:46:26.377Z"}
+{"level":"error","timestamp":"2021-08-01T15:46:26.378Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:46:35.645Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T15:47:05.589Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-01T15:49:08.121Z"}
+{"dataValues":{"id":22,"firstname":"kapil","lastname":"sess","email":"abc@bcde.com","updatedAt":"2021-08-01T15:49:07.186Z","createdAt":"2021-08-01T15:49:07.186Z"},"_previousDataValues":{"firstname":"kapil","lastname":"sess","email":"abc@bcde.com","id":22,"createdAt":"2021-08-01T15:49:07.186Z","updatedAt":"2021-08-01T15:49:07.186Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-01T15:49:08.626Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:55:31.538Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:55:31.541Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-01T15:55:43.383Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-01T15:55:43.399Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-01T15:55:44.273Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:57:27.514Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:57:27.520Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:58:16.140Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:58:16.144Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T15:58:41.868Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T15:58:41.871Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-01T16:01:21.749Z"}
+{"dataValues":{"id":24,"firstname":"kapil","lastname":"sess","email":"abc@bcde.com","updatedAt":"2021-08-01T16:01:16.019Z","createdAt":"2021-08-01T16:01:16.019Z"},"_previousDataValues":{"firstname":"kapil","lastname":"sess","email":"abc@bcde.com","id":24,"createdAt":"2021-08-01T16:01:16.019Z","updatedAt":"2021-08-01T16:01:16.019Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-01T16:01:28.671Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-01T16:02:37.843Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-01T16:02:43.282Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T16:08:05.459Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T16:08:05.464Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-01T16:08:32.609Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-01T16:08:53.805Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-01T16:08:54.748Z"}
+{"dataValues":{"id":25,"firstname":"kapil","lastname":"sess","email":"abc@bcde.com","updatedAt":"2021-08-01T16:08:53.791Z","createdAt":"2021-08-01T16:08:53.791Z"},"_previousDataValues":{"firstname":"kapil","lastname":"sess","email":"abc@bcde.com","id":25,"createdAt":"2021-08-01T16:08:53.791Z","updatedAt":"2021-08-01T16:08:53.791Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-01T16:08:55.579Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T16:30:48.025Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T16:30:48.026Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T16:30:48.029Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-01T16:30:53.689Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T16:31:57.907Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T16:31:57.908Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T16:31:57.911Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T16:32:10.324Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T16:32:10.326Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T16:32:10.329Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-01T16:33:22.879Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-01T16:33:29.024Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T16:35:14.137Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T16:35:14.138Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T16:35:14.142Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-01T16:35:17.625Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-01T16:35:18.596Z"}
+{"dataValues":{"id":26,"firstname":"tdtrdt","lastname":"drdrd","email":"ttft@gmail.com","updatedAt":"2021-08-01T16:35:17.600Z","createdAt":"2021-08-01T16:35:17.600Z"},"_previousDataValues":{"firstname":"tdtrdt","lastname":"drdrd","email":"ttft@gmail.com","id":26,"createdAt":"2021-08-01T16:35:17.600Z","updatedAt":"2021-08-01T16:35:17.600Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-01T16:35:19.037Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T16:37:46.373Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T16:37:46.378Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-01T16:37:57.931Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-01T16:37:59.789Z"}
+{"dataValues":{"id":27,"firstname":"tdtrdt","lastname":"drdrd","email":"ttft@gmail.com","updatedAt":"2021-08-01T16:37:57.905Z","createdAt":"2021-08-01T16:37:57.905Z"},"_previousDataValues":{"firstname":"tdtrdt","lastname":"drdrd","email":"ttft@gmail.com","id":27,"createdAt":"2021-08-01T16:37:57.905Z","updatedAt":"2021-08-01T16:37:57.905Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-01T16:38:00.887Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T16:38:31.462Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T16:38:31.468Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-01T16:38:40.984Z"}
+{"dataValues":{"id":28,"firstname":"tdtrdt","lastname":"drdrd","email":"ttft@gmail.com","updatedAt":"2021-08-01T16:38:40.958Z","createdAt":"2021-08-01T16:38:40.958Z"},"_previousDataValues":{"firstname":"tdtrdt","lastname":"drdrd","email":"ttft@gmail.com","id":28,"createdAt":"2021-08-01T16:38:40.958Z","updatedAt":"2021-08-01T16:38:40.958Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-01T16:38:43.648Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-01T16:38:45.467Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-01T16:40:30.263Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T17:33:38.558Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T17:33:38.562Z"}
+{"dataValues":{"id":29,"firstname":"tdtrdt","lastname":"drdrd","email":"ttft@gmail.com","updatedAt":"2021-08-01T17:35:09.621Z","createdAt":"2021-08-01T17:35:09.621Z"},"_previousDataValues":{"firstname":"tdtrdt","lastname":"drdrd","email":"ttft@gmail.com","id":29,"createdAt":"2021-08-01T17:35:09.621Z","updatedAt":"2021-08-01T17:35:09.621Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-01T17:35:14.547Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-01T17:35:14.582Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-01T17:35:16.603Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:13:46.342Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:13:46.346Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:14:12.916Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:14:12.926Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:27:03.439Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:27:03.440Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:27:03.445Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:29:04.479Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:29:04.480Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:29:04.483Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:30:54.047Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:30:54.051Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:30:54.058Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:31:13.368Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:31:13.370Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:31:13.373Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:32:31.719Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:32:31.721Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:32:31.724Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:32:45.088Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:32:45.089Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:32:45.092Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-01T19:45:27.774Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:46:37.470Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:46:37.472Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:46:37.476Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:47:42.733Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:47:42.734Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:47:42.737Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-01T19:48:19.695Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:51:31.157Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:51:31.159Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:51:31.161Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:53:30.756Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:53:30.758Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:53:30.761Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-01T19:56:32.165Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-01T19:56:32.169Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-01T19:56:32.173Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T06:05:17.674Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T06:05:17.678Z"}
+{"dataValues":{"id":30,"firstname":"string","lastname":"string","email":"string","updatedAt":"2021-08-02T06:06:04.335Z","createdAt":"2021-08-02T06:06:04.335Z"},"_previousDataValues":{"firstname":"string","lastname":"string","email":"string","id":30,"createdAt":"2021-08-02T06:06:04.335Z","updatedAt":"2021-08-02T06:06:04.335Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-02T06:06:06.261Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-02T06:06:06.296Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-02T06:06:07.268Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T06:14:06.203Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T06:14:06.212Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T06:32:42.532Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T06:32:42.537Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T06:35:03.071Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T06:35:03.073Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T06:35:03.077Z"}
+{"level":"info","message":"Get request on get user by id route http://localhost:3000/api/findonebyid/:id","timestamp":"2021-08-02T06:36:11.197Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T06:37:44.727Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T06:37:44.735Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T06:40:11.026Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T06:40:11.028Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T06:40:11.033Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T06:45:01.169Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T06:45:01.181Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:07:32.900Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:07:32.903Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T07:10:24.902Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:10:24.903Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:10:24.908Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-02T07:11:47.838Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T07:22:59.064Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:22:59.065Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:22:59.068Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T07:23:23.148Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:23:23.154Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:23:23.161Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:25:20.838Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:25:20.854Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:34:34.160Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:34:34.176Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-02T07:35:12.487Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T07:37:37.771Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:37:37.778Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:37:37.789Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:39:15.361Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:39:15.375Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:39:52.777Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:39:52.801Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-02T07:40:21.857Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-02T07:40:21.871Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-02T07:41:10.394Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-02T07:41:53.603Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-02T07:41:53.617Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-02T07:43:16.096Z"}
