@@ -60,3 +60,46 @@
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-02T07:23:23.152Z"}
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-02T07:37:37.776Z"}
 {"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-02T07:40:21.858Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:14:15.651Z"}
+{"level":"error","timestamp":"2021-08-02T09:14:34.004Z"}
+{"level":"error","timestamp":"2021-08-02T09:16:44.084Z"}
+{"errno":-4039,"code":"ESOCKET","syscall":"connect","address":"40.100.140.130","port":587,"command":"CONN","level":"error","timestamp":"2021-08-02T09:17:05.188Z"}
+{"level":"error","timestamp":"2021-08-02T09:20:26.888Z"}
+{"0":{"message":"Users.Users_email_unique must be unique","type":"unique violation","path":"Users.Users_email_unique","value":"ttft@gmail.com","origin":"DB","instance":{"id":null,"firstname":"tdtrdt","lastname":"drdrd","email":"ttft@gmail.com","updatedAt":"2021-08-02T09:21:04.809Z","createdAt":"2021-08-02T09:21:04.809Z"},"validatorKey":"not_unique","validatorName":null,"validatorArgs":[]},"level":"error","timestamp":"2021-08-02T09:21:05.296Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:22:07.402Z"}
+{"errno":-4039,"code":"ESOCKET","syscall":"connect","address":"40.100.138.18","port":587,"command":"CONN","level":"error","timestamp":"2021-08-02T09:22:56.906Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:23:15.435Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:26:18.477Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:27:53.931Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:34:09.397Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:37:10.085Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:50:16.482Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:51:40.959Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T09:55:08.719Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T11:58:20.021Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T13:43:16.359Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T13:47:19.875Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T16:46:13.627Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T16:46:32.030Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T18:31:42.593Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T18:32:52.272Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-02T19:31:34.743Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"length should be between 4 to 16","type":"Validation error","path":"lastname","value":"ppp","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"tttt","lastname":"ppp","email":"ftftf@gmail.com","updatedAt":"2021-08-03T06:48:52.141Z"},"validatorKey":"len","validatorName":"len","validatorArgs":[4,16],"original":{"validatorName":"len","validatorArgs":[4,16]}}],"level":"error","timestamp":"2021-08-03T06:48:52.148Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"admin","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"abcd","lastname":"admin","email":"abcde@gmail.com","updatedAt":"2021-08-03T06:50:33.793Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-03T06:50:33.803Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T07:53:04.855Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T07:55:23.568Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T09:25:28.320Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T09:25:37.053Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"length should be between 4 to 16","type":"Validation error","path":"lastname","value":"xyz","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"mnop","lastname":"xyz","email":"xyz@gmail.com","updatedAt":"2021-08-03T09:43:25.071Z"},"validatorKey":"len","validatorName":"len","validatorArgs":[4,16],"original":{"validatorName":"len","validatorArgs":[4,16]}}],"level":"error","timestamp":"2021-08-03T09:43:25.079Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"mnop","lastname":"root","email":"xyz@gmail.com","updatedAt":"2021-08-03T10:32:39.067Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-03T10:32:39.070Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T10:34:51.240Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T10:35:34.736Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T10:35:40.465Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T10:35:43.297Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T10:37:45.717Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T10:40:28.953Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T10:40:42.414Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T10:41:07.563Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"mnop","lastname":"root","email":"xyz@gmail.com","updatedAt":"2021-08-03T10:48:59.295Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-03T10:48:59.309Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T16:13:00.055Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-03T16:13:50.350Z"}

@@ -3,6 +3,8 @@ const logger = require("../config/logger");
 const S3 = require("aws-sdk/clients/s3");
 require("dotenv").config("./.env");
 const path = require("path");
+var jwt = require("jsonwebtoken");
+var expressJwt = require("express-jwt");
 const nodemailer = require("nodemailer");
 const fs = require("fs");
 
@@ -38,6 +40,7 @@ exports.defaultroute = (req, res) => {
   );
 };
 
+//Start controllers for swagger API
 exports.getuserbyid = (req, res) => {
   // console.log(req.params.id)
   User.findOne({
@@ -60,7 +63,7 @@ exports.getuserbyid = (req, res) => {
   );
 };
 
-exports.deleteuserbyid = (req, res) => {
+exports.deleteuserbyidunauth = (req, res) => {
   User.destroy({
     where: {
       id: req.params.id,
@@ -81,29 +84,95 @@ exports.deleteuserbyid = (req, res) => {
   );
 };
 
-exports.updateuserbyid = async (req, res) => {
+exports.deleteuserbyid = (req, res) => {
+  User.destroy({
+    where: {
+      id: req.profile.id,
+    },
+  })
+    .catch((error) => {
+      logger.log("error", error);
+      return res.json({ error: "delete action unsuccessful" });
+    })
+    .then((User) => {
+      res.json({ msg: "data deleted successfully" });
+    });
+  logger.log(
+    "info",
+    `delete request on delete user by id route http://localhost:${port}/api/deleteuser/:id` +
+      ` IP address ` +
+      req.ip
+  );
+};
+
+exports.updateuserbyidunauth = (req, res) => {
   var { uid, fname, lname, email } = req.body;
   // var records = [[fname,lname,email,uid]];
   // if(records[0][0]!=null)
   // {
-  console.log(req.headers);
-  await User.update(
+  // console.log(req.headers);
+  User.update(
     {
       firstname: req.body.fname,
       lastname: req.body.lname,
       email: req.body.email,
+      // role:req.body.role
     },
     {
       where: { id: req.body.uid },
     }
   )
     .then((User) => {
-      res.json({ msg: "data updated successfully" });
-      console.log();
+      if(User==0){
+        return res.json({"error":"No such user exists"})
+      }
+      // console.log(User);
+      return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
       logger.log("error", error);
-      return res.json({ error: "data updation failed" });
+      return res.json({ "error": error.errors[0].message});
+      
+    });
+  // }
+  logger.log(
+    "info",
+    `Post request on update user by id route http://localhost:${port}/api/updateuserbyid`,
+    " IP address ",
+    req.ip
+  );
+};
+
+//End of controllers for swagger API
+
+exports.updateuserbyid = (req, res) => {
+  var { uid, fname, lname, email } = req.body;
+  // var records = [[fname,lname,email,uid]];
+  // if(records[0][0]!=null)
+  // {
+  // console.log(req.headers);
+  User.update(
+    {
+      firstname: req.body.fname,
+      lastname: req.body.lname,
+      email: req.body.email,
+      // role:req.body.role
+    },
+    {
+      where: { id: req.profile.id },
+    }
+  )
+    .then((User) => {
+      if(User==0){
+        return res.json({"error":"No such user exists"})
+      }
+      // console.log(User);
+      return res.json({ msg: "data updated successfully" });
+    })
+    .catch((error) => {
+      logger.log("error", error);
+      return res.json({ "error": error.errors[0].message});
+      
     });
   // }
   logger.log(
@@ -136,53 +205,56 @@ exports.findallusersbyfname = (req, res) => {
   );
 };
 
-exports.createuser = async (req, res) => {
-  var { fname, lname, email, file } = req.body;
+exports.signup = async (req, res) => {
+  var { fname, lname, email, file,pass } = req.body;
   const fileName = req.body.file;
-  // var records = [[req.body.fname,req.body.lname,req.body.email,req.body.file]];
-  var records = [[fname, lname, email]];
+  var records = [[fname, lname, email,pass]];
   if (records[0][0] != null) {
     await User.create({
       firstname: fname,
       lastname: lname,
       email: email,
-    })
-      .then((User) => {
-        console.log(req.headers);
-        logger.log("info", User);
+      password:pass
+    }).then((User) => {
+      if(!User){
+        return res.json({"msg":"error creating user"})
+      }
+      logger.log("info", User);
+      }).catch((error) => {
+        // console.log(error.errors[0].message);
+        return res.json({ "error": error.errors[0].message});
       })
-      .catch((error) => {
-        logger.log("error", error.errors[0].message);
-        return res.json({ error: "validation error" });
-      });
-    // con.query("INSERT into Users2 (fname,lname,email) VALUES ?",[records],function(err,res,fields)
-    {
-      // Create an SQS service object
-      var sqs = new AWS.SQS({ apiVersion: "2012-11-05" });
-      var params = {
-        // Remove DelaySeconds parameter and value for FIFO queues
-        DelaySeconds: 10,
-        //send user email in queue body
-        MessageBody: email,
-        // MessageDeduplicationId: "TheWhistler",  // Required for FIFO queues
-        // MessageGroupId: "Group1",  // Required for FIFO queues
-        QueueUrl: process.env.QUEUE_URL,
-      };
-      sqs.sendMessage(params, function (err, data) {
-        if (err) {
-          logger.log("error", err);
-        } else {
-          logger.log(
-            "info",
-            "Data moved to Queue Successfully",
-            data.MessageId
-          );
-        }
-      });
-    }
-    // );
-  }
 
+ /* sqs start*/
+
+    // {
+    //   // Create an SQS service object
+    //   var sqs = new AWS.SQS({ apiVersion: "2012-11-05" });
+    //   var params = {
+    //     // Remove DelaySeconds parameter and value for FIFO queues
+    //     DelaySeconds: 10,
+    //     //send user email in queue body
+    //     MessageBody: email,
+    //     // MessageDeduplicationId: "TheWhistler",  // Required for FIFO queues
+    //     // MessageGroupId: "Group1",  // Required for FIFO queues
+    //     QueueUrl: process.env.QUEUE_URL,
+    //   };
+    //   sqs.sendMessage(params, function (err, data) {
+    //     if (err) {
+    //       logger.log("error", err);
+    //     } else {
+    //       logger.log(
+    //         "info",
+    //         "Data moved to Queue Successfully",
+    //         data.MessageId
+    //       );
+    //     }
+    //   });
+    // }
+
+ /* sqs end*/
+
+ /* s3 start*/
   // function uploadToS3(bucketName, keyPrefix, filePath) {
   //      // ex: /path/to/my-picture.png becomes my-picture.png
   //      var fileName = path.basename(filePath);
@@ -224,32 +296,37 @@ exports.createuser = async (req, res) => {
   //     logger.log('error','Upload to s3 failed ',err.toString());
   //    });
 
-  var mailOptions = {
-    from: process.env.MAIL_SENDER,
-    to: process.env.MAIL_RECEIVER,
-    subject: "New User Registered",
-    text: `Hello admin, New user named ${fname} ${lname} just registered onto your application. View Database for more information`,
-  };
+ /* s3 end*/
 
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      logger.log("error", error);
-      console.log(error);
-    } else {
-      console.log("Email sent: " + info.response);
-    }
-  });
-  logger.log(
-    "info",
-    `Post request on createuser route http://localhost:${port}/api/`,
-    " IP address ",
-    req.ip
-  );
+ /* mail start*/
+
+  // var mailOptions = {
+  //   from: process.env.MAIL_SENDER,
+  //   to: process.env.MAIL_RECEIVER,
+  //   subject: "New User Registered",
+  //   text: `Hello admin, New user named ${fname} ${lname} just registered onto your application. View Database for more information`,
+  // };
+
+  // transporter.sendMail(mailOptions, function (error, info) {
+  //   if (error) {
+  //     logger.log("error", error);
+  //     console.log(error);
+  //   } else {
+  //     console.log("Email sent: " + info.response);
+  //   }
+  // });
+
+ /* mail end*/
+
+  }
+
+  logger.log("info",`Post request on createuser route http://localhost:${port}/api/`);
   res.json({ msg: "User created successfully" });
 };
 
 exports.findallusers = (req, res) => {
-  User.findAll()
+  if(req.profile.role!==0){
+    User.findAll()
     .catch((error) => {
       logger.log("error", error);
       return res.json({ error: "No data exists" });
@@ -257,8 +334,111 @@ exports.findallusers = (req, res) => {
     .then((Users) => {
       res.json(Users);
     });
+  }
   logger.log(
     "info",
     `get request on finall users route http://localhost:${port}/api/findallusers`
   );
 };
+
+// exports.getuserbyid = (req,res,next,id) => {
+//   // 
+// }
+
+exports.signin = (req,res) => {
+  User.findOne({
+    where:{
+      email:req.body.email,
+      password:req.body.pass
+    }
+  })
+  .catch((error) => {
+    // logger.log("error", error);
+    return res.json({ error: "Sign-in error" });
+  })
+  .then((User) => {
+    // res.json(User);
+    //create token
+    if(!User){
+      return res.json({"msg":"E-mail or Password does not match"})
+    }
+    const token = jwt.sign({ id: User.id }, process.env.SECRET);
+    //put token in cookie
+    res.cookie("token", token, { expire: new Date() + 9999 });
+
+    //send response to front end
+    const { id, firstname,lastname, email } = User;
+    return res.json({ token, user: { id, firstname, lastname, email } });
+  });
+}
+
+//middleware
+exports.finduserbyid = (req, res, next,id) => {
+  // User.findOne({
+  //   where:{
+  //     id:req.params.id
+  //   }
+  // },(err, user) => {
+  //   if (err || !user) {
+  //     return res.status(400).json({
+  //       error: "No user was found in DB"
+  //     });
+  //   }
+  //   req.profile = user;
+  //   console.log(req.profile)
+  //   next();
+  // })
+  User.findOne({
+    where:{
+      id:id
+    }
+  }).catch((err) => { console.log(err); return res.json(err) })
+  .then((user) => {
+    req.profile = user;
+    // console.log(req)
+    next();
+  })
+};
+
+exports.getUser = (req, res) => {
+  req.profile.password = undefined;
+  console.log(req)
+  return res.json(req.profile);
+};
+
+//custom middlewares
+exports.isAuthenticated = (req, res, next) => {
+  let checker = req.profile && req.auth && req.profile.id == req.auth.id;
+  // console.log(req.profile.id)
+  // console.log(req.auth.id)
+  if (!checker) {
+    return res.status(403).json({
+      error: "ACCESS DENIED"
+    });
+  }
+  console.log(req.profile)
+  next();
+};
+
+exports.isAdmin = (req, res, next) => {
+  if (req.profile.role === 0) {
+    return res.status(403).json({
+      error: "You are not ADMIN, Access denied"
+    });
+  }
+  next();
+};
+
+exports.signout = (req, res) => {
+  res.clearCookie("token");
+  res.json({
+    message: "User signout successfully"
+  });
+};
+
+// //protected routes
+exports.isSignedIn = expressJwt({
+  secret: process.env.SECRET,
+  algorithms: ['HS256'],
+  userProperty: "auth"
+});

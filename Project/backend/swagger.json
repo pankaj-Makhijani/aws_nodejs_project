@@ -80,7 +80,7 @@
             "type": "string"
           }
         ],
-        "post": {
+        "get": {
           "tags": [
             "Users"
           ],
@@ -95,7 +95,7 @@
           }
         }
       },
-      "/deleteuser/{userId}":{
+      "/deleteuserunauth/{userId}":{
         "parameters": [
           {
             "name": "userId",
@@ -120,7 +120,7 @@
           }
         }
       },
-      "/updateuserbyid":{
+      "/updateuserbyidunauth":{
         "put": {
           "tags": [
             "Users"

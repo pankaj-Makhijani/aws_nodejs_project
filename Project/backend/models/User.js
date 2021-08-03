@@ -9,20 +9,49 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allownull: false,
       validate: {
-        notEmpty: true,
-        notIn: [["root", "admin"]],
-        len: [2, 16],
+        notEmpty: {
+          args:true,
+          msg:"firstname should not be empty"
+        },
+        notIn: {
+          args:[["root", "admin"]],
+          msg:"firstname should not be root/admin"
+        },
+        len: {
+          args: [4, 16],
+          msg: "length should be between 4 to 16", //custom messages
+        },
       },
     },
     lastname: {
       type: DataTypes.STRING,
       allownull: false,
       validate: {
-        notEmpty: true,
-        notIn: [["root", "admin"]],
+        notEmpty: {
+          args:true,
+          msg:"lastname should not be empty"
+        },
+        notIn: {
+          args:[["root", "admin"]],
+          msg:"lastname should not be root/admin"
+        },
         len: {
-          args: [2, 16],
-          msg: "length should be between 2 to 16", //custom messages
+          args: [4, 16],
+          msg: "length should be between 4 to 16", //custom messages
+        },
+      },
+    },
+    password:{
+      type: DataTypes.STRING,
+      allownull: false,
+      validate: {
+        notEmpty: {
+          args:true,
+          msg:"password should not be empty"
+        },
+        len: {
+          args: [4, 16],
+          msg: "length should be between 4 to 16", //custom messages
         },
       },
     },
@@ -30,12 +59,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allownull: false,
       validate: {
-        notEmpty: true,
-        // is: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
-        // is: ["/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/",'i'],
-        // isEmail: true,
-      },
+        notEmpty: {
+        args:true,
+        msg:"E-mail is required"
+          }
+        },
+      unique:{
+        args:true,
+        msg:"E-mail already Exists"
+      }
     },
+    role:{
+      type:DataTypes.INTEGER,
+      defaultValue:0
+    }
   });
 
   User.associate = models => {

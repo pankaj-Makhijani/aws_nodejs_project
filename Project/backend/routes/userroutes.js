@@ -1,7 +1,7 @@
 const express = require('express')
-const {defaultroute} = require('../controllers/user')
+const {defaultroute,isSignedIn, finduserbyid,isAuthenticated,getUser, isAdmin, deleteuserbyidunauth, updateuserbyidunauth} = require('../controllers/user')
 const router = express.Router()
-const { getuserbyid,deleteuserbyid,updateuserbyid,findallusersbyfname,createuser,findallusers } = require("../controllers/user")
+const { getuserbyid,deleteuserbyid,updateuserbyid,findallusersbyfname,signup,findallusers,signin,signout } = require("../controllers/user")
 const { User } = require('../models/User')
 const logger = require('../config/logger')
 const S3 = require("aws-sdk/clients/s3");
@@ -20,14 +20,34 @@ var AWS = require('aws-sdk');
 // Set the region 
 AWS.config.update({region: 'REGION'});
 
-
-
+//default route
 router.get('/',defaultroute);
-router.post('/',createuser);
-router.put('/updateuserbyid',updateuserbyid);
-router.delete('/deleteuser/:id',deleteuserbyid);
-router.post('/findonebyid/:id',getuserbyid);
-router.get('/findallusers',findallusers);
+
+//Open API for swaggerr
+router.post('/',signup)
+router.get('/findonebyid/:id',getuserbyid);
+router.delete('/deleteuserunauth/:id',deleteuserbyidunauth)
+router.put('/updateuserbyidunauth',updateuserbyidunauth)
+
+// Auth Routes for signup,sigin,signout
+router.post('/signup',signup);
+router.post('/signin',signin)
+router.post('/signout',signout)
+
+//Extract user id from params
+router.param('id',finduserbyid)
+
+// User Protected Routes
+router.get("/user/:id", isSignedIn, isAuthenticated, getUser);
+router.put('/updateuserbyid/:id',isSignedIn,isAuthenticated,updateuserbyid);
+router.delete('/deleteuser/:id',isSignedIn,isAuthenticated,deleteuserbyid);
+
+
+//Admin Protected Routes
+//check admin role then if authorized show him all users
+router.get('/:id/findallusers',isSignedIn,isAuthenticated,isAdmin,findallusers);
+
+//you can delete this not required
 router.get('/findallbyfname/:fname',findallusersbyfname);
 
 module.exports=router;
