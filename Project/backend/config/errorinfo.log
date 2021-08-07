@@ -103,3 +103,67 @@
 {"name":"SequelizeValidationError","errors":[{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"mnop","lastname":"root","email":"xyz@gmail.com","updatedAt":"2021-08-03T10:48:59.295Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-03T10:48:59.309Z"}
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-03T16:13:00.055Z"}
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-03T16:13:50.350Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T10:33:41.588Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:52:06.912Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:53:09.594Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:56:43.059Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:58:38.127Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:59:17.018Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-04T14:00:52.037Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T14:01:08.384Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T14:19:40.013Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T14:27:59.198Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T19:27:48.733Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T19:28:38.745Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T19:28:53.565Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T07:44:27.349Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T07:44:55.846Z"}
+{"level":"error","timestamp":"2021-08-05T07:49:58.613Z"}
+{"level":"error","timestamp":"2021-08-05T07:51:15.485Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T07:57:00.061Z"}
+{"level":"error","timestamp":"2021-08-05T07:57:15.468Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T07:59:18.790Z"}
+{"level":"error","timestamp":"2021-08-05T07:59:30.087Z"}
+{"level":"error","timestamp":"2021-08-05T08:00:36.353Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T08:01:34.356Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T08:10:58.861Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T08:11:20.038Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T08:11:37.913Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T08:33:43.179Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T08:44:40.518Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T08:47:19.146Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T08:47:28.170Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T09:38:19.081Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T09:39:20.241Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T09:39:32.840Z"}
+{"level":"error","timestamp":"2021-08-05T13:10:13.983Z"}
+{"level":"error","timestamp":"2021-08-05T13:12:01.620Z"}
+{"level":"error","timestamp":"2021-08-05T13:12:08.068Z"}
+{"level":"error","timestamp":"2021-08-05T13:13:18.174Z"}
+{"level":"error","timestamp":"2021-08-05T13:14:43.635Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T13:44:10.924Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T13:47:47.395Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T20:27:41.232Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T08:32:11.979Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T10:12:22.639Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T10:32:43.333Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T10:34:01.296Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T10:34:56.444Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T11:11:33.687Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T11:11:48.399Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T12:00:09.000Z"},"level":"error","timestamp":"2021-08-06T12:00:30.654Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T12:00:09.000Z"},"level":"error","timestamp":"2021-08-06T12:05:39.091Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T12:00:09.000Z"},"level":"error","timestamp":"2021-08-06T12:06:00.511Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T16:54:19.000Z"},"level":"error","timestamp":"2021-08-06T16:55:18.967Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T16:54:19.000Z"},"level":"error","timestamp":"2021-08-06T16:57:32.117Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T17:02:08.127Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-06T19:23:49.856Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T22:27:31.398Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T21:23:37.000Z"},"level":"error","timestamp":"2021-08-07T09:28:54.823Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-07T09:29:12.868Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-07T10:03:36.636Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-07T10:04:13.376Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-07T11:58:37.000Z"},"level":"error","timestamp":"2021-08-07T11:59:18.175Z"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error","timestamp":"2021-08-07T12:14:49.903Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-07T12:15:11.548Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-07T19:41:50.310Z"}

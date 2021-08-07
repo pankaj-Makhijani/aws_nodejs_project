@@ -14,7 +14,7 @@ module.exports =(sequelize,DataTypes) => {
         card.belongsTo(models.User,{
             foreignKey:{
                 allowNull:false
-            }
+            },onDelete:'cascade'
         })
     }
     return card;

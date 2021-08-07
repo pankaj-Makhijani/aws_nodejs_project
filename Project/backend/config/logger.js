@@ -1,6 +1,9 @@
 const { createLogger,transports,format } = require('winston');
+const SQLTransport = require('winston-sql-transport');
+
 
 const logger = createLogger({
+    
     transports:[
         new transports.Console({
             level:'info',

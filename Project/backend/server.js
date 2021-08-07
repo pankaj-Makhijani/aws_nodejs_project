@@ -8,6 +8,7 @@ const logger = require('./config/logger')
 const userroutes = require('./routes/userroutes');
 const cardroutes = require('./routes/cardroutes');
 const db = require('./models');
+const cookieParser = require('cookie-parser');
 const port = process.env.PORT || 3000;
 const app=express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: false
 }));
+app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());

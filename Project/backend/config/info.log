@@ -1367,3 +1367,700 @@
 {"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-03T16:13:50.355Z"}
 {"level":"info","message":"Database connection successful","timestamp":"2021-08-03T16:14:48.147Z"}
 {"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-03T16:14:48.161Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T10:33:41.588Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T10:33:41.589Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T10:33:41.592Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T10:33:51.146Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T10:33:51.150Z"}
+{"dataValues":{"role":0,"id":4,"firstname":"tftftftft","lastname":"ftftftftf","email":"tftftftftf","password":"ftftftftft","updatedAt":"2021-08-04T10:34:25.362Z","createdAt":"2021-08-04T10:34:25.362Z"},"_previousDataValues":{"firstname":"tftftftft","lastname":"ftftftftf","email":"tftftftftf","password":"ftftftftft","id":4,"role":0,"createdAt":"2021-08-04T10:34:25.362Z","updatedAt":"2021-08-04T10:34:25.362Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-04T10:34:26.698Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-04T10:34:26.699Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T11:00:31.724Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T11:00:31.728Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T11:01:54.952Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T11:01:54.956Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T11:33:34.664Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T11:33:34.669Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T11:40:27.590Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T11:40:27.593Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T12:18:40.062Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T12:18:40.069Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T12:19:31.108Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T12:40:09.444Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T12:40:09.448Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:38:57.576Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:38:57.579Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:42:25.227Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:42:25.230Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T13:42:31.547Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T13:44:28.009Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T13:44:53.072Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T13:45:45.927Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:47:20.749Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:47:20.753Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T13:47:30.130Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:48:26.827Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:48:26.831Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T13:48:40.711Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:52:06.911Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:52:06.913Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:52:06.920Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:53:09.593Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:53:09.594Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:53:09.597Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:53:24.760Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:53:24.763Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:56:18.313Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:56:18.317Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:56:43.058Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:56:43.060Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:56:43.063Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:56:53.575Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:56:53.579Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:58:38.127Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:58:38.128Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:58:38.131Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T13:59:17.017Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:59:17.019Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:59:17.022Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T13:59:34.187Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T13:59:34.190Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T14:00:42.031Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-04T14:00:52.037Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T14:01:08.383Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:01:08.385Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:01:08.388Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:01:52.084Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:01:52.088Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T14:02:08.565Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:14:54.607Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:14:54.612Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T14:19:40.012Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:19:40.014Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:19:40.018Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:27:33.622Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:27:33.626Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T14:27:59.197Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:27:59.198Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:27:59.202Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:28:06.089Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:28:06.092Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:28:25.513Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:28:25.516Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:30:31.642Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:30:31.647Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:31:53.388Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:31:53.394Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T14:32:24.364Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T14:32:24.368Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T14:32:45.453Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-04T14:43:57.676Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-04T14:45:33.301Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T15:34:10.303Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T15:50:40.880Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T15:50:40.884Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T15:51:01.046Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T15:51:01.050Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T15:51:10.157Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T15:51:10.161Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:03:35.367Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T16:04:51.248Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T16:04:51.252Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:05:22.117Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T16:06:26.876Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T16:06:26.879Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:07:07.175Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:14:11.613Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:15:27.818Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:16:50.377Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:17:06.685Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:18:05.131Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T16:23:58.505Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T16:23:58.509Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T16:27:50.032Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T16:27:50.035Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T16:29:13.557Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T16:29:13.565Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T16:30:42.777Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T16:30:42.782Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T16:31:42.350Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T16:31:42.354Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:33:09.085Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T16:34:11.480Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-04T17:31:44.637Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T19:27:48.731Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T19:27:48.734Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T19:27:48.740Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T19:28:38.744Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T19:28:38.746Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T19:28:38.751Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-04T19:28:53.563Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T19:28:53.566Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T19:28:53.571Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T20:31:43.111Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T20:31:43.118Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:32:34.461Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:34:06.579Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:34:34.530Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:34:50.110Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:36:11.361Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:37:01.839Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:37:33.446Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:38:13.028Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:38:37.720Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:44:35.711Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:45:29.153Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:45:56.043Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:47:12.544Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:47:45.104Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:52:08.315Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:52:36.223Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:53:18.784Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:53:38.439Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:53:49.038Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:54:39.867Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:54:53.960Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:55:14.697Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:55:15.411Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T20:56:40.554Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-04T21:23:00.675Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-04T21:36:13.347Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T21:39:24.508Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T21:39:24.523Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T21:40:20.405Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T21:40:20.420Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-04T21:40:27.362Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-04T21:51:57.976Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-04T21:53:04.885Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-04T21:59:32.320Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-04T22:00:46.116Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T22:05:39.091Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T22:05:39.106Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-04T22:06:44.001Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-04T22:08:11.381Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-04T22:08:11.386Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T06:33:04.934Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T06:33:04.945Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:19:02.714Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:19:02.721Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-05T07:20:12.005Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:20:50.928Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:20:50.941Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-05T07:23:18.547Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyid","timestamp":"2021-08-05T07:24:06.431Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:25:32.000Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:25:32.016Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:43:19.729Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:43:19.735Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:43:50.479Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:43:50.491Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:44:11.613Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:44:11.628Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T07:44:27.345Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:44:27.351Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:44:27.366Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T07:44:55.842Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:44:55.848Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:44:55.862Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T07:49:58.610Z"}
+{"level":"error","timestamp":"2021-08-05T07:49:58.613Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T07:51:15.481Z"}
+{"level":"error","timestamp":"2021-08-05T07:51:15.485Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:56:24.211Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:56:24.215Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T07:57:00.059Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:57:00.062Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:57:00.070Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:57:06.752Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:57:06.760Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T07:57:15.465Z"}
+{"level":"error","timestamp":"2021-08-05T07:57:15.468Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T07:59:18.787Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T07:59:18.792Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T07:59:18.804Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T07:59:22.879Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T07:59:30.082Z"}
+{"level":"error","timestamp":"2021-08-05T07:59:30.086Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T08:00:36.351Z"}
+{"level":"error","timestamp":"2021-08-05T08:00:36.353Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T08:01:34.353Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:01:34.357Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:01:34.365Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:04:29.966Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:04:29.974Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T08:10:58.857Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:10:58.863Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:10:58.876Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T08:11:20.034Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:11:20.040Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:11:20.052Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T08:11:37.911Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:11:37.915Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:11:37.922Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:12:06.809Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:12:06.825Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T08:12:52.416Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:23:02.518Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:23:02.525Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:32:56.782Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:32:56.797Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:33:13.423Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:33:13.438Z"}
+{"dataValues":{"role":0,"id":5,"firstname":"test","lastname":"test","email":"test@gmail.com","password":"12345678","updatedAt":"2021-08-05T08:33:40.876Z","createdAt":"2021-08-05T08:33:40.876Z"},"_previousDataValues":{"firstname":"test","lastname":"test","email":"test@gmail.com","password":"12345678","id":5,"role":0,"createdAt":"2021-08-05T08:33:40.876Z","updatedAt":"2021-08-05T08:33:40.876Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-05T08:33:43.097Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T08:33:43.170Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T08:33:43.179Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-05T08:33:44.920Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T08:37:22.085Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T08:38:31.179Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T08:39:39.436Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:40:02.359Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:40:02.376Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:40:51.782Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:40:51.787Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T08:41:02.363Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:41:43.781Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:41:43.796Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T08:42:12.487Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:42:49.078Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:42:49.094Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:43:17.877Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:43:17.884Z"}
+{"dataValues":{"role":0,"id":6,"firstname":"test2","lastname":"test2","email":"test2@gmail.com","password":"12345678","updatedAt":"2021-08-05T08:44:37.615Z","createdAt":"2021-08-05T08:44:37.615Z"},"_previousDataValues":{"firstname":"test2","lastname":"test2","email":"test2@gmail.com","password":"12345678","id":6,"role":0,"createdAt":"2021-08-05T08:44:37.615Z","updatedAt":"2021-08-05T08:44:37.615Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-05T08:44:40.444Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T08:44:40.510Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T08:44:40.517Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-05T08:44:42.066Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T08:47:10.847Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T08:47:10.861Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T08:47:19.133Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T08:47:19.146Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-05T08:47:20.459Z"}
+{"dataValues":{"role":0,"id":8,"firstname":"test2","lastname":"test2","email":"test23@gmail.com","password":"12345678","updatedAt":"2021-08-05T08:47:27.804Z","createdAt":"2021-08-05T08:47:27.804Z"},"_previousDataValues":{"firstname":"test2","lastname":"test2","email":"test23@gmail.com","password":"12345678","id":8,"role":0,"createdAt":"2021-08-05T08:47:27.804Z","updatedAt":"2021-08-05T08:47:27.804Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-05T08:47:28.151Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T08:47:28.166Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T08:47:28.170Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-05T08:47:29.726Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T09:11:31.715Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T09:11:31.722Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T09:21:38.816Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T09:21:38.831Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T09:22:43.349Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T09:22:43.356Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T09:29:05.453Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T09:29:05.458Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T09:36:13.018Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T09:36:13.023Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T09:36:37.792Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T09:36:37.800Z"}
+{"dataValues":{"role":0,"id":9,"firstname":"test3","lastname":"test3","email":"test3@gmail.com","password":"12345678","updatedAt":"2021-08-05T09:38:17.054Z","createdAt":"2021-08-05T09:38:17.054Z"},"_previousDataValues":{"firstname":"test3","lastname":"test3","email":"test3@gmail.com","password":"12345678","id":9,"role":0,"createdAt":"2021-08-05T09:38:17.054Z","updatedAt":"2021-08-05T09:38:17.054Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-05T09:38:19.050Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T09:38:19.076Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T09:38:19.080Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-05T09:38:20.433Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T09:39:20.235Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T09:39:20.241Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-05T09:39:21.748Z"}
+{"dataValues":{"role":0,"id":11,"firstname":"test4","lastname":"test3","email":"test4@gmail.com","password":"12345678","updatedAt":"2021-08-05T09:39:30.517Z","createdAt":"2021-08-05T09:39:30.517Z"},"_previousDataValues":{"firstname":"test4","lastname":"test3","email":"test4@gmail.com","password":"12345678","id":11,"role":0,"createdAt":"2021-08-05T09:39:30.517Z","updatedAt":"2021-08-05T09:39:30.517Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-05T09:39:32.830Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T09:39:32.838Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T09:39:32.840Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-05T09:39:34.320Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T09:46:19.874Z"}
+{"dataValues":{"role":0,"id":12,"firstname":"test5","lastname":"test5","email":"test5@gmail.com","updatedAt":"2021-08-05T09:48:39.434Z","createdAt":"2021-08-05T09:48:39.434Z"},"_previousDataValues":{"firstname":"test5","lastname":"test5","email":"test5@gmail.com","id":12,"role":0,"createdAt":"2021-08-05T09:48:39.434Z","updatedAt":"2021-08-05T09:48:39.434Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-05T09:48:41.404Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-05T09:48:43.065Z"}
+{"level":"info","message":"Get request on get user by id route http://localhost:3000/api/findonebyid/:id","timestamp":"2021-08-05T09:49:44.744Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T09:50:33.058Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T10:11:11.494Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T10:11:11.497Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T12:39:16.011Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T12:39:16.016Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-05T12:39:30.680Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-05T12:40:30.427Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T12:45:37.133Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T12:45:37.138Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-05T12:45:43.339Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T12:46:16.828Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T12:46:16.842Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T12:47:00.827Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T12:47:00.843Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T12:47:49.728Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T12:47:49.743Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-05T12:48:06.294Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T12:58:51.276Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T13:08:44.673Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T13:08:44.687Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T13:09:26.746Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T13:10:13.979Z"}
+{"level":"error","timestamp":"2021-08-05T13:10:13.982Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T13:11:54.448Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T13:11:54.461Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T13:12:01.614Z"}
+{"level":"error","timestamp":"2021-08-05T13:12:01.620Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T13:12:08.063Z"}
+{"level":"error","timestamp":"2021-08-05T13:12:08.067Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T13:13:18.164Z"}
+{"level":"error","timestamp":"2021-08-05T13:13:18.174Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T13:14:40.709Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T13:14:40.714Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T13:14:43.622Z"}
+{"level":"error","timestamp":"2021-08-05T13:14:43.634Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T13:23:15.743Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T13:23:15.757Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T13:23:59.229Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T13:23:59.242Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-05T13:24:08.643Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T13:44:10.923Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T13:44:10.924Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T13:44:10.927Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T13:44:27.674Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T13:44:27.682Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-05T13:47:47.395Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T13:47:47.396Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T13:47:47.400Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T13:47:57.243Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T13:47:57.257Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T14:45:04.549Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T14:45:04.563Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T14:50:53.308Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T14:50:53.327Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T14:59:50.925Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T14:59:50.938Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T15:11:06.044Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T15:11:06.053Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T15:18:10.117Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T15:18:10.132Z"}
+{"level":"info","message":"Get request on http://localhost:3000/api/","timestamp":"2021-08-05T15:21:26.540Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T18:51:15.300Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T18:51:15.307Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T19:22:49.543Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T19:22:49.549Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:23:49.986Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:24:00.438Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:24:14.626Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:24:17.407Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:25:43.051Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:25:47.896Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:25:50.016Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T19:26:22.438Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T19:26:22.442Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:31.915Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:46.504Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:48.244Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:50.256Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:51.016Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:51.705Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:52.348Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:52.974Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:53.700Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:54.152Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:54.793Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:55.524Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:26:55.978Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:01.967Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:04.126Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:05.060Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:05.759Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:06.209Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:06.656Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:07.103Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:07.551Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:08.001Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:08.450Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:08.898Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:09.362Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:09.830Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:10.357Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:10.827Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:11.307Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:12.292Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:13.010Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:13.623Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:14.191Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:14.694Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:15.203Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:15.738Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:16.196Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:16.646Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:17.094Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:17.549Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:17.993Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:18.438Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:27:18.895Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:29:38.718Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:29:45.335Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:30:34.412Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:32:13.591Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:32:51.890Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:36:00.942Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T19:37:46.236Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T19:37:46.239Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:37:59.045Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:38:04.195Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:38:05.894Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:38:52.704Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T19:42:24.014Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T19:42:24.017Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:43:19.481Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T19:50:52.753Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T19:50:52.757Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:51:20.722Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:54:19.905Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:55:09.379Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T19:56:11.878Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T19:56:11.881Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T19:57:45.722Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T19:57:45.726Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T19:58:31.352Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T19:59:30.040Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T19:59:30.045Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T20:00:55.540Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T20:00:55.544Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T20:02:12.320Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T20:02:12.324Z"}
+{"dataValues":{"role":0,"id":13,"firstname":"tttt","lastname":"tttt","email":"tttt@gmail.com","password":"tttt","updatedAt":"2021-08-05T20:27:39.833Z","createdAt":"2021-08-05T20:27:39.833Z"},"_previousDataValues":{"firstname":"tttt","lastname":"tttt","email":"tttt@gmail.com","password":"tttt","id":13,"role":0,"createdAt":"2021-08-05T20:27:39.833Z","updatedAt":"2021-08-05T20:27:39.833Z"},"_changed":{},"_options":{"isNewRecord":true,"_schema":null,"_schemaDelimiter":""},"isNewRecord":false,"level":"info","timestamp":"2021-08-05T20:27:41.200Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-05T20:27:41.229Z"}
+{"level":"error","message":"Upload to s3 failed ","timestamp":"2021-08-05T20:27:41.232Z"}
+{"level":"info","message":"Data moved to Queue Successfully","timestamp":"2021-08-05T20:27:42.126Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T21:05:08.230Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T21:09:48.975Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T21:09:49.002Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T21:10:18.450Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T21:10:18.476Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-05T21:11:50.712Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-05T21:13:45.734Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-05T21:13:45.760Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T07:59:18.305Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T07:59:18.337Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-06T08:03:02.484Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-06T08:04:52.018Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:09:57.143Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:09:57.171Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:15:03.671Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:15:03.703Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:18:20.522Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:18:20.548Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:19:12.363Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:19:12.386Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:20:38.857Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:20:38.882Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:24:08.695Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:24:08.726Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:25:45.340Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:25:45.366Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:27:23.213Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:27:23.242Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:30:33.836Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:30:33.862Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T08:32:11.973Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:32:11.983Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:32:12.011Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:34:47.216Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:34:47.246Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:50:30.009Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:50:30.033Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T08:55:56.063Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T08:55:56.088Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:01:30.793Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:01:30.821Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:05:40.668Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:05:40.703Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:06:01.073Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:06:01.159Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:06:36.148Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:06:36.177Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:08:44.231Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:08:44.258Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:13:33.991Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:13:34.018Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:16:19.431Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:16:19.469Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:18:24.541Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:18:24.568Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:20:35.118Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:20:35.146Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:22:00.226Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:22:00.252Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T09:37:56.051Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T09:37:56.076Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T10:07:41.417Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T10:07:41.445Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T10:12:22.631Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T10:12:22.644Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T10:12:22.687Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T10:14:28.594Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T10:14:28.628Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T10:32:43.327Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T10:32:43.336Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T10:32:43.360Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T10:34:01.290Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T10:34:01.300Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T10:34:01.330Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T10:34:56.431Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T10:34:56.647Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T10:34:56.756Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T10:36:08.698Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T10:36:08.731Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T10:39:05.774Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T10:39:05.801Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-06T11:09:59.945Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-06T11:10:22.890Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T11:11:33.686Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T11:11:33.688Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T11:11:33.692Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T11:11:48.399Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T11:11:48.400Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T11:11:48.403Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T11:12:14.095Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T11:12:14.099Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-06T11:12:21.543Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-06T11:12:48.957Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T11:45:39.715Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T11:45:39.729Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T11:51:08.987Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T11:51:08.995Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T11:57:56.354Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T11:57:56.361Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-06T11:58:03.147Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T11:59:40.036Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T11:59:40.041Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-06T11:59:54.122Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T12:00:09.000Z"},"level":"error","timestamp":"2021-08-06T12:00:30.654Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T12:05:30.253Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T12:05:30.266Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T12:00:09.000Z"},"level":"error","timestamp":"2021-08-06T12:05:39.091Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T12:00:09.000Z"},"level":"error","timestamp":"2021-08-06T12:06:00.510Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T16:54:19.000Z"},"level":"error","timestamp":"2021-08-06T16:55:18.966Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T16:54:19.000Z"},"level":"error","timestamp":"2021-08-06T16:57:32.116Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T17:02:08.126Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T17:02:08.128Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T17:02:08.132Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-06T17:03:17.409Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T17:17:09.185Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T17:17:09.189Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T17:17:15.238Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T17:17:15.246Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T17:48:04.597Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T17:48:04.604Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T19:11:59.928Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T19:11:59.947Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-06T19:23:49.855Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:23:18.106Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:23:18.113Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:23:47.550Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:23:47.557Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:32:52.441Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:32:52.453Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:33:22.842Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:33:22.850Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:33:56.118Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:33:56.122Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:35:26.680Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:35:26.694Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:50:10.119Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:50:10.126Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:50:27.874Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:50:27.884Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:53:01.987Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:53:01.998Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:54:15.493Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:54:15.514Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T21:55:53.082Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T21:55:53.091Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-06T22:27:31.397Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T22:27:31.398Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T22:27:31.403Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T22:28:03.198Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T22:28:03.203Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T22:32:06.201Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T22:32:06.206Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-06T22:32:57.807Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-06T22:32:57.820Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T09:28:14.464Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T09:28:14.468Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-06T21:23:37.000Z"},"level":"error","timestamp":"2021-08-07T09:28:54.822Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-07T09:29:12.867Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T09:32:14.321Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T09:32:14.334Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T09:32:24.274Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T09:32:24.287Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T09:34:38.846Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T09:34:38.854Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T09:39:49.725Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T09:39:49.728Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T09:49:05.386Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T09:49:05.399Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:00:22.930Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:03:26.615Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-07T10:03:36.636Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-07T10:04:13.373Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T10:04:13.378Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T10:04:13.392Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T10:05:02.298Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T10:05:02.311Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:05:08.931Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:10:05.323Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:10:59.746Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:11:15.721Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:15:23.279Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:16:23.793Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:34:03.359Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:37:58.245Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:38:50.813Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:43:35.314Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:45:41.038Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:47:11.231Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:48:08.904Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:48:41.228Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:57:52.887Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T10:59:07.325Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:05:13.526Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:05:59.251Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:07:33.718Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:08:51.166Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:09:17.401Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:13:31.220Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:20:34.250Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:24:41.841Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:33:44.561Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:34:30.456Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:38:55.082Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:41:30.801Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:42:28.497Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:43:24.082Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:49:49.358Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:50:44.013Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:53:23.133Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:53:26.952Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:54:27.676Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-07T11:58:37.000Z"},"level":"error","timestamp":"2021-08-07T11:59:18.174Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T11:59:37.852Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:02:37.422Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:03:19.280Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:03:53.527Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:04:16.230Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:05:02.504Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:05:17.871Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:06:44.301Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:07:00.973Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:12:18.720Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-07T12:14:48.759Z"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error","timestamp":"2021-08-07T12:14:49.902Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-07T12:15:11.547Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T12:15:11.549Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T12:15:11.558Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T12:16:30.533Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T12:16:30.540Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-07T12:16:45.273Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:17:39.030Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:id IP address ::1","timestamp":"2021-08-07T12:17:46.277Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:17:50.608Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:18:46.988Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:19:17.458Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:19:20.783Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusers","timestamp":"2021-08-07T12:26:38.506Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T19:29:56.483Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T19:29:56.488Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T19:39:44.211Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T19:39:44.215Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-07T19:41:50.306Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T19:41:50.312Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T19:41:50.325Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T21:15:40.342Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T21:15:40.355Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-07T21:17:30.688Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-07T21:17:30.702Z"}

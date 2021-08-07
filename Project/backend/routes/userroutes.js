@@ -1,24 +1,9 @@
 const express = require('express')
-const {defaultroute,isSignedIn, finduserbyid,isAuthenticated,getUser, isAdmin, deleteuserbyidunauth, updateuserbyidunauth} = require('../controllers/user')
+const {defaultroute,isSignedIn, finduserbyid,isAuthenticated,getUser, isAdmin, deleteuserbyidunauth, updateuserbyidunauth, putpresignedurl, getpresignedurl} = require('../controllers/user')
 const router = express.Router()
 const { getuserbyid,deleteuserbyid,updateuserbyid,findallusersbyfname,signup,findallusers,signin,signout } = require("../controllers/user")
 const { User } = require('../models/User')
-const logger = require('../config/logger')
-const S3 = require("aws-sdk/clients/s3");
-require('dotenv').config('./.env');
-var multer=require('multer')
-const multerS3=require('multer-s3')
-
-//Creating S3 bucket object
-const s3 = new S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-});
-
-// Load the AWS SDK for Node.js
-var AWS = require('aws-sdk');
-// Set the region 
-AWS.config.update({region: 'REGION'});
+const upload = require("../controllers/upload")
 
 //default route
 router.get('/',defaultroute);
@@ -32,19 +17,34 @@ router.put('/updateuserbyidunauth',updateuserbyidunauth)
 // Auth Routes for signup,sigin,signout
 router.post('/signup',signup);
 router.post('/signin',signin)
-router.post('/signout',signout)
+router.get('/signout',signout)
 
 //Extract user id from params
 router.param('id',finduserbyid)
 
 // User Protected Routes
 router.get("/user/:id", isSignedIn, isAuthenticated, getUser);
-router.put('/updateuserbyid/:id',isSignedIn,isAuthenticated,updateuserbyid);
-router.delete('/deleteuser/:id',isSignedIn,isAuthenticated,deleteuserbyid);
+router.post('/updateuserbyid/:id',isSignedIn,isAuthenticated,updateuserbyid);
 
+router.post('/upload/:id', isSignedIn, isAuthenticated,upload.array('image', 1),getpresignedurl);
+
+// router.post('/upload/:id', isSignedIn, isAuthenticated,upload.array('image', 1), (req, res) => {
+//     /* This will be th 8e response sent from the backend to the frontend */
+//     res.send({ image: req.file });
+//    });
+router.post('/uploadtest/:id',upload.array('image', 1), (req, res) => {
+/* This will be th 8e response sent from the backend to the frontend */
+res.send({ image: req.file });
+});
+router.post('/tempupdateuserbyid/:id',updateuserbyid);
+router.delete('/tempdeleteuser/:id',deleteuserbyid);
+
+router.put('/puttestpresignedurl',putpresignedurl);
+router.get('/gettestpresignedurl',getpresignedurl);
 
 //Admin Protected Routes
 //check admin role then if authorized show him all users
+router.post('/deleteuser/:id',isSignedIn,isAuthenticated,isAdmin,deleteuserbyid);
 router.get('/:id/findallusers',isSignedIn,isAuthenticated,isAdmin,findallusers);
 
 //you can delete this not required

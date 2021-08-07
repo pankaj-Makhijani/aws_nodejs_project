@@ -1,5 +1,6 @@
 const { User } = require("../models");
 const logger = require("../config/logger");
+const logger2=require("../config/logger2")
 const S3 = require("aws-sdk/clients/s3");
 require("dotenv").config("./.env");
 const path = require("path");
@@ -17,16 +18,20 @@ var transporter = nodemailer.createTransport({
   },
 });
 
-//Creating S3 bucket object
-const s3 = new S3({
-  accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
+
 
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
-AWS.config.update({ region: "REGION" });
+
+AWS.config.update({
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  region: process.env.REGION //E.g us-east-1
+ });
+
+ //creating s3 bucket
+ const s3 = new AWS.S3();
 
 const port = process.env.PORT || 3000;
 
@@ -38,6 +43,8 @@ exports.defaultroute = (req, res) => {
     " IP address ",
     req.ip
   );
+  var msg = 'test message';
+  logger2.info('first log', {message: msg});
 };
 
 //Start controllers for swagger API
@@ -85,18 +92,22 @@ exports.deleteuserbyidunauth = (req, res) => {
 };
 
 exports.deleteuserbyid = (req, res) => {
+  console.log(req.body)
   User.destroy({
     where: {
-      id: req.profile.id,
+      id: req.body.id,
     },
   })
+  .then((User) => {
+    return res.json({ msg: "data deleted successfully" });
+  })
     .catch((error) => {
+      console.log(error)
       logger.log("error", error);
-      return res.json({ error: "delete action unsuccessful" });
+      // console.log(req.body)
+      return res.json({ msg: "delete action unsuccessful" });
     })
-    .then((User) => {
-      res.json({ msg: "data deleted successfully" });
-    });
+    
   logger.log(
     "info",
     `delete request on delete user by id route http://localhost:${port}/api/deleteuser/:id` +
@@ -164,14 +175,14 @@ exports.updateuserbyid = (req, res) => {
   )
     .then((User) => {
       if(User==0){
-        return res.json({"error":"No such user exists"})
+        return res.json({"msg":"No such user exists"})
       }
       // console.log(User);
       return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
       logger.log("error", error);
-      return res.json({ "error": error.errors[0].message});
+      return res.json({ "msg": error.errors[0].message});
       
     });
   // }
@@ -219,39 +230,45 @@ exports.signup = async (req, res) => {
       if(!User){
         return res.json({"msg":"error creating user"})
       }
-      logger.log("info", User);
+      logger.log("info", " User created");
       }).catch((error) => {
         // console.log(error.errors[0].message);
-        return res.json({ "error": error.errors[0].message});
+        return res.json({ "msg": error.errors[0].message});
       })
 
  /* sqs start*/
 
-    // {
-    //   // Create an SQS service object
-    //   var sqs = new AWS.SQS({ apiVersion: "2012-11-05" });
-    //   var params = {
-    //     // Remove DelaySeconds parameter and value for FIFO queues
-    //     DelaySeconds: 10,
-    //     //send user email in queue body
-    //     MessageBody: email,
-    //     // MessageDeduplicationId: "TheWhistler",  // Required for FIFO queues
-    //     // MessageGroupId: "Group1",  // Required for FIFO queues
-    //     QueueUrl: process.env.QUEUE_URL,
-    //   };
-    //   sqs.sendMessage(params, function (err, data) {
-    //     if (err) {
-    //       logger.log("error", err);
-    //     } else {
-    //       logger.log(
-    //         "info",
-    //         "Data moved to Queue Successfully",
-    //         data.MessageId
-    //       );
-    //     }
-    //   });
-    // }
+    {
+      // Create an SQS service object
+      var sqs = new AWS.SQS({ apiVersion: "2012-11-05" });
+      var params = {
+        // Remove DelaySeconds parameter and value for FIFO queues
+        DelaySeconds: 10,
+        //send user email in queue body
+        MessageBody: email,
+        // MessageDeduplicationId: "TheWhistler",  // Required for FIFO queues
+        // MessageGroupId: "Group1",  // Required for FIFO queues
+        QueueUrl: process.env.QUEUE_URL,
+      };
+      sqs.sendMessage(params, function (err, data) {
+        if (err) {
+          logger.log("error", err);
+        } else {
+          logger.log(
+            "info",
+            "Data moved to Queue Successfully",
+            data.MessageId
+          );
+        }
+      });
+    }
 
+
+    //s3 start
+    
+
+    
+    // s3 end
  /* sqs end*/
 
  /* s3 start*/
@@ -288,10 +305,11 @@ exports.signup = async (req, res) => {
   //      });
   //  }
 
-  //  uploadToS3(process.env.BUCKET_NAME, req.body.fname, req.body.file).then(function (result) {
+  //  await uploadToS3(process.env.BUCKET_NAME, req.body.fname, req.body.file).then(function (result) {
   //      console.log("Uploaded to s3:", result);
   //      console.log("Download Your Uploaded Item Here "+ result.Location);
-
+  //       req.profile.Location=result.Location;
+  //       console.log(req.body.file)
   //    }).catch(function (err) {
   //     logger.log('error','Upload to s3 failed ',err.toString());
   //    });
@@ -321,7 +339,7 @@ exports.signup = async (req, res) => {
   }
 
   logger.log("info",`Post request on createuser route http://localhost:${port}/api/`);
-  res.json({ msg: "User created successfully" });
+  return res.json({ msg: "User created successfully" });
 };
 
 exports.findallusers = (req, res) => {
@@ -362,15 +380,48 @@ exports.signin = (req,res) => {
     if(!User){
       return res.json({"msg":"E-mail or Password does not match"})
     }
-    const token = jwt.sign({ id: User.id }, process.env.SECRET);
+    const token = jwt.sign({ id: User.id }, process.env.SECRET,{expiresIn:'2h'});
     //put token in cookie
-    res.cookie("token", token, { expire: new Date() + 9999 });
+    let d=new Date();
+    res.cookie("token", token, { expire: d.setTime(d.getTime() + (2*60*60*1000)),httpOnly: false});
 
     //send response to front end
     const { id, firstname,lastname, email } = User;
     return res.json({ token, user: { id, firstname, lastname, email } });
   });
 }
+
+exports.putpresignedurl = async (req,res) => {
+  try{
+    const url=await s3.getSignedUrlPromise('putObject',{
+      Bucket:process.env.BUCKET_NAME,
+      Key:'s3presigned.jpeg',
+      Expires:1000,
+    });
+    req.signedurl=url;
+    return res.json({"url":url})
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
+exports.getpresignedurl = async (req,res) => {
+  try{
+    const url=await s3.getSignedUrlPromise('getObject',{
+      Bucket:process.env.BUCKET_NAME,
+      Key:req.file,
+      Expires:100,
+    });
+    req.signedurl=url;
+    console.log(req);
+    // return res.json({"url":url})
+    res.send({ image: url });
+  }
+  catch(err){
+    console.log(err)
+  }
+  }
 
 //middleware
 exports.finduserbyid = (req, res, next,id) => {
@@ -407,7 +458,12 @@ exports.getUser = (req, res) => {
 };
 
 //custom middlewares
-exports.isAuthenticated = (req, res, next) => {
+exports.isAuthenticated = (err,req, res, next) => {
+  if(err.name === 'UnauthorizedError') {
+
+    logger.error(err);
+    return res.status(err.status).json({message:err.message});;
+  }
   let checker = req.profile && req.auth && req.profile.id == req.auth.id;
   // console.log(req.profile.id)
   // console.log(req.auth.id)
@@ -431,7 +487,7 @@ exports.isAdmin = (req, res, next) => {
 
 exports.signout = (req, res) => {
   res.clearCookie("token");
-  res.json({
+  return res.json({
     message: "User signout successfully"
   });
 };
@@ -441,4 +497,4 @@ exports.isSignedIn = expressJwt({
   secret: process.env.SECRET,
   algorithms: ['HS256'],
   userProperty: "auth"
-});
+})
