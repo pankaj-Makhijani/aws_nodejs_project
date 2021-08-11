@@ -34,8 +34,9 @@ AWS.config.update({
     bucket: process.env.BUCKET_NAME,
     key: function(req, file, cb) {
       /*I'm using Date.now() to make sure my file has a unique name*/
-      req.file = req.profile.id + file.originalname;
-      cb(null, req.profile.id + file.originalname);
+      d=Date.now()
+      req.file = d + file.originalname;
+      cb(null, d + file.originalname);
      }
     })
    });

@@ -1,3 +1,6 @@
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
     id: {
@@ -19,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         len: {
           args: [4, 16],
-          msg: "length should be between 4 to 16", //custom messages
+          msg: "First Name length should be between 4 to 16", //custom messages
         },
       },
     },
@@ -37,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         len: {
           args: [4, 16],
-          msg: "length should be between 4 to 16", //custom messages
+          msg: "Last Name Length should be between 4 to 16", //custom messages
         },
       },
     },
@@ -49,25 +52,26 @@ module.exports = (sequelize, DataTypes) => {
           args:true,
           msg:"password should not be empty"
         },
-        len: {
-          args: [4, 16],
-          msg: "length should be between 4 to 16", //custom messages
-        },
+        // len: {
+        //   args: [4, 25],
+        //   msg: "length should be between 4 to 16", //custom messages
+        // },
       },
     },
     email: {
       type: DataTypes.STRING,
       allownull: false,
+      
+      unique:{
+        args:true,
+        msg:"E-mail already Exists"
+      },
       validate: {
         notEmpty: {
         args:true,
         msg:"E-mail is required"
           }
-        },
-      unique:{
-        args:true,
-        msg:"E-mail already Exists"
-      }
+        }
     },
     role:{
       type:DataTypes.INTEGER,
@@ -76,9 +80,17 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = models => {
-      User.hasMany(models.card,{
-          onDelete:'cascade'
-      })
+      User.belongsToMany(models.card, { through: 'UserCard' });
+  }
+
+  //Generating a Hash
+  User.generatehash = (password) => {
+    return bcrypt.hashSync(password,bcrypt.genSaltSync(8),null)
+  }
+
+  //Checking if password is valid or not
+  User.prototype.validpassword = (password) =>{
+    return bcrypt.compareSync(password,this.local.password)
   }
 
   return User;

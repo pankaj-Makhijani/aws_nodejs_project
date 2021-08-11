@@ -167,3 +167,38 @@
 {"code":"ERR_HTTP_HEADERS_SENT","level":"error","timestamp":"2021-08-07T12:14:49.903Z"}
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-07T12:15:11.548Z"}
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-07T19:41:50.310Z"}
+{"level":"error","message":"card.cardname cannot be null","timestamp":"2021-08-07T21:42:12.309Z"}
+{"level":"error","message":"card.cardname cannot be null","timestamp":"2021-08-07T21:47:57.626Z"}
+{"level":"error","message":"card.cardname cannot be null","timestamp":"2021-08-07T21:49:03.327Z"}
+{"name":"SequelizeEagerLoadingError","level":"error","timestamp":"2021-08-09T20:35:43.946Z"}
+{"name":"SequelizeEagerLoadingError","level":"error","timestamp":"2021-08-09T20:38:05.090Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-09T21:10:38.271Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-09T22:06:28.446Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T05:27:04.703Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T05:27:19.092Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T05:30:17.043Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T05:31:43.253Z"}
+{"level":"error","timestamp":"2021-08-10T05:40:13.169Z"}
+{"level":"error","timestamp":"2021-08-10T05:40:56.992Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T05:43:28.577Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T05:55:00.594Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T05:58:39.234Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T07:14:09.966Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T08:02:16.791Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T08:45:06.908Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T08:46:10.298Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T08:48:45.792Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T08:51:56.201Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T08:54:16.610Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T08:55:14.264Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T08:56:03.830Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T08:57:20.146Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T08:58:32.085Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T10:01:51.599Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T10:02:20.813Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T10:03:28.036Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T10:06:11.548Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-10T10:06:39.042Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T10:30:04.166Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-10T11:20:41.000Z"},"level":"error","timestamp":"2021-08-10T11:38:26.964Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-10T11:20:41.000Z"},"level":"error","timestamp":"2021-08-10T11:38:50.989Z"}

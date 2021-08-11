@@ -32,10 +32,7 @@ router.post('/upload/:id', isSignedIn, isAuthenticated,upload.array('image', 1),
 //     /* This will be th 8e response sent from the backend to the frontend */
 //     res.send({ image: req.file });
 //    });
-router.post('/uploadtest/:id',upload.array('image', 1), (req, res) => {
-/* This will be th 8e response sent from the backend to the frontend */
-res.send({ image: req.file });
-});
+
 router.post('/tempupdateuserbyid/:id',updateuserbyid);
 router.delete('/tempdeleteuser/:id',deleteuserbyid);
 
@@ -47,7 +44,10 @@ router.get('/gettestpresignedurl',getpresignedurl);
 router.post('/deleteuser/:id',isSignedIn,isAuthenticated,isAdmin,deleteuserbyid);
 router.get('/:id/findallusers',isSignedIn,isAuthenticated,isAdmin,findallusers);
 
+
 //you can delete this not required
 router.get('/findallbyfname/:fname',findallusersbyfname);
+
+// router.post('/testsignup',testsignup)
 
 module.exports=router;

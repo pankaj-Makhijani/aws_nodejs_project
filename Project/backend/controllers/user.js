@@ -95,17 +95,17 @@ exports.deleteuserbyid = (req, res) => {
   console.log(req.body)
   User.destroy({
     where: {
-      id: req.body.id,
+      id: req.profile.id,
     },
   })
   .then((User) => {
-    return res.json({ msg: "data deleted successfully" });
+    return res.json({ msg: "data deleted successfully" }).status(200);
   })
     .catch((error) => {
       console.log(error)
       logger.log("error", error);
       // console.log(req.body)
-      return res.json({ msg: "delete action unsuccessful" });
+      return res.json({ err: "delete action unsuccessful" }).status(404);
     })
     
   logger.log(
@@ -216,27 +216,38 @@ exports.findallusersbyfname = (req, res) => {
   );
 };
 
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+// exports.testsignup = (req,res) => {
+//   var { fname, lname, email, file,pass } = req.body;
+//   bcrypt.hash(pass, saltRounds, function (err,   hash) {
+//   User.create({
+//     firstname: fname,
+//     lastname: lname,
+//     email: email,
+//     password:hash
+//   }).then((User) => {
+//       return res.json({"msg":"User Created Successfully"})
+
+//     }).catch((error) => {
+//       // console.log(error.errors[0].message);
+//       return res.json({ "msg": error.errors[0].message});
+//     })
+//   })
+// }
+
 exports.signup = async (req, res) => {
   var { fname, lname, email, file,pass } = req.body;
   const fileName = req.body.file;
-  var records = [[fname, lname, email,pass]];
-  if (records[0][0] != null) {
+  bcrypt.hash(pass, saltRounds, async (err,   hash) => {
     await User.create({
       firstname: fname,
       lastname: lname,
       email: email,
-      password:pass
+      password:hash
     }).then((User) => {
-      if(!User){
-        return res.json({"msg":"error creating user"})
-      }
-      logger.log("info", " User created");
-      }).catch((error) => {
-        // console.log(error.errors[0].message);
-        return res.json({ "msg": error.errors[0].message});
-      })
-
- /* sqs start*/
+       /* sqs start*/
 
     {
       // Create an SQS service object
@@ -263,12 +274,6 @@ exports.signup = async (req, res) => {
       });
     }
 
-
-    //s3 start
-    
-
-    
-    // s3 end
  /* sqs end*/
 
  /* s3 start*/
@@ -318,28 +323,31 @@ exports.signup = async (req, res) => {
 
  /* mail start*/
 
-  // var mailOptions = {
-  //   from: process.env.MAIL_SENDER,
-  //   to: process.env.MAIL_RECEIVER,
-  //   subject: "New User Registered",
-  //   text: `Hello admin, New user named ${fname} ${lname} just registered onto your application. View Database for more information`,
-  // };
+  var mailOptions = {
+    from: process.env.MAIL_SENDER,
+    to: process.env.MAIL_RECEIVER,
+    subject: "New User Registered",
+    text: `Hello admin, New user named ${fname} ${lname} just registered onto your application. View Database for more information`,
+  };
 
-  // transporter.sendMail(mailOptions, function (error, info) {
-  //   if (error) {
-  //     logger.log("error", error);
-  //     console.log(error);
-  //   } else {
-  //     console.log("Email sent: " + info.response);
-  //   }
-  // });
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      logger.log("error", error);
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
 
  /* mail end*/
+        return res.json({"msg":"User Created Successfully"})
 
-  }
-
+      }).catch((error) => {
+        // console.log(error.errors[0].message);
+        return res.json({ "msg": error.errors[0].message});
+      })
+    })
   logger.log("info",`Post request on createuser route http://localhost:${port}/api/`);
-  return res.json({ msg: "User created successfully" });
 };
 
 exports.findallusers = (req, res) => {
@@ -367,27 +375,33 @@ exports.signin = (req,res) => {
   User.findOne({
     where:{
       email:req.body.email,
-      password:req.body.pass
     }
   })
   .catch((error) => {
     // logger.log("error", error);
-    return res.json({ error: "Sign-in error" });
+    return res.json({ "msg": "No such E-mail Exists" });
   })
-  .then((User) => {
-    // res.json(User);
-    //create token
-    if(!User){
-      return res.json({"msg":"E-mail or Password does not match"})
-    }
-    const token = jwt.sign({ id: User.id }, process.env.SECRET,{expiresIn:'2h'});
-    //put token in cookie
-    let d=new Date();
-    res.cookie("token", token, { expire: d.setTime(d.getTime() + (2*60*60*1000)),httpOnly: false});
+  .then((user) => {
 
-    //send response to front end
-    const { id, firstname,lastname, email } = User;
-    return res.json({ token, user: { id, firstname, lastname, email } });
+    bcrypt.compare(req.body.pass,user.password,(err,data) => {
+      if(data==true)
+        {
+          //create token
+          const token = jwt.sign({ id: User.id }, process.env.SECRET,{expiresIn:'2h'});
+          //put token in cookie
+          let d=new Date();
+          res.cookie("token", token, { expire: d.setTime(d.getTime() + (2*60*60*1000)),httpOnly: false});
+      
+          //send response to front end
+          const { id, firstname,lastname, email,role } = user;
+          return res.json({ token, user: { id, firstname, lastname, email,role } });
+        }
+
+        else{
+          console.log(err)
+          return res.json({"msg":"Password does not match"})
+        }
+    })
   });
 }
 
@@ -396,7 +410,7 @@ exports.putpresignedurl = async (req,res) => {
     const url=await s3.getSignedUrlPromise('putObject',{
       Bucket:process.env.BUCKET_NAME,
       Key:'s3presigned.jpeg',
-      Expires:1000,
+      Expires:100,
     });
     req.signedurl=url;
     return res.json({"url":url})
