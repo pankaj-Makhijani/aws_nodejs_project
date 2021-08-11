@@ -202,3 +202,4 @@
 {"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-10T10:30:04.166Z"}
 {"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-10T11:20:41.000Z"},"level":"error","timestamp":"2021-08-10T11:38:26.964Z"}
 {"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-10T11:20:41.000Z"},"level":"error","timestamp":"2021-08-10T11:38:50.989Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T07:12:28.280Z"}
