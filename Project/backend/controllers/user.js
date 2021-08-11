@@ -8,7 +8,13 @@ var jwt = require("jsonwebtoken");
 var expressJwt = require("express-jwt");
 const nodemailer = require("nodemailer");
 const fs = require("fs");
+// Load the AWS SDK for Node.js
+var AWS = require("aws-sdk");
 
+//creating s3 bucket
+const s3 = new AWS.S3();
+
+const port = process.env.PORT || 3000;
 //Authorozing or initializing nodemailer
 var transporter = nodemailer.createTransport({
   service: process.env.MAIL_SERVICE,
@@ -19,30 +25,24 @@ var transporter = nodemailer.createTransport({
 });
 
 
-
-// Load the AWS SDK for Node.js
-var AWS = require("aws-sdk");
-// Set the region
-
 AWS.config.update({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   accessKeyId: process.env.AWS_ACCESS_KEY,
+  // Set the region
   region: process.env.REGION //E.g us-east-1
  });
 
- //creating s3 bucket
- const s3 = new AWS.S3();
-
-const port = process.env.PORT || 3000;
 
 exports.defaultroute = (req, res) => {
   res.json("OK");
   logger.log(
     "info",
-    `Get request on http://localhost:${port}/api/`,
-    " IP address ",
+    `Get request on http://localhost:${port}/api/` +
+    "from IP address " +
     req.ip
   );
+
+  //Store logs in mysql(Under Development)
   var msg = 'test message';
   logger2.info('first log', {message: msg});
 };
@@ -56,6 +56,7 @@ exports.getuserbyid = (req, res) => {
     },
   })
     .catch((error) => {
+      console.log(error)
       logger.log("error", error);
       return res.json({ error: "Data does not exist" });
     })
@@ -64,8 +65,8 @@ exports.getuserbyid = (req, res) => {
     });
   logger.log(
     "info",
-    `Get request on get user by id route http://localhost:${port}/api/findonebyid/:id`,
-    " IP address ",
+    `Get request on get user by id route http://localhost:${port}/api/findonebyid/:id` +
+    "from IP address " +
     req.ip
   );
 };
@@ -77,6 +78,7 @@ exports.deleteuserbyidunauth = (req, res) => {
     },
   })
     .catch((error) => {
+      console.log(error)
       logger.log("error", error);
       return res.json({ error: "delete action unsuccessful" });
     })
@@ -86,7 +88,7 @@ exports.deleteuserbyidunauth = (req, res) => {
   logger.log(
     "info",
     `delete request on delete user by id route http://localhost:${port}/api/deleteuser/:id` +
-      ` IP address ` +
+      `from IP address ` +
       req.ip
   );
 };
@@ -111,7 +113,7 @@ exports.deleteuserbyid = (req, res) => {
   logger.log(
     "info",
     `delete request on delete user by id route http://localhost:${port}/api/deleteuser/:id` +
-      ` IP address ` +
+      `from IP address ` +
       req.ip
   );
 };
@@ -141,6 +143,7 @@ exports.updateuserbyidunauth = (req, res) => {
       return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
+      console.log(error)
       logger.log("error", error);
       return res.json({ "error": error.errors[0].message});
       
@@ -148,8 +151,8 @@ exports.updateuserbyidunauth = (req, res) => {
   // }
   logger.log(
     "info",
-    `Post request on update user by id route http://localhost:${port}/api/updateuserbyid`,
-    " IP address ",
+    `Post request on update user by id route http://localhost:${port}/api/updateuserbyid`+
+    "from IP address "+
     req.ip
   );
 };
@@ -181,6 +184,7 @@ exports.updateuserbyid = (req, res) => {
       return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
+      console.log(error)
       logger.log("error", error);
       return res.json({ "msg": error.errors[0].message});
       
@@ -188,8 +192,8 @@ exports.updateuserbyid = (req, res) => {
   // }
   logger.log(
     "info",
-    `Post request on update user by id route http://localhost:${port}/api/updateuserbyid`,
-    " IP address ",
+    `Post request on update user by id route http://localhost:${port}/api/updateuserbyid`+
+    "from IP address "+
     req.ip
   );
 };
@@ -202,6 +206,7 @@ exports.findallusersbyfname = (req, res) => {
     },
   })
     .catch((error) => {
+      console.log(error)
       logger.log("error", error);
       return res.json({ error: "Data does not exist" });
     })
@@ -210,8 +215,8 @@ exports.findallusersbyfname = (req, res) => {
     });
   logger.log(
     "info",
-    `Get request on find all users by fname route http://localhost:${port}/api/findallbyfname/:fname`,
-    " IP address ",
+    `Get request on find all users by fname route http://localhost:${port}/api/findallbyfname/:fname`+
+    "from IP address "+
     req.ip
   );
 };
@@ -263,11 +268,12 @@ exports.signup = async (req, res) => {
       };
       sqs.sendMessage(params, function (err, data) {
         if (err) {
+      console.log(err)
           logger.log("error", err);
         } else {
           logger.log(
             "info",
-            "Data moved to Queue Successfully",
+            "Data moved to Queue Successfully"+
             data.MessageId
           );
         }
@@ -336,6 +342,8 @@ exports.signup = async (req, res) => {
       console.log(error);
     } else {
       console.log("Email sent: " + info.response);
+      logger.log('info',"Email sent: " + info.response)
+
     }
   });
 
@@ -344,6 +352,8 @@ exports.signup = async (req, res) => {
 
       }).catch((error) => {
         // console.log(error.errors[0].message);
+        console.log(error)
+        logger.log('error',error)
         return res.json({ "msg": error.errors[0].message});
       })
     })
@@ -363,7 +373,7 @@ exports.findallusers = (req, res) => {
   }
   logger.log(
     "info",
-    `get request on finall users route http://localhost:${port}/api/findallusers`
+    `get request on finall users route http://localhost:${port}/api/findallusers`+"from IP address "+req.ip
   );
 };
 
@@ -378,7 +388,8 @@ exports.signin = (req,res) => {
     }
   })
   .catch((error) => {
-    // logger.log("error", error);
+    logger.log("error", error);
+    console.log(error)
     return res.json({ "msg": "No such E-mail Exists" });
   })
   .then((user) => {
@@ -399,6 +410,7 @@ exports.signin = (req,res) => {
 
         else{
           console.log(err)
+          logger.log("error", err);
           return res.json({"msg":"Password does not match"})
         }
     })
@@ -428,12 +440,13 @@ exports.getpresignedurl = async (req,res) => {
       Expires:100,
     });
     req.signedurl=url;
-    console.log(req);
+    // console.log(req);
     // return res.json({"url":url})
     res.send({ image: url });
   }
   catch(err){
     console.log(err)
+    logger.log("error", err);
   }
   }
 
@@ -457,7 +470,11 @@ exports.finduserbyid = (req, res, next,id) => {
     where:{
       id:id
     }
-  }).catch((err) => { console.log(err); return res.json(err) })
+  }).catch((err) => { 
+    return res.json(err) 
+    console.log(err); 
+    logger.log("error", error);
+    })
   .then((user) => {
     req.profile = user;
     // console.log(req)
@@ -482,16 +499,19 @@ exports.isAuthenticated = (err,req, res, next) => {
   // console.log(req.profile.id)
   // console.log(req.auth.id)
   if (!checker) {
+     return res.json(err) 
+    //  logger.log("error", "Access Denied");
     return res.status(403).json({
       error: "ACCESS DENIED"
     });
   }
-  console.log(req.profile)
+  // console.log(req.profile)
   next();
 };
 
 exports.isAdmin = (req, res, next) => {
   if (req.profile.role === 0) {
+    logger.log("error", "You are not ADMIN, Access denied");
     return res.status(403).json({
       error: "You are not ADMIN, Access denied"
     });
@@ -504,6 +524,10 @@ exports.signout = (req, res) => {
   return res.json({
     message: "User signout successfully"
   });
+  logger.log(
+    "info",
+    `get request on signout route http://localhost:${port}/api/signout`+"from IP address "+req.ip
+  );
 };
 
 // //protected routes
