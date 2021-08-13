@@ -1,9 +1,10 @@
 const express = require('express')
-const {defaultroute,isSignedIn, finduserbyid,isAuthenticated,getUser, isAdmin, deleteuserbyidunauth, updateuserbyidunauth, putpresignedurl, getpresignedurl} = require('../controllers/user')
+const {defaultroute,isSignedIn, finduserbyid,isAuthenticated,getuser, isAdmin, deleteuserbyidunauth, updateuserbyidunauth, putpresignedurl, getpresignedurl, advancedsignup} = require('../controllers/user')
 const router = express.Router()
 const { getuserbyid,deleteuserbyid,updateuserbyid,findallusersbyfname,signup,findallusers,signin,signout } = require("../controllers/user")
-const { User } = require('../models/User')
+const { user } = require('../models/user')
 const upload = require("../controllers/upload")
+const { route } = require('./cardroutes')
 
 //default route
 router.get('/',defaultroute);
@@ -11,8 +12,8 @@ router.get('/',defaultroute);
 //Open API for swaggerr
 router.post('/',signup)
 router.get('/findonebyid/:id',getuserbyid);
-router.delete('/deleteuserunauth/:id',deleteuserbyidunauth)
-router.put('/updateuserbyidunauth',updateuserbyidunauth)
+router.delete('/deleteuserbyid/:id',deleteuserbyidunauth)
+router.put('/updateuserbyid',updateuserbyidunauth)
 
 // Auth Routes for signup,sigin,signout
 router.post('/signup',signup);
@@ -22,8 +23,8 @@ router.get('/signout',signout)
 //Extract user id from params
 router.param('id',finduserbyid)
 
-// User Protected Routes
-router.get("/user/:id", isSignedIn, isAuthenticated, getUser);
+// user Protected Routes
+router.get("/user/:id", isSignedIn, isAuthenticated, getuser);
 router.post('/updateuserbyid/:id',isSignedIn,isAuthenticated,updateuserbyid);
 
 router.post('/upload/:id', isSignedIn, isAuthenticated,upload.array('image', 1),getpresignedurl);
@@ -43,7 +44,7 @@ router.get('/gettestpresignedurl',getpresignedurl);
 //check admin role then if authorized show him all users
 router.post('/deleteuser/:id',isSignedIn,isAuthenticated,isAdmin,deleteuserbyid);
 router.get('/:id/findallusers',isSignedIn,isAuthenticated,isAdmin,findallusers);
-
+router.post('/advancedsignup',advancedsignup)
 
 //you can delete this not required
 router.get('/findallbyfname/:fname',findallusersbyfname);

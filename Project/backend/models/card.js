@@ -1,4 +1,4 @@
-const User = require("./User");
+const user = require("./user");
 
 module.exports =(sequelize,DataTypes) => {
     const card = sequelize.define('card',{
@@ -8,14 +8,14 @@ module.exports =(sequelize,DataTypes) => {
         }
     })
 
-    card.associate = models => {
-        // card.belongsTo(models.User,{
-        //     foreignKey:{
-        //         allowNull:false
-        //     },onDelete:'cascade'
-        // })
+    // card.associate = models => {
+    //     // card.belongsTo(models.User,{
+    //     //     foreignKey:{
+    //     //         allowNull:false
+    //     //     },onDelete:'cascade'
+    //     // })
 
-        card.belongsToMany(models.User, { through: 'UserCard' });
-    }
+    //     card.belongsToMany(models.user, { through: 'usercard',as:'cardid' });
+    // }
     return card;
 }

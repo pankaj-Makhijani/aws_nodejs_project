@@ -15,7 +15,6 @@ AWS.config.update({
 
  //creating s3 bucket
  const s3 = new AWS.S3();
-
  /* In case you want to validate your file type */
  const fileFilter = (req, file, cb) => {
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
@@ -34,9 +33,14 @@ AWS.config.update({
     bucket: process.env.BUCKET_NAME,
     key: function(req, file, cb) {
       /*I'm using Date.now() to make sure my file has a unique name*/
-      d=Date.now()
-      req.file = d + file.originalname;
-      cb(null, d + file.originalname);
+      d=Date.now();
+      x=req.profile.firstname+req.profile.lastname;
+      // console.log( x)
+      // console.log( file.originalname)
+      // console.log( file.mimetype)
+      req.file = (x || d)+".jpeg";
+      // console.log( req.file)
+      cb(null, (x || d)+".jpeg");
      }
     })
    });

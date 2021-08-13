@@ -1,7 +1,7 @@
 module.exports =(sequelize,DataTypes) => {
-    const UserCard = sequelize.define('UserCard',{
-        cardId:DataTypes.STRING,
-        UserId:DataTypes.INTEGER,
+    const usercard = sequelize.define('usercard',{
+        cardid:DataTypes.INTEGER,
+        userid:DataTypes.INTEGER,
     },{timestamps:false})
-    return UserCard;
+    return usercard;
 }

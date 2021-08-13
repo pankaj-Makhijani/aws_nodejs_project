@@ -203,3 +203,82 @@
 {"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-10T11:20:41.000Z"},"level":"error","timestamp":"2021-08-10T11:38:26.964Z"}
 {"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-10T11:20:41.000Z"},"level":"error","timestamp":"2021-08-10T11:38:50.989Z"}
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-11T07:12:28.280Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T08:26:10.769Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T09:01:41.916Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T09:02:56.538Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T09:03:13.988Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T09:04:29.406Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T09:04:54.690Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T09:05:29.422Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"firstname should not be root/admin","type":"Validation error","path":"firstname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"root","lastname":"qwerty","email":"qwerty@gmail.com","password":"$2b$10$0oQGNTa7cCdUW8r8Ecu63e7gRlyHLfAzbJjn1EpO31O4Bp3Ig4No6","updatedAt":"2021-08-11T10:13:59.839Z","createdAt":"2021-08-11T10:13:59.839Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-11T10:13:59.864Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"qwerty","lastname":"root","email":"qwerty@gmail.com","password":"$2b$10$C6glPH1KzAWCR4RKwFKqb.ZdwjR4k.fLAu.7/ApkxR4oXw6REd8sS","updatedAt":"2021-08-11T10:18:34.330Z","createdAt":"2021-08-11T10:18:34.330Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-11T10:18:34.343Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"firstname should not be root/admin","type":"Validation error","path":"firstname","value":"admin","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"admin","lastname":"root","email":"qwerty@gmail.com","password":"$2b$10$BgJVOMAj3HohwKJS8BIk9e4oAAvxiWrJVYWGMz8rv29uOZYC4OEHy","updatedAt":"2021-08-11T10:19:21.914Z","createdAt":"2021-08-11T10:19:21.914Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}},{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"admin","lastname":"root","email":"qwerty@gmail.com","password":"$2b$10$BgJVOMAj3HohwKJS8BIk9e4oAAvxiWrJVYWGMz8rv29uOZYC4OEHy","updatedAt":"2021-08-11T10:19:21.914Z","createdAt":"2021-08-11T10:19:21.914Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-11T10:19:21.933Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-11T10:19:45.735Z"}
+{"code":"EDNS","syscall":"queryA","hostname":"smtp.live.com","command":"CONN","level":"error","timestamp":"2021-08-11T10:21:09.069Z"}
+{"name":"SequelizeUniqueConstraintError","errors":[{"message":"Users.Users_email_unique must be unique","type":"unique violation","path":"Users.Users_email_unique","value":"a@gmail.com","origin":"DB","instance":{"role":0,"id":null,"firstname":"yuiop","lastname":"qwerty","email":"a@gmail.com","password":"$2b$10$MVN6KyZwiY45p3oA0p0mqOKmwIexjvfO9sxc40XZ68bGMnjQUZcZy","updatedAt":"2021-08-11T10:36:15.250Z","createdAt":"2021-08-11T10:36:15.250Z"},"validatorKey":"not_unique","validatorName":null,"validatorArgs":[]}],"fields":{"Users.Users_email_unique":"a@gmail.com"},"parent":{"code":"ER_DUP_ENTRY","errno":1062,"sqlState":"23000","sqlMessage":"Duplicate entry 'a@gmail.com' for key 'Users.Users_email_unique'","sql":"INSERT INTO `Users` (`id`,`firstname`,`lastname`,`password`,`email`,`role`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);","parameters":["yuiop","qwerty","$2b$10$MVN6KyZwiY45p3oA0p0mqOKmwIexjvfO9sxc40XZ68bGMnjQUZcZy","a@gmail.com",0,"2021-08-11 10:36:15","2021-08-11 10:36:15"]},"original":{"code":"ER_DUP_ENTRY","errno":1062,"sqlState":"23000","sqlMessage":"Duplicate entry 'a@gmail.com' for key 'Users.Users_email_unique'","sql":"INSERT INTO `Users` (`id`,`firstname`,`lastname`,`password`,`email`,`role`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);","parameters":["yuiop","qwerty","$2b$10$MVN6KyZwiY45p3oA0p0mqOKmwIexjvfO9sxc40XZ68bGMnjQUZcZy","a@gmail.com",0,"2021-08-11 10:36:15","2021-08-11 10:36:15"]},"sql":"INSERT INTO `Users` (`id`,`firstname`,`lastname`,`password`,`email`,`role`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);","level":"error","timestamp":"2021-08-11T10:36:17.366Z"}
+{"name":"SequelizeUniqueConstraintError","errors":[{"message":"Users.Users_email_unique must be unique","type":"unique violation","path":"Users.Users_email_unique","value":"a@gmail.com","origin":"DB","instance":{"role":0,"id":null,"firstname":"qwerty","lastname":"asdfg","email":"a@gmail.com","password":"$2b$10$z4KF5mwLUeurjrdRR4GkfeGaoFYF79bZ8xVSPyZHxXzk8tYLW5hLm","updatedAt":"2021-08-11T10:41:06.143Z","createdAt":"2021-08-11T10:41:06.143Z"},"validatorKey":"not_unique","validatorName":null,"validatorArgs":[]}],"fields":{"Users.Users_email_unique":"a@gmail.com"},"parent":{"code":"ER_DUP_ENTRY","errno":1062,"sqlState":"23000","sqlMessage":"Duplicate entry 'a@gmail.com' for key 'Users.Users_email_unique'","sql":"INSERT INTO `Users` (`id`,`firstname`,`lastname`,`password`,`email`,`role`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);","parameters":["qwerty","asdfg","$2b$10$z4KF5mwLUeurjrdRR4GkfeGaoFYF79bZ8xVSPyZHxXzk8tYLW5hLm","a@gmail.com",0,"2021-08-11 10:41:06","2021-08-11 10:41:06"]},"original":{"code":"ER_DUP_ENTRY","errno":1062,"sqlState":"23000","sqlMessage":"Duplicate entry 'a@gmail.com' for key 'Users.Users_email_unique'","sql":"INSERT INTO `Users` (`id`,`firstname`,`lastname`,`password`,`email`,`role`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);","parameters":["qwerty","asdfg","$2b$10$z4KF5mwLUeurjrdRR4GkfeGaoFYF79bZ8xVSPyZHxXzk8tYLW5hLm","a@gmail.com",0,"2021-08-11 10:41:06","2021-08-11 10:41:06"]},"sql":"INSERT INTO `Users` (`id`,`firstname`,`lastname`,`password`,`email`,`role`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);","level":"error","timestamp":"2021-08-11T10:41:08.184Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T11:06:08.838Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:41:02.707Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:43:58.234Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:45:33.088Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:49:50.234Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:50:58.014Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:52:51.922Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:54:17.679Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:55:32.868Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:56:23.433Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T13:58:01.987Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T14:01:15.884Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T14:01:57.365Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T14:02:20.078Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T14:06:21.370Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T14:08:57.876Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T14:09:46.483Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T14:10:41.889Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T14:45:51.592Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T15:29:00.031Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T15:33:07.760Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T15:34:19.265Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T15:34:35.908Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T15:35:38.942Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T15:37:42.123Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T15:38:52.208Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T15:48:15.732Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T16:05:06.891Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T16:06:15.423Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T16:06:29.285Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T16:08:59.886Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T16:11:50.774Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-11T16:27:44.378Z"}
+{"level":"error","timestamp":"2021-08-11T19:25:55.427Z"}
+{"level":"error","timestamp":"2021-08-11T19:27:56.002Z"}
+{"level":"error","timestamp":"2021-08-11T22:15:46.891Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-11T20:02:46.000Z"},"level":"error","timestamp":"2021-08-11T22:18:25.671Z"}
+{"level":"error","timestamp":"2021-08-11T22:19:01.374Z"}
+{"level":"error","timestamp":"2021-08-11T22:21:24.550Z"}
+{"level":"error","timestamp":"2021-08-11T22:23:21.487Z"}
+{"level":"error","timestamp":"2021-08-11T22:23:41.032Z"}
+{"level":"error","timestamp":"2021-08-11T22:27:43.579Z"}
+{"level":"error","timestamp":"2021-08-11T22:30:25.640Z"}
+{"name":"UnauthorizedError","message":"jwt expired","code":"invalid_token","status":401,"inner":{"name":"TokenExpiredError","message":"jwt expired","expiredAt":"2021-08-11T20:02:46.000Z"},"level":"error","timestamp":"2021-08-11T22:44:43.804Z"}
+{"level":"error","timestamp":"2021-08-11T22:45:13.063Z"}
+{"level":"error","timestamp":"2021-08-11T22:45:13.476Z"}
+{"level":"error","timestamp":"2021-08-11T22:45:22.064Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-12T09:36:37.472Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-12T09:36:47.490Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T10:27:21.082Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T10:30:13.086Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-12T11:37:15.206Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T13:57:18.091Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T13:58:10.884Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"First Name length should be between 4 to 16","type":"Validation error","path":"firstname","value":"def","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"def","lastname":"abc","email":"abc@gmail.com","updatedAt":"2021-08-12T15:00:44.809Z","createdAt":"2021-08-12T15:00:44.809Z"},"validatorKey":"len","validatorName":"len","validatorArgs":[4,16],"original":{"validatorName":"len","validatorArgs":[4,16]}},{"message":"Last Name Length should be between 4 to 16","type":"Validation error","path":"lastname","value":"abc","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"def","lastname":"abc","email":"abc@gmail.com","updatedAt":"2021-08-12T15:00:44.809Z","createdAt":"2021-08-12T15:00:44.809Z"},"validatorKey":"len","validatorName":"len","validatorArgs":[4,16],"original":{"validatorName":"len","validatorArgs":[4,16]}}],"level":"error","timestamp":"2021-08-12T15:00:44.826Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T15:09:00.650Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T15:12:00.275Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T15:13:14.086Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T15:14:00.714Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T15:14:49.952Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T15:15:29.296Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T15:16:24.228Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-12T15:19:28.493Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-13T08:47:28.308Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-13T08:52:36.633Z"}

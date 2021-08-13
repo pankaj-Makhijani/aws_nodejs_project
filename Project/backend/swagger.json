@@ -95,7 +95,7 @@
           }
         }
       },
-      "/deleteuserunauth/{userId}":{
+      "/deleteuserbyid/{userId}":{
         "parameters": [
           {
             "name": "userId",
@@ -120,7 +120,7 @@
           }
         }
       },
-      "/updateuserbyidunauth":{
+      "/updateuserbyid":{
         "put": {
           "tags": [
             "Users"
@@ -157,7 +157,8 @@
           "email",
           "id",
           "fname",
-          "lname"
+          "lname",
+          "pass"
         ],
         "properties": {
           
@@ -176,6 +177,11 @@
             "uniqueItems": true,
             "length":"2 to 16",
             "Not In":"Root/Admin"
+          },
+          "pass":{
+            "type":"string",
+            "uniqueItems": true,
+            "length":"8 to 16"
           }
         }
       },

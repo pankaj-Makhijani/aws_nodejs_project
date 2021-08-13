@@ -2,7 +2,7 @@ var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("User", {
+  const user = sequelize.define("user", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -79,19 +79,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  User.associate = models => {
-      User.belongsToMany(models.card, { through: 'UserCard' });
-  }
+  // user.associate = models => {
+  //     user.belongsToMany(models.card, { through: 'usercard',as:'userid' });
+  // }
 
   //Generating a Hash
-  User.generatehash = (password) => {
+  user.generatehash = (password) => {
     return bcrypt.hashSync(password,bcrypt.genSaltSync(8),null)
   }
 
   //Checking if password is valid or not
-  User.prototype.validpassword = (password) =>{
+  user.prototype.validpassword = (password) =>{
     return bcrypt.compareSync(password,this.local.password)
   }
 
-  return User;
+  return user;
 };

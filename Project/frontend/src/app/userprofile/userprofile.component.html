@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:1px solid black;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/" *ngIf="isuser">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signin" *ngIf="isuser">Sign In</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/signin" (click)="signout()" *ngIf="isuser || isadmin">Sign Out</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile" *ngIf="isadmin">User Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin" *ngIf="isadmin">Admin Dashboard</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<h3>Welcome {{fname || ""}} {{lname || ""}}</h3>
+<p *ngIf="email">Your E-mail is {{email || "user@example.com"}}</p>
+
+<h5>Upload Image to S3</h5>
+<input (change)="onImagePicked($event)" ngf-pattern="'.jpeg,.jpg'" placeholder="Upload Image" 
+type="file" />
+<button (click)="onImageUpload()" [disabled]="!imgselected">Upload Image</button>
+
+ <div *ngIf="imageUrl">
+  Preview Image from AWS
+  <br />
+  <img width="200px" src="{{imageUrl}}" 
+  />
+  <br/>
+  <a href="{{imageUrl}}" download>Download</a>
+ </div>
+<br>
+<br>
+
+
+<h5>Add Certification in Your Profile</h5>
+
+<form #addcardform="ngForm" (ngSubmit)="oncardsubmit(addcardform.value)">
+    
+    <label for="cid">Certificate ID:
+        <input type="number" id="cid" name="cid" ngModel>
+        </label>
+        <input type="submit" value="Submit">
+</form>
+<br>
+
+<h5>Remove Certification from Your Profile</h5>
+
+<form #removecardform="ngForm" (ngSubmit)="onremovecardsubmit(removecardform.value)">
+<label for="cid">Certificate</label>
+    
+    <label for="cid">Certificate ID:
+        <input type="number" id="cid" name="cid" ngModel>
+        </label>
+        <input type="submit" value="Submit">
+</form>
+<br>
+
+<h5>update user info</h5>
+
+<form #updateform="ngForm" (ngSubmit)="onsubmit(updateform.value)">
+        
+          <label for="fname">First name:
+          <input type="text" id="fname" [(ngModel)]="fname" name="fname" ngModel>
+          </label>
+          <br>
+        
+          <label for="lname">Last name:
+          <input type="text" id="lname" [(ngModel)]="lname" name="lname" ngModel>
+          </label>
+          <br>
+        
+          <label for="email">E-mail:
+          <input type="email" id="email" [(ngModel)]="email" name="email" ngModel>
+          </label>
+          <br>
+          
+          <input type="submit" value="Submit">
+          <input type="submit" value="Reset">
+</form>
+
+<br>
+<h5>Delete Your Account</h5>
+<button (click)="delete()">Delete account</button>
+
+<br>
+<br>
+{{message}}
