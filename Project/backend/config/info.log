@@ -2974,3 +2974,218 @@
 {"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-13T11:00:47.823Z"}
 {"level":"info","message":"Database connection successful","timestamp":"2021-08-13T11:01:54.670Z"}
 {"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-13T11:01:54.686Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-13T12:15:25.282Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-13T12:15:25.289Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-13T12:15:59.191Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-13T12:15:59.199Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-13T12:26:58.940Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-15T08:55:27.219Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-15T08:55:27.234Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-15T09:03:13.581Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-15T09:03:13.598Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-15T09:05:04.315Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-15T09:05:04.320Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-15T14:10:11.948Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-15T14:10:11.967Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-15T14:20:26.089Z"}
+{"level":"info","message":"Post request on create card route http://localhost:3000/api-cards/createcard","timestamp":"2021-08-15T14:21:28.301Z"}
+{"level":"info","message":"Post request on create card route http://localhost:3000/api-cards/createcard","timestamp":"2021-08-15T14:21:29.116Z"}
+{"level":"info","message":"delete request on deletecard route http://localhost:3000/api-cards/deletecardbyid/:id","timestamp":"2021-08-15T14:21:42.457Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-15T15:01:46.344Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-15T15:01:46.362Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-15T15:03:23.564Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-15T15:03:23.581Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-15T15:24:46.199Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-15T15:24:46.217Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-16T07:12:13.445Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T07:12:13.446Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T07:12:13.453Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T07:13:21.247Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T07:13:21.265Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-16T07:13:45.810Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T07:13:45.812Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T07:13:45.818Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-16T07:14:09.814Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T07:14:09.815Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T07:14:09.823Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T07:26:15.956Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T07:26:15.974Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T07:26:25.110Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T07:26:49.000Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-16T07:27:02.568Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T07:27:27.108Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T07:28:13.317Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T07:28:13.326Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T07:28:27.421Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T07:28:40.443Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T07:28:45.929Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T07:32:08.516Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T07:32:09.931Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T07:32:10.438Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T07:32:20.406Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T07:33:21.427Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T07:40:17.613Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T07:40:31.800Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T07:40:37.122Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T07:40:49.488Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T07:40:52.069Z"}
+{"level":"info","message":"Post request on create card route http://localhost:3000/api-cards/createcard","timestamp":"2021-08-16T07:59:38.600Z"}
+{"level":"info","message":"Post request on create card route http://localhost:3000/api-cards/createcard","timestamp":"2021-08-16T07:59:49.244Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T08:00:28.039Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-16T08:00:38.053Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T08:00:38.078Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T08:00:46.154Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T08:00:46.836Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T08:00:47.276Z"}
+{"level":"info","message":"Post request on create card route http://localhost:3000/api-cards/createcard","timestamp":"2021-08-16T08:00:55.627Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T08:14:50.685Z"}
+{"level":"error","timestamp":"2021-08-16T08:14:59.967Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:22:34.416Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:22:34.421Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:23:32.022Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:23:32.040Z"}
+{"level":"error","timestamp":"2021-08-16T08:29:22.738Z"}
+{"level":"error","timestamp":"2021-08-16T08:30:05.501Z"}
+{"level":"error","timestamp":"2021-08-16T08:32:47.306Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:35:06.189Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:35:06.207Z"}
+{"level":"error","timestamp":"2021-08-16T08:35:14.549Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:35:43.941Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:35:43.958Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:37:07.226Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:37:07.243Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:39:04.001Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:39:04.012Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:40:27.825Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:40:27.842Z"}
+{"level":"error","timestamp":"2021-08-16T08:40:49.801Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T08:42:04.546Z"}
+{"level":"error","timestamp":"2021-08-16T08:42:35.231Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:50:03.012Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:50:03.023Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:50:46.877Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:50:46.893Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-16T08:52:17.285Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-16T08:52:17.301Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T08:55:12.750Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:25:33.532Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:30:20.319Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:32:40.763Z"}
+{"name":"SequelizeConnectionError","parent":{"errno":-4079,"code":"ECONNABORTED","syscall":"connect","address":"44.194.218.28","port":3306,"fatal":true},"original":{"errno":-4079,"code":"ECONNABORTED","syscall":"connect","address":"44.194.218.28","port":3306,"fatal":true},"level":"error","timestamp":"2021-08-16T09:32:48.960Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:32:48.983Z"}
+{"name":"SequelizeHostNotFoundError","parent":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"original":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"level":"error","timestamp":"2021-08-16T09:32:49.073Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:32:54.375Z"}
+{"name":"SequelizeHostNotFoundError","parent":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"original":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"level":"error","timestamp":"2021-08-16T09:32:54.380Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:33:27.620Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-16T09:33:37.633Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:33:37.647Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-16T09:33:47.646Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:34:02.390Z"}
+{"name":"SequelizeHostNotFoundError","parent":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"original":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"level":"error","timestamp":"2021-08-16T09:34:02.397Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:34:02.913Z"}
+{"name":"SequelizeHostNotFoundError","parent":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"original":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"level":"error","timestamp":"2021-08-16T09:34:02.918Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:34:54.333Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:42:04.095Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:43:02.943Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:43:25.468Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:34.831Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:35.137Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:35.934Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:36.067Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:36.312Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:36.416Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:36.659Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:36.833Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:39.184Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:43.774Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:44:44.408Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:47:36.741Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-16T09:48:21.984Z"}
+{"level":"info","message":"Data moved to Queue Successfully0c690f5c-8d37-4ded-8171-1ef1821b4acf","timestamp":"2021-08-16T09:48:25.552Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:48:28.752Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-16T09:49:20.302Z"}
+{"level":"info","message":"Data moved to Queue Successfullyc5d1435e-d2dd-42ba-b8d8-6145c6c18816","timestamp":"2021-08-16T09:49:24.094Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:49:25.401Z"}
+{"code":"EDNS","syscall":"queryA","hostname":"smtp.live.com","command":"CONN","level":"error","timestamp":"2021-08-16T09:49:39.811Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:49:59.307Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:50:02.388Z"}
+{"code":"EDNS","syscall":"queryA","hostname":"smtp.live.com","command":"CONN","level":"error","timestamp":"2021-08-16T09:50:38.251Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-16T09:50:42.746Z"}
+{"level":"info","message":"Data moved to Queue Successfully5298b8ec-8ada-4441-9a61-def3d9189c1e","timestamp":"2021-08-16T09:50:47.027Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:50:51.859Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-16T09:51:35.833Z"}
+{"level":"info","message":"Data moved to Queue Successfully8285dbe7-fa82-4e07-beb9-49b9b2f6c96d","timestamp":"2021-08-16T09:51:41.084Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:51:42.359Z"}
+{"code":"EDNS","syscall":"queryA","hostname":"smtp.live.com","command":"CONN","level":"error","timestamp":"2021-08-16T09:52:00.632Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:52:40.579Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:52:49.530Z"}
+{"code":"EDNS","syscall":"queryA","hostname":"smtp.live.com","command":"CONN","level":"error","timestamp":"2021-08-16T09:52:55.138Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:53:16.394Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-16T09:53:30.514Z"}
+{"level":"error","message":"You are not ADMIN, Access denied","timestamp":"2021-08-16T09:53:34.329Z"}
+{"level":"error","message":"You are not ADMIN, Access denied","timestamp":"2021-08-16T09:53:42.921Z"}
+{"level":"error","message":"You are not ADMIN, Access denied","timestamp":"2021-08-16T09:53:49.450Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T09:53:56.111Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T09:54:44.686Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T09:55:22.190Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:55:46.972Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:56:27.128Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T09:56:37.506Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T09:57:07.949Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T09:57:43.892Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-16T09:58:59.770Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-16T09:59:18.017Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-17T08:06:50.020Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-17T08:06:50.026Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-17T08:08:04.723Z"}
+{"level":"info","message":"Data moved to Queue Successfullyd89d179e-04fd-412a-8b3f-e2b257825e22","timestamp":"2021-08-17T08:08:09.431Z"}
+{"level":"info","message":"Email sent: 250 2.0.0 OK <KU1PR01MB1894AF7CC31BF54ADA42AD2AA3FE9@KU1PR01MB1894.apcprd01.prod.exchangelabs.com> [Hostname=KU1PR01MB1894.apcprd01.prod.exchangelabs.com]","timestamp":"2021-08-17T08:08:12.903Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-17T08:10:14.268Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-17T08:12:28.946Z"}
+{"level":"error","timestamp":"2021-08-17T08:12:57.711Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:13:50.175Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-17T08:14:31.779Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:14:39.143Z"}
+{"level":"info","message":"Post request on update user by id route http://localhost:3000/api/updateuserbyidfrom IP address ::1","timestamp":"2021-08-17T08:15:33.538Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:15:44.682Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-17T08:15:53.164Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-17T08:16:18.274Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"firstname should not be root/admin","type":"Validation error","path":"firstname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"root","lastname":"root","email":"root@gmail.com","password":"$2b$10$Un6ZAZsqxXtrHgzoge7Vg.eYV.U2GGh9/IS0Ov6WruYWDxUPLr2Bu","updatedAt":"2021-08-17T08:16:18.426Z","createdAt":"2021-08-17T08:16:18.426Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}},{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"root","lastname":"root","email":"root@gmail.com","password":"$2b$10$Un6ZAZsqxXtrHgzoge7Vg.eYV.U2GGh9/IS0Ov6WruYWDxUPLr2Bu","updatedAt":"2021-08-17T08:16:18.426Z","createdAt":"2021-08-17T08:16:18.426Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-17T08:16:18.447Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-17T08:16:31.136Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"devi","lastname":"root","email":"root@gmail.com","password":"$2b$10$tfFrQfvUXMjiEU8D2Xn9rOky59OCNgj4qhVXZ7PCoQxVwJcZ/SxKq","updatedAt":"2021-08-17T08:16:31.300Z","createdAt":"2021-08-17T08:16:31.300Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-17T08:16:31.314Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:18:24.488Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-17T08:20:42.866Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:idfrom IP address ::1","timestamp":"2021-08-17T08:21:17.243Z"}
+{"level":"error","timestamp":"2021-08-17T08:21:17.254Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:idfrom IP address ::1","timestamp":"2021-08-17T08:21:27.733Z"}
+{"level":"error","timestamp":"2021-08-17T08:21:27.739Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:idfrom IP address ::1","timestamp":"2021-08-17T08:21:53.146Z"}
+{"level":"error","timestamp":"2021-08-17T08:21:53.159Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-17T08:21:56.998Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:22:16.630Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:idfrom IP address ::1","timestamp":"2021-08-17T08:22:35.923Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:22:41.912Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:24:17.378Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-17T08:24:47.032Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:idfrom IP address ::1","timestamp":"2021-08-17T08:26:01.380Z"}
+{"level":"error","timestamp":"2021-08-17T08:26:01.389Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:idfrom IP address ::1","timestamp":"2021-08-17T08:27:27.163Z"}
+{"level":"error","timestamp":"2021-08-17T08:27:27.170Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-17T08:31:11.424Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:31:40.108Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:idfrom IP address ::1","timestamp":"2021-08-17T08:32:15.013Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-17T08:33:33.537Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-17T08:33:33.554Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:33:34.381Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-17T08:33:56.106Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:idfrom IP address ::1","timestamp":"2021-08-17T08:34:23.476Z"}
+{"level":"info","message":"Post request on createuser route http://localhost:3000/api/","timestamp":"2021-08-17T08:34:49.207Z"}
+{"level":"info","message":"Data moved to Queue Successfullyb3478e67-ae98-41b3-997f-d642da2f65e4","timestamp":"2021-08-17T08:34:53.000Z"}
+{"level":"info","message":"Email sent: 250 2.0.0 OK <KU1PR01MB1894D0F315A34B51A7FC7E59A3FE9@KU1PR01MB1894.apcprd01.prod.exchangelabs.com> [Hostname=KU1PR01MB1894.apcprd01.prod.exchangelabs.com]","timestamp":"2021-08-17T08:34:55.455Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:35:10.485Z"}
+{"level":"info","message":"delete request on delete user by id route http://localhost:3000/api/deleteuser/:idfrom IP address ::1","timestamp":"2021-08-17T08:35:26.494Z"}
+{"level":"info","message":"get request on finall users route http://localhost:3000/api/findallusersfrom IP address ::1","timestamp":"2021-08-17T08:35:30.637Z"}
+{"level":"info","message":"get request on signout route http://localhost:3000/api/signoutfrom IP address ::1","timestamp":"2021-08-17T08:36:01.856Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2021-08-17T09:08:35.449Z"}
+{"level":"info","message":"Server is up and running on Port 3000","timestamp":"2021-08-17T09:08:35.467Z"}
+{"level":"info","message":"Get request on get user by id route http://localhost:3000/api/findonebyid/:idfrom IP address ::1","timestamp":"2021-08-17T09:08:44.065Z"}

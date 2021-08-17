@@ -28,13 +28,13 @@ export class SigninComponent implements OnInit {
     this.http.post("http://localhost:3000/api/signin",signinform)
     .subscribe(res=>{
       console.log(res);
-
-      if(!JSON.parse(JSON.stringify(res)).msg){
+      var x=JSON.parse(JSON.stringify(res))
+      if(!x.err){
         if (typeof window !== "undefined") {
           localStorage.setItem("jwt", JSON.stringify(res));
           this.active=true;
-          this.message=JSON.parse(JSON.stringify(res)).msg?JSON.parse(JSON.stringify(res)).msg:"User Signed in Successfully";
-          this.w=(JSON.parse(JSON.stringify(res))).user.role
+          this.message=x.msg?x.msg:"User Signed in Successfully";
+          this.w=(x).user.role
           if(this.w==0){
             window.open("/profile", "_self");
           }
@@ -42,6 +42,9 @@ export class SigninComponent implements OnInit {
             window.open("/admin", "_self");
           }
       }
+      }
+      else if(x.err){
+        this.message=x.err;
       }
     })
   }

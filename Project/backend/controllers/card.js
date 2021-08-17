@@ -18,20 +18,22 @@ exports.addcard = async (req,res) => {
 			if(tmp){
 				await usercard.create({
 							cardid:req.body.cid,
+							// userid:req.params.id,
 							userid:req.params.id,
 						}).catch((error) => {
 								// return res.json({error})
-								return res.json({"msg":error})
+								return res.json({"msg":"certificate already Exists in your Profile"})
 						}).then(card => {
 						// logger.log('info',card)
-						return res.json({"msg":"card added to your Profile Successfully"})
+						return res.json({"msg":"certificate added to your Profile Successfully"})
 					})
 			}
 
-			else
+			else if(tmp==null)
 			{
-				return res.json({"msg":"card does not exists"})
+				return res.json({"msg":"certificate does not exists"})
 			}
+
 }
 
 exports.removecard = (req,res) => {
@@ -40,7 +42,7 @@ exports.removecard = (req,res) => {
 		id:req.body.cid
 		}
 	}).catch((err) => {
-		return res.json({"msg":"No such Card Exists "})
+		return res.json({"msg":"No such certificate Exists "})
 	}).then((data) => {
 		user.findOne({
 			where:{
@@ -57,10 +59,10 @@ exports.removecard = (req,res) => {
 				}).catch((error) => {
 						// return res.json({error})
 						console.log(error)
-						return res.json({"msg":"Error occured while removing card"})
+						return res.json({"msg":"Error occured while removing certificate"})
 				}).then(card => {
 				// logger.log('info',card)
-				return res.json({"msg":"card removed successfully"})
+				return res.json({"msg":"certificate removed successfully"})
 			})
 			})
 
@@ -72,10 +74,10 @@ exports.createcard = (req,res) => {
 		cardname:req.body.cname
 	}).catch((error) => {
 			// return res.json({error})
-			return res.json({"msg":"error creating card"})
+			return res.json({"msg":"error creating certificate"})
 	}).then(card => {
 	// logger.log('info',card)
-	return res.json({'msg':'card created successfully'})
+	return res.json({'msg':'certificate created successfully'})
 })
 	 logger.log('info',`Post request on create card route http://localhost:${port}/api-cards/createcard`,' IP address ',req.ip);
 }
@@ -97,11 +99,11 @@ exports.deletecardbyid = (req,res) => {
 			id:req.body.cardid
 		}
 	}).then(card => {
-		res.json({'msg':'card deleted successfully'})
+		res.json({'msg':'certificate deleted successfully'})
 	 }).catch((error) => { 
 		 console.log(error)
 		logger.log('error',error);
-		return res.json({'msg':'delete action unsuccessful'})
+		return res.json({'msg':'certificate delete action unsuccessful'})
 	 })
 	 logger.log('info',`delete request on deletecard route http://localhost:${port}/api-cards/deletecardbyid/:id`,' IP address ',req.ip);
 }
@@ -158,7 +160,7 @@ exports.getallcards = (req,res) => {
 	  })
 	  .catch((err) => {
 		  console.log(err)
-		return res.send({"error":"error retrieving data"})
+		return res.send({"error":"error retrieving certificate data"})
 	  });
 }
 

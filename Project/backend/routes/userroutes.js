@@ -1,5 +1,5 @@
 const express = require('express')
-const {defaultroute,isSignedIn, finduserbyid,isAuthenticated,getuser, isAdmin, deleteuserbyidunauth, updateuserbyidunauth, putpresignedurl, getpresignedurl, advancedsignup} = require('../controllers/user')
+const {defaultroute,isSignedIn, finduserbyid,isAuthenticated,getuser, isAdmin, deleteuserbyidunauth, updateuserbyidunauth, putpresignedurl, getpresignedurl, advancedsignup, updateanyuserbyid} = require('../controllers/user')
 const router = express.Router()
 const { getuserbyid,deleteuserbyid,updateuserbyid,findallusersbyfname,signup,findallusers,signin,signout } = require("../controllers/user")
 const { user } = require('../models/user')
@@ -35,7 +35,7 @@ router.post('/upload/:id', isSignedIn, isAuthenticated,upload.array('image', 1),
 //    });
 
 router.post('/tempupdateuserbyid/:id',updateuserbyid);
-router.delete('/tempdeleteuser/:id',deleteuserbyid);
+router.delete('/tempdeleteuser/:id',deleteuserbyidunauth);
 
 router.put('/puttestpresignedurl',putpresignedurl);
 router.get('/gettestpresignedurl',getpresignedurl);
@@ -44,6 +44,7 @@ router.get('/gettestpresignedurl',getpresignedurl);
 //check admin role then if authorized show him all users
 router.post('/deleteuser/:id',isSignedIn,isAuthenticated,isAdmin,deleteuserbyid);
 router.get('/:id/findallusers',isSignedIn,isAuthenticated,isAdmin,findallusers);
+router.post('/:id/updateanyuserbyid',updateanyuserbyid)
 router.post('/advancedsignup',advancedsignup)
 
 //you can delete this not required

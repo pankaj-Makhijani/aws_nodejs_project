@@ -65,6 +65,8 @@ export class UserprofileComponent implements OnInit {
       })
   }
   
+  
+  
   oncardsubmit(addcardform:any){
     console.log(addcardform)
     if(localStorage.getItem("jwt")){
@@ -218,7 +220,7 @@ export class UserprofileComponent implements OnInit {
         console.log(token)
   
   
-        this.http.delete(`http://localhost:3000/api/tempdeleteuser/${this.id}`)
+        this.http.delete(`http://localhost:3000/api/tempdeleteuser/${id}`)
         .subscribe(res=>{
           var y=JSON.parse(JSON.stringify(res)).msg;
           this.message=y;
@@ -275,8 +277,16 @@ export class UserprofileComponent implements OnInit {
   //Logic for creating card by showing card name in drop down menu
 //   <form #addcardform="ngForm" (ngSubmit)="oncardsubmit(addcardform.value)">
 //   <select name="cid">
-//    <option *ngFor="let o of objarray2" [value]="o.id">{{o.id}}</option>
+//    <option *ngFor="let o of objarray2" [ngValue]="o.id">{{o.id}}</option>
 //   </select>
 //     <input type="submit" value="Submit">
 // </form>
+
+//  Logic by inputing Card import {  } from '<form #addcardform="ngForm" (ngSubmit)="oncardsubmit(addcardform.value)">
+    
+//  <label for="cid">Certificate ID:
+//      <input type="number" id="cid" name="cid" ngModel>
+//      </label>
+//      <input type="submit" value="Submit">
+// </form>'
 }

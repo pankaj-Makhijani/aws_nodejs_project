@@ -258,4 +258,32 @@ export class AdmindashboardComponent implements OnInit {
     }
     
   }
+
+
+
+  async onsubmit1(updateform:any){
+    console.log(updateform)
+
+    var x2:any = localStorage.getItem("jwt")
+    x2=JSON.parse(x2)
+    var token=x2.token;
+    
+
+    var reqHeader = await new HttpHeaders({ 
+      'Authorization': `Bearer ${token}`
+   });
+
+
+   
+    // await this.http.post(`http://localhost:3000/api/tempupdateuserbyid/${this.id}`,updateform)
+    await this.http.post(`http://localhost:3000/api/${this.id}/updateanyuserbyid`,updateform)
+    .subscribe(res=>{
+      var y=JSON.parse(JSON.stringify(res));
+      this.message=y.msg;
+      console.log(res);
+    },(err)=>{
+      var res="You are not authorized to perform this action"
+      this.message=err;
+  }) 
+  }
 }

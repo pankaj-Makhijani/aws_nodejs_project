@@ -170,6 +170,45 @@ exports.updateuserbyidunauth = (req, res) => {
   req.ip);
 };
 
+
+exports.updateanyuserbyid = (req, res) => {
+  var { uid, fname, lname, email } = req.body;
+  // var records = [[fname,lname,email,uid]];
+  // if(records[0][0]!=null)
+  // {
+  // console.log(req.headers);
+  user.update(
+    {
+      role:req.body.role
+    },
+    {
+      where: { id: req.body.uid },
+    }
+  )
+    .then((user) => {
+      if(user==0){
+        return res.json({"msg":"No such user exists"})
+      }
+      // console.log(user);
+      return res.json({ msg: "data updated successfully" });
+    })
+    .catch((error) => {
+      console.log(error)
+      logger.log("error", error);
+      return res.json({ "msg": error.errors[0].message});
+      
+    });
+  // }
+  logger.log(
+    "info",
+    `Post request on update user by id route http://localhost:${port}/api/updateuserbyid`+
+    "from IP address "+
+    req.ip
+  );
+  mylogger.info(`Post request on updateanyuserbyid route` +
+  "from IP address " +
+  req.ip);
+};
 //End of controllers for swagger API
 
 exports.updateuserbyid = (req, res) => {
@@ -536,11 +575,13 @@ exports.signin = (req,res) => {
   })
   .catch((error) => {
     logger.log("error", error);
-    console.log(error)
-    return res.json({ "msg": "No such E-mail Exists" });
+    // console.log(error)
+    return res.json({ "err": "Some Error occured during sigin" });
   })
   .then((user) => {
-
+    if(user==null){
+    return res.json({ "err": "No such E-mail Exists" });
+    }
     bcrypt.compare(req.body.pass,user.password,(err,data) => {
       if(data==true)
         {
@@ -558,7 +599,7 @@ exports.signin = (req,res) => {
         else{
           console.log(err)
           logger.log("error", err);
-          return res.json({"msg":"Password does not match"})
+          return res.json({"err":"Password does not match"})
         }
     })
   });

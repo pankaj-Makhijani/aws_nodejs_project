@@ -26,7 +26,7 @@
 <h1>Welcome {{fname || ""}} {{lname || ""}}</h1>
 <p>Your E-mail is {{email || "user@example.com"}}</p>
 
-<h3>Signup Form</h3>
+<h3>Create New User</h3>
 <form ngNativeValidate #signupform="ngForm" (ngSubmit)="onsubmit2(signupform.value)">
   <label for="fname">First name:
   <input type="text" id="fname" name="fname" minlength="4" ngModel required>
@@ -57,6 +57,27 @@
   <input type="submit" value="Submit">
   <input type="submit" value="Reset">
 </form>
+
+<h3>Update User role</h3>
+<form #updateform="ngForm" (ngSubmit)="onsubmit1(updateform.value)">
+        
+
+        <label for="uid">User id:
+          <input type="number" id="uid" name="uid" ngModel>
+          </label>
+          <br>
+
+          <label for="role">role:
+          <input type="number" id="role" name="role" min="0" max="1" ngModel>
+          </label>
+          <br>
+          
+          <input type="submit" value="Submit">
+          <input type="submit" value="Reset">
+</form>
+
+<br>
+
 
 <h5>Create New Certification</h5>
 <form ngNativeValidate #cardform="ngForm" (ngSubmit)="oncardsubmit(cardform.value)">
@@ -94,14 +115,7 @@
 <br>
 <br>
 
-<h5>Get All Certification Details</h5>
-<button (click)="ongetalldetails()">Get All Certification</button>
-
-<button (click)="signout()">Signout</button>
-
-<br>
-<p>{{message}}</p>
-
+<div>
 <p *ngIf="noofusers">There are {{noofusers}} Users stored in the database</p>
 <table class="table" border="1" cellspacing="0" style="width:800px;" *ngIf="arrlength">
     <thead>
@@ -123,7 +137,11 @@
       </tr>
     </tbody>
   </table>
+</div>
 
+<h5>Get All Certification Details</h5>
+<button (click)="ongetalldetails()">Get All Certification</button>
+<div>
 <p *ngIf="totalusers">There are {{totalusers}} Users having Certificates</p>
   <table class="table" border="1" cellspacing="0" *ngIf="arrlength2" style="width:800px;">
     <thead>
@@ -150,3 +168,9 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<br>
+<span style="color:blue;">{{message}}</span>
+
+

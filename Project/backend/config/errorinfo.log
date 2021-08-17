@@ -282,3 +282,37 @@
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-12T15:19:28.493Z"}
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-13T08:47:28.308Z"}
 {"level":"error","message":"Database Connection error","timestamp":"2021-08-13T08:52:36.633Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-16T07:12:13.446Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-16T07:13:45.812Z"}
+{"level":"error","message":"Database Connection error","timestamp":"2021-08-16T07:14:09.815Z"}
+{"name":"UnauthorizedError","message":"No authorization token was found","code":"credentials_required","status":401,"inner":{"message":"No authorization token was found"},"level":"error","timestamp":"2021-08-16T07:27:02.569Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-16T08:00:38.053Z"}
+{"level":"error","timestamp":"2021-08-16T08:14:59.967Z"}
+{"level":"error","timestamp":"2021-08-16T08:29:22.738Z"}
+{"level":"error","timestamp":"2021-08-16T08:30:05.501Z"}
+{"level":"error","timestamp":"2021-08-16T08:32:47.306Z"}
+{"level":"error","timestamp":"2021-08-16T08:35:14.550Z"}
+{"level":"error","timestamp":"2021-08-16T08:40:49.802Z"}
+{"level":"error","timestamp":"2021-08-16T08:42:35.232Z"}
+{"name":"SequelizeConnectionError","parent":{"errno":-4079,"code":"ECONNABORTED","syscall":"connect","address":"44.194.218.28","port":3306,"fatal":true},"original":{"errno":-4079,"code":"ECONNABORTED","syscall":"connect","address":"44.194.218.28","port":3306,"fatal":true},"level":"error","timestamp":"2021-08-16T09:32:48.960Z"}
+{"name":"SequelizeHostNotFoundError","parent":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"original":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"level":"error","timestamp":"2021-08-16T09:32:49.074Z"}
+{"name":"SequelizeHostNotFoundError","parent":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"original":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"level":"error","timestamp":"2021-08-16T09:32:54.380Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-16T09:33:37.634Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2021-08-16T09:33:47.646Z"}
+{"name":"SequelizeHostNotFoundError","parent":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"original":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"level":"error","timestamp":"2021-08-16T09:34:02.398Z"}
+{"name":"SequelizeHostNotFoundError","parent":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"original":{"errno":-3008,"code":"ENOTFOUND","syscall":"getaddrinfo","hostname":"database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com","fatal":true},"level":"error","timestamp":"2021-08-16T09:34:02.919Z"}
+{"code":"EDNS","syscall":"queryA","hostname":"smtp.live.com","command":"CONN","level":"error","timestamp":"2021-08-16T09:49:39.812Z"}
+{"code":"EDNS","syscall":"queryA","hostname":"smtp.live.com","command":"CONN","level":"error","timestamp":"2021-08-16T09:50:38.251Z"}
+{"code":"EDNS","syscall":"queryA","hostname":"smtp.live.com","command":"CONN","level":"error","timestamp":"2021-08-16T09:52:00.632Z"}
+{"code":"EDNS","syscall":"queryA","hostname":"smtp.live.com","command":"CONN","level":"error","timestamp":"2021-08-16T09:52:55.139Z"}
+{"level":"error","message":"You are not ADMIN, Access denied","timestamp":"2021-08-16T09:53:34.329Z"}
+{"level":"error","message":"You are not ADMIN, Access denied","timestamp":"2021-08-16T09:53:42.921Z"}
+{"level":"error","message":"You are not ADMIN, Access denied","timestamp":"2021-08-16T09:53:49.451Z"}
+{"level":"error","timestamp":"2021-08-17T08:12:57.711Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"firstname should not be root/admin","type":"Validation error","path":"firstname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"root","lastname":"root","email":"root@gmail.com","password":"$2b$10$Un6ZAZsqxXtrHgzoge7Vg.eYV.U2GGh9/IS0Ov6WruYWDxUPLr2Bu","updatedAt":"2021-08-17T08:16:18.426Z","createdAt":"2021-08-17T08:16:18.426Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}},{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"root","lastname":"root","email":"root@gmail.com","password":"$2b$10$Un6ZAZsqxXtrHgzoge7Vg.eYV.U2GGh9/IS0Ov6WruYWDxUPLr2Bu","updatedAt":"2021-08-17T08:16:18.426Z","createdAt":"2021-08-17T08:16:18.426Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-17T08:16:18.448Z"}
+{"name":"SequelizeValidationError","errors":[{"message":"lastname should not be root/admin","type":"Validation error","path":"lastname","value":"root","origin":"FUNCTION","instance":{"role":0,"id":null,"firstname":"devi","lastname":"root","email":"root@gmail.com","password":"$2b$10$tfFrQfvUXMjiEU8D2Xn9rOky59OCNgj4qhVXZ7PCoQxVwJcZ/SxKq","updatedAt":"2021-08-17T08:16:31.300Z","createdAt":"2021-08-17T08:16:31.300Z"},"validatorKey":"notIn","validatorName":"notIn","validatorArgs":[["root","admin"]],"original":{"validatorName":"notIn","validatorArgs":[["root","admin"]]}}],"level":"error","timestamp":"2021-08-17T08:16:31.314Z"}
+{"level":"error","timestamp":"2021-08-17T08:21:17.254Z"}
+{"level":"error","timestamp":"2021-08-17T08:21:27.739Z"}
+{"level":"error","timestamp":"2021-08-17T08:21:53.160Z"}
+{"level":"error","timestamp":"2021-08-17T08:26:01.390Z"}
+{"level":"error","timestamp":"2021-08-17T08:27:27.170Z"}

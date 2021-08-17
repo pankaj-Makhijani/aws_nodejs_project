@@ -42,9 +42,25 @@ type="file" />
 <br>
 <br>
 
+<p *ngIf="objarray2.length>0">List of Available certificates</p>
+<table class="table" border="1" cellspacing="0" style="width:500px;" *ngIf="objarray2.length>0">
+  <thead>
+  <tr>
+    <th>Certificate ID</th>
+    <th>Certificate Name</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let o of objarray2">
+    <td>{{o.id}}</td>
+    <td>{{o.cardname}}</td>
+  </tr>
+</tbody>
+</table>
+
+
 
 <h5>Add Certification in Your Profile</h5>
-
 <form #addcardform="ngForm" (ngSubmit)="oncardsubmit(addcardform.value)">
     
     <label for="cid">Certificate ID:
@@ -57,7 +73,6 @@ type="file" />
 <h5>Remove Certification from Your Profile</h5>
 
 <form #removecardform="ngForm" (ngSubmit)="onremovecardsubmit(removecardform.value)">
-<label for="cid">Certificate</label>
     
     <label for="cid">Certificate ID:
         <input type="number" id="cid" name="cid" ngModel>
@@ -95,4 +110,4 @@ type="file" />
 
 <br>
 <br>
-{{message}}
+<p style="color:blue;">{{message}}</p>
