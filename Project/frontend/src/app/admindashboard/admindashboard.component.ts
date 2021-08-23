@@ -11,6 +11,14 @@ export class AdmindashboardComponent implements OnInit {
 
   constructor(private router:Router,private http:HttpClient){}
   imageObj: File;
+  mngcreateuser:boolean=true;
+  mngupdateuser:boolean=false;
+  mngdeleteuser:boolean=false;
+  mnggetuser:boolean=false;
+  mngcreatecert:boolean=false;
+  mngdeletecert:boolean=false;
+  mnggetcert:boolean=false;
+
   emailarray:string[]=[];
   idarray:string[]=[];
   objarray:any[]=[];
@@ -45,14 +53,177 @@ export class AdmindashboardComponent implements OnInit {
       if(this.role!=1){
         window.open("/profile", "_self");
       }
+
+    //fetch all users from backend
+      var x:any = localStorage.getItem("jwt")
+      x=JSON.parse(x)
+      var id=x.user.id;
+      this.username=x.user.firstname
+      var token=x.token;
+      console.log(id)
+      console.log(token)
+
+      var reqHeader = new HttpHeaders({ 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+     });
+     
+     this.objarray=[];
+     this.arrlength=0;
+      this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
+      .subscribe(res=>{
+        var y=JSON.parse(JSON.stringify(res));
+        console.log(y)
+        this.objarray=[];
+        this.arrlength=0;
+        // this.noofusers=0;
+        if(y.length==0){
+          this.noofusers="no";
+        }
+        else{
+          this.noofusers=y.length;
+          for(var i = 0; i <= y.length; i++) {
+            var obj = y[i];
+            this.arrlength=i;
+            this.objarray.push(obj)
+        }
+        }
+
+      },(err)=>{
+        if(err.status>400) {
+          console.log(err.status)
+          var res="You are not authorized to perform this action"
+          this.message=res;
+          }
+    })
+    //fetch all users from backend
+
+
+    //fetch all certificates from backend
+    var x:any = localStorage.getItem("jwt")
+    x=JSON.parse(x)
+    var id=x.user.id;
+    this.username=x.user.firstname
+    var token=x.token;
+    // console.log(id)
+    // console.log(token)
+
+    var reqHeader = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+   });
+   
+   this.objarray2=[];
+   this.arrlength2=0;
+    // this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
+    this.http.get(`http://localhost:3000/api-cards/getallcards`,{ headers: reqHeader })
+    .subscribe(res=>{
+      var y=JSON.parse(JSON.stringify(res));
+      console.log(y)
+      this.objarray2=[];
+      this.arrlength2=0;
+      if(y.length==0){
+      this.arrlength2=0;
+        this.totalusers=undefined
+        this.message="There aren't any certificates stored in the Database"
+      }
+      else{
+        this.totalusers=0;
+        for(var i = 0; i <= y.length; i++) {
+          var obj = y[i];
+          this.arrlength2=i;
+          this.objarray2.push(obj)
+          this.totalusers=this.totalusers+obj.users.length;
+      }
+      }
+  }),(err)=>{
+      if(err.status>400) {
+        console.log(err.status)
+        var res="You are not authorized to perform this action"
+        this.message=res;
+        }
+  }
+    
+    //fetch all certificates from backend
+
+
         }
         if(!localStorage.getItem("jwt")){
           window.open("/signin", "_self");
         }
+
+        
   }
   
+  managecreateuser(){
+    this.mngcreateuser=true
+    this.mngupdateuser=false;
+  this.mngdeleteuser=false;
+  this.mnggetuser=false;
+  this.mngcreatecert=false;
+  this.mngdeletecert=false;
+  this.mnggetcert=false;
+  }
 
+  manageupdateuser(){
+    this.mngcreateuser=false
+    this.mngupdateuser=true;
+  this.mngdeleteuser=false;
+  this.mnggetuser=false;
+  this.mngcreatecert=false;
+  this.mngdeletecert=false;
+  this.mnggetcert=false;
+  }
 
+  managedeleteuser(){
+    this.mngcreateuser=false;
+    this.mngupdateuser=false;
+  this.mngdeleteuser=true;
+  this.mnggetuser=false;
+  this.mngcreatecert=false;
+  this.mngdeletecert=false;
+  this.mnggetcert=false;
+  }
+
+  managegetuser(){
+    this.mngcreateuser=false;
+    this.mngupdateuser=false;
+  this.mngdeleteuser=false;
+  this.mnggetuser=true;
+  this.mngcreatecert=false;
+  this.mngdeletecert=false;
+  this.mnggetcert=false;
+  }
+
+  managecreatcert(){
+    this.mngcreateuser=false;
+    this.mngupdateuser=false;
+  this.mngdeleteuser=false;
+  this.mnggetuser=false;
+  this.mngcreatecert=true;
+  this.mngdeletecert=false;
+  this.mnggetcert=false;
+  }
+
+  managedeletecert(){
+    this.mngcreateuser=false;
+    this.mngupdateuser=false;
+  this.mngdeleteuser=false;
+  this.mnggetuser=false;
+  this.mngcreatecert=false;
+  this.mngdeletecert=true;
+  this.mnggetcert=false;
+  }
+
+  managegetcert(){
+    this.mngcreateuser=false;
+    this.mngupdateuser=false;
+  this.mngdeleteuser=false;
+  this.mnggetuser=false;
+  this.mngcreatecert=false;
+  this.mngdeletecert=false;
+  this.mnggetcert=true;
+  }
 
   onsubmit(deleteform:any){
     console.log(deleteform)
@@ -103,69 +274,55 @@ export class AdmindashboardComponent implements OnInit {
     })
   }
 
-  onclick(){
-    if(localStorage.getItem("jwt")){
-      var x:any = localStorage.getItem("jwt")
-      x=JSON.parse(x)
-      var id=x.user.id;
-      this.username=x.user.firstname
-      var token=x.token;
-      console.log(id)
-      console.log(token)
+  // onclick(){
+  //   if(localStorage.getItem("jwt")){
+  //     var x:any = localStorage.getItem("jwt")
+  //     x=JSON.parse(x)
+  //     var id=x.user.id;
+  //     this.username=x.user.firstname
+  //     var token=x.token;
+  //     console.log(id)
+  //     console.log(token)
 
-      var reqHeader = new HttpHeaders({ 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-     });
-     this.objarray=[];
-     this.arrlength=0;
-      this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
-      .subscribe(res=>{
-        var y=JSON.parse(JSON.stringify(res));
-        console.log(y)
-        this.objarray=[];
-        this.arrlength=0;
-        // this.noofusers=0;
-        if(y.length==0){
-          this.noofusers="no";
-        }
-        else{
-          this.noofusers=y.length;
-          for(var i = 0; i <= y.length; i++) {
-            var obj = y[i];
-            this.arrlength=i;
-            this.objarray.push(obj)
-            // this.emailarray.push(obj.email);
-            // this.idarray.push(obj.id)
-            // console.log(obj.email);
-            // console.log(this.emailarray);
-            // console.log(this.idarray);
-            // console.log(typeof obj.email);
-        }
-          // console.log(res);
-          // console.log("res is "+res+" type "+typeof res);
-          // console.log("y is "+y+" type "+typeof y);
-          // for(let i in res){
-          //   console.log(res.v)
-          // }
-          // this.message=obj.email;
-          // console.log(typeof res);
-        }
+  //     var reqHeader = new HttpHeaders({ 
+  //       'Content-Type': 'application/json',
+  //       'Authorization': `Bearer ${token}`
+  //    });
+  //    this.objarray=[];
+  //    this.arrlength=0;
+  //     this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
+  //     .subscribe(res=>{
+  //       var y=JSON.parse(JSON.stringify(res));
+  //       console.log(y)
+  //       this.objarray=[];
+  //       this.arrlength=0;
+  //       // this.noofusers=0;
+  //       if(y.length==0){
+  //         this.noofusers="no";
+  //       }
+  //       else{
+  //         this.noofusers=y.length;
+  //         for(var i = 0; i <= y.length; i++) {
+  //           var obj = y[i];
+  //           this.arrlength=i;
+  //           this.objarray.push(obj)
+  //       }
+  //       }
 
-      },(err)=>{
-        if(err.status>400) {
-          console.log(err.status)
-          var res="You are not authorized to perform this action"
-          this.message=res;
-          }
-    })
-    }
-    if(!localStorage.getItem("jwt")){
-     var res="You must be logged in first in order to perform Find all users operation"
-     console.log(res)
-    this.message=res;
-    }
-  }
+  //     },(err)=>{
+  //       if(err.status>400) {
+  //         console.log(err.status)
+  //         var res="You are not authorized to perform this action"
+  //         this.message=res;
+  //         }
+  //   })
+  //   }
+  //   if(!localStorage.getItem("jwt")){
+  //    var res="You must be logged in first in order to perform Find all users operation"
+  //    console.log(res)
+  //   this.message=res;
+  //   }
+  // }
 
   oncardsubmit(cardform:any){
     this.http.post(`http://localhost:3000/api-cards/createcard`, cardform)
@@ -247,7 +404,7 @@ export class AdmindashboardComponent implements OnInit {
       }
       else if(localStorage.getItem("jwt")){
         localStorage.removeItem("jwt")
-        this.http.get("http://localhost:3000/api/signout").subscribe(res=>{
+        this.http.get(`http://localhost:3000/api/signout`).subscribe(res=>{
         // console.log(typeof res);
         // console.log(res);
         this.arrlength=0;

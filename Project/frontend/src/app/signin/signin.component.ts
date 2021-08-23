@@ -33,7 +33,7 @@ export class SigninComponent implements OnInit {
         if (typeof window !== "undefined") {
           localStorage.setItem("jwt", JSON.stringify(res));
           this.active=true;
-          this.message=x.msg?x.msg:"User Signed in Successfully";
+          // this.message=x.msg?x.msg:"User Signed in Successfully";
           this.w=(x).user.role
           if(this.w==0){
             window.open("/profile", "_self");

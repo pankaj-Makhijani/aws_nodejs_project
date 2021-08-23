@@ -1,6 +1,8 @@
-const { user } = require("../models");
+const { user,usercard,card } = require("../models");
+
 const logger = require("../config/logger");
 const mylogger=require("../config/logger2")
+const activitylog=require("../config/logger3")
 const S3 = require("aws-sdk/clients/s3");
 require("dotenv").config("./.env");
 const path = require("path");
@@ -32,6 +34,24 @@ AWS.config.update({
   region: process.env.REGION //E.g us-east-1
  });
 
+ exports.getcardbyid = (req,res) => {
+  user.findOne({
+    where: {
+      id: req.params.id,
+    },
+    include:{
+				model:card,
+				as:'cards',
+				}
+  })
+    .catch((error) => {
+      console.log(error)
+    })
+    .then((user) => {
+      activitylog.info("user id "+user.id+" made request on getcardbyid route") 
+      return res.json(user);
+    });
+ }
 
 exports.defaultroute = (req, res) => {
   res.json("OK");
@@ -62,6 +82,7 @@ exports.getuserbyid = (req, res) => {
       return res.json({ error: "Data does not exist" });
     })
     .then((user) => {
+      activitylog.info("user id "+user.id+" made request on getuserbyid route") 
       res.json(user);
     });
   logger.log(
@@ -87,6 +108,7 @@ exports.deleteuserbyidunauth = (req, res) => {
       return res.json({ error: "delete action unsuccessful" });
     })
     .then((user) => {
+      activitylog.info("user id "+req.params.id+" deleted their acount") 
       res.json({ msg: "data deleted successfully" });
     });
   logger.log(
@@ -108,6 +130,7 @@ exports.deleteuserbyid = (req, res) => {
     },
   })
   .then((user) => {
+    activitylog.info("user id "+req.body.id+" deleted their acount") 
     return res.json({ msg: "data deleted successfully" }).status(200);
   })
     .catch((error) => {
@@ -150,6 +173,7 @@ exports.updateuserbyidunauth = (req, res) => {
         return res.json({"error":"No such user exists"})
       }
       // console.log(user);
+      activitylog.info("user id "+req.body.uid+" updated their account details") 
       return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
@@ -190,6 +214,7 @@ exports.updateanyuserbyid = (req, res) => {
         return res.json({"msg":"No such user exists"})
       }
       // console.log(user);
+      activitylog.info("user id "+req.body.uid+" role has been updated to " + req.body.role) 
       return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
@@ -233,6 +258,7 @@ exports.updateuserbyid = (req, res) => {
         return res.json({"msg":"No such user exists"})
       }
       // console.log(user);
+      activitylog.info("user id "+req.profile.id+" updated their acount") 
       return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
@@ -311,6 +337,7 @@ exports.advancedsignup = async (req, res) => {
       role:role,
       password:hash
     }).then((user) => {
+      activitylog.info("Admin created new user "+req.body.fname+" having role "+req.body.role) 
        /* sqs start*/
 
     {
@@ -422,7 +449,7 @@ exports.advancedsignup = async (req, res) => {
   req.ip);
 };
 
-exports.signup = async (req, res) => {
+exports.signup = async (req, res,next) => {
   var { fname, lname, email, file,pass } = req.body;
   const fileName = req.body.file;
   bcrypt.hash(pass, saltRounds, async (err,   hash) => {
@@ -432,105 +459,9 @@ exports.signup = async (req, res) => {
       email: email,
       password:hash
     }).then((user) => {
-       /* sqs start*/
-
-    {
-      // Create an SQS service object
-      var sqs = new AWS.SQS({ apiVersion: "2012-11-05" });
-      var params = {
-        // Remove DelaySeconds parameter and value for FIFO queues
-        DelaySeconds: 10,
-        //send user email in queue body
-        MessageBody: email,
-        // MessageDeduplicationId: "TheWhistler",  // Required for FIFO queues
-        // MessageGroupId: "Group1",  // Required for FIFO queues
-        QueueUrl: process.env.QUEUE_URL,
-      };
-      sqs.sendMessage(params, function (err, data) {
-        if (err) {
-      console.log(err)
-          logger.log("error", err);
-        } else {
-          logger.log(
-            "info",
-            "Data moved to Queue Successfully"+
-            data.MessageId
-          );
-        }
-      });
-    }
-
- /* sqs end*/
-
- /* s3 start*/
-  // function uploadToS3(bucketName, keyPrefix, filePath) {
-  //      // ex: /path/to/my-picture.png becomes my-picture.png
-  //      var fileName = path.basename(filePath);
-  //      var fileStream = fs.createReadStream(filePath);
-
-  //      // If you want to save to "my-bucket/{prefix}/{filename}"
-  //      //                    ex: "my-bucket/my-pictures-folder/my-picture.png"
-  //      var keyName = path.join(keyPrefix, fileName);
-
-  //      // We wrap this in a promise so that we can handle a fileStream error
-  //      // since it can happen *before* s3 actually reads the first 'data' event
-  //      return new Promise(function(resolve, reject) {
-  //          fileStream.once('error', reject);
-  //          s3.upload(
-  //              {
-  //                  //user can upload objects but cannot view them (storing objects privately in bucket)
-  //                  // Bucket: bucketName,
-  //                  // Key: keyName,
-  //                  // Body: fileStream,
-  //                  // ContentType:'image/jpeg',
-  //                  // ACL:'private'
-
-  //                  //If we want user to upload the object and want to provide the public link to view the image (storing objects privately in bucket)
-  //                  Bucket:'baburaoapte',
-  //                  Key: keyName,
-  //                  Body: fileStream,
-  //                  ContentType:'image/jpeg',
-  //                  ACL:'public-read'
-  //              }
-  //          ).promise().then(resolve, reject);
-  //      });
-  //  }
-
-  //  await uploadToS3(process.env.BUCKET_NAME, req.body.fname, req.body.file).then(function (result) {
-  //      console.log("Uploaded to s3:", result);
-  //      console.log("Download Your Uploaded Item Here "+ result.Location);
-  //       req.profile.Location=result.Location;
-  //       console.log(req.body.file)
-  //    }).catch(function (err) {
-  //     logger.log('error','Upload to s3 failed ',err.toString());
-  //    });
-
- /* s3 end*/
-
- /* mail start*/
-
-  var mailOptions = {
-    from: process.env.MAIL_SENDER,
-    to: process.env.MAIL_RECEIVER,
-    subject: "New user Registered",
-    text: `Hello admin, New user named ${fname} ${lname} just registered onto your application. View Database for more information`,
-  };
-
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      logger.log("error", error);
-      console.log(error);
-    } else {
-      console.log("Email sent: " + info.response);
-      logger.log('info',"Email sent: " + info.response)
-
-    }
-  });
-
- /* mail end*/
-        return res.json({"msg":"user Created Successfully"})
-
-      }).catch((error) => {
+    activitylog.info("New user signed up having name"+req.body.fname+" "+req.body.lname);  
+    next();
+    }).catch((error) => {
         // console.log(error.errors[0].message);
         console.log(error)
         logger.log('error',error)
@@ -551,6 +482,7 @@ exports.findallusers = (req, res) => {
       return res.json({ error: "No data exists" });
     })
     .then((users) => {
+      activitylog.info("user id "+req.profile.id+" fetched all users") 
       res.json(users);
     });
   }
@@ -580,11 +512,13 @@ exports.signin = (req,res) => {
   })
   .then((user) => {
     if(user==null){
+      activitylog.info("user with email "+req.body.email+" attempted to signin") 
     return res.json({ "err": "No such E-mail Exists" });
     }
     bcrypt.compare(req.body.pass,user.password,(err,data) => {
       if(data==true)
         {
+          activitylog.info("user with email "+req.body.email+" attempted to signin") 
           //create token
           const token = jwt.sign({ id: user.id }, process.env.SECRET,{expiresIn:'2h'});
           //put token in cookie
@@ -599,6 +533,7 @@ exports.signin = (req,res) => {
         else{
           console.log(err)
           logger.log("error", err);
+    activitylog.info("user with email "+req.body.email+" signed in") 
           return res.json({"err":"Password does not match"})
         }
     })
@@ -608,69 +543,16 @@ exports.signin = (req,res) => {
   req.ip);
 }
 
-exports.putpresignedurl = async (req,res) => {
-  try{
-    const url=await s3.getSignedUrlPromise('putObject',{
-      Bucket:process.env.BUCKET_NAME,
-      Key:'s3presigned.jpeg',
-      Expires:100,
-    });
-    req.signedurl=url;
-    return res.json({"url":url})
-  }
-  catch(err){
-    console.log(err)
-  }
-  mylogger.info(`Request on getpresignedurl route` +
-  "from IP address " +
-  req.ip);
-}
-
-exports.getpresignedurl = async (req,res) => {
-  try{
-    const url=await s3.getSignedUrlPromise('getObject',{
-      Bucket:process.env.BUCKET_NAME,
-      Key:req.file,
-      Expires:100,
-    });
-    req.signedurl=url;
-    // console.log(req);
-    // return res.json({"url":url})
-    res.send({ image: url });
-  }
-  catch(err){
-    console.log(err)
-    logger.log("error", err);
-  }
-  mylogger.info(`Request on getpresignedurl route` +
-  "from IP address " +
-  req.ip);
-  }
-
 //middleware
 exports.finduserbyid = (req, res, next,id) => {
-  // user.findOne({
-  //   where:{
-  //     id:req.params.id
-  //   }
-  // },(err, user) => {
-  //   if (err || !user) {
-  //     return res.status(400).json({
-  //       error: "No user was found in DB"
-  //     });
-  //   }
-  //   req.profile = user;
-  //   console.log(req.profile)
-  //   next();
-  // })
   user.findOne({
     where:{
       id:req.params.id
     }
   }).catch((err) => { 
-    return res.json(err) 
     console.log(err); 
     logger.log("error", error);
+    return res.json(err) 
     })
   .then((user) => {
     req.profile = user;
@@ -696,8 +578,6 @@ exports.isAuthenticated = (err,req, res, next) => {
     return res.status(err.status).json({message:err.message});;
   }
   let checker = req.profile && req.auth && req.profile.id == req.auth.id;
-  // console.log(req.profile.id)
-  // console.log(req.auth.id)
   if (!checker) {
      return res.json(err) 
     //  logger.log("error", "Access Denied");
@@ -732,6 +612,8 @@ exports.signout = (req, res) => {
     "info",
     `get request on signout route http://localhost:${port}/api/signout`+"from IP address "+req.ip
   );
+  activitylog.info("user signed out" + "from IP address " +
+  req.ip) 
   mylogger.info(`Request on Signout route` +
   "from IP address " +
   req.ip);

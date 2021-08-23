@@ -1,0 +1,120 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success" style="border-bottom:1px solid black;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link text-white" routerLink="/" *ngIf="!isuser">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/signin" *ngIf="!isuser">Sign In</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/signin" (click)="signout()" *ngIf="isuser || isadmin">Sign Out</a>
+          </li>
+                  <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/profile" *ngIf="isuser || isadmin">Home</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/account" *ngIf="isuser || isadmin">Account</a>
+          </li>
+                    <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/certificate" *ngIf="isuser || isadmin">Certificate</a>
+          </li>       
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/admin" *ngIf="isadmin">Admin Panel</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+<div class="m-3 p-3" style="float: left;">
+  <h5 style="text-align: center;">Certificates Actions</h5>
+  <input type="submit" value="Upload" (click)="manageupload()">
+  <br>
+  <input type="submit" value="View All" (click)="manageavail()">
+  <br>
+  <input type="submit" value="Add New" (click)="manageaddcert()">
+  <br>
+  <input type="submit" value="Remove" (click)="managermvcert()">
+  <br>
+</div>
+<div class="m-3 p-3" style="float: left;">
+
+<div *ngIf="mngupload">
+<h5>Upload Certificate</h5>
+<input (change)="onImagePicked($event)" ngf-pattern="'.jpeg,.jpg'" placeholder="Upload Image" 
+type="file" />
+<button class="bg-success text-white" (click)="onImageUpload()" [disabled]="!imgselected">Upload Image</button>
+
+ <div *ngIf="imageUrl">
+  Preview Image from AWS
+  <br />
+  <img width="200px" src="{{imageUrl}}" 
+  />
+  <br/>
+  <a href="{{imageUrl}}" download>Download</a>
+ </div>
+
+ <br>
+<p style="color:blue;">{{message}}</p>
+
+</div>
+
+<div *ngIf="mngavail">
+
+  <h5 *ngIf="objarray2.length<=0">There are no Certificates Created by Admin as of now</h5>
+  <h5 *ngIf="objarray2.length>0">List of Available certificates</h5>
+  <table class="table" border="1" cellspacing="0" style="width:500px;" *ngIf="objarray2.length>0">
+    <thead>
+    <tr>
+      <th>Certificate ID</th>
+      <th>Certificate Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let o of objarray2">
+      <td>{{o.id}}</td>
+      <td>{{o.cardname}}</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+<div *ngIf="mngaddcert">
+
+  <h5>Add Certification in Your Profile</h5>
+  <form #addcardform="ngForm" (ngSubmit)="oncardsubmit(addcardform.value)">
+      
+      <label for="cid">Certificate ID:
+          <input type="number" id="cid" name="cid" ngModel>
+          </label>
+          <input type="submit" value="Submit">
+  </form>
+  <br>
+<p style="color:blue;">{{message}}</p>
+  
+</div>
+
+<div *ngIf="mngrmvcert">
+
+  <h5>Remove Certification from Your Profile</h5>
+  
+  <form #removecardform="ngForm" (ngSubmit)="onremovecardsubmit(removecardform.value)">
+      
+      <label for="cid">Certificate ID:
+          <input type="number" id="cid" name="cid" ngModel>
+          </label>
+          <input type="submit" value="Submit">
+  </form>
+  <br>
+
+<p style="color:blue;">{{message}}</p>
+</div>
+
+  
+  
+  

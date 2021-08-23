@@ -16,12 +16,13 @@
                   <li class="nav-item">
           <a class="nav-link text-white" routerLink="/profile" *ngIf="isuser || isadmin">Home</a>
         </li>
-          <li class="nav-item">
+                    <li class="nav-item">
             <a class="nav-link text-white" routerLink="/account" *ngIf="isuser || isadmin">Account</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" routerLink="/certificate" *ngIf="isuser || isadmin">Certificates</a>
-          </li>       
+                    <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/certificate" *ngIf="isuser || isadmin">Certificate</a>
+          </li>
+
         <li class="nav-item">
           <a class="nav-link text-white" routerLink="/admin" *ngIf="isadmin">Admin Panel</a>
         </li>
@@ -29,26 +30,35 @@
     </div>
   </nav>
 
-<h3>Welcome {{fname || ""}} {{lname || ""}}</h3>
-<p *ngIf="email">Your E-mail is {{email || "user@example.com"}}</p>
-
-
-  <h5 *ngIf="arrlength2<=0">You haven't added any certificate in your profile</h5>
-
-  <h5 *ngIf="arrlength2>0">List of Certificates You Have</h5>
-  <table class="table" border="1" cellspacing="0" style="width:500px;" *ngIf="arrlength2>0">
-    <thead>
-    <tr>
-      <th>Certificate ID</th>
-      <th>Certificate Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let o of objarray2">
-      <td>{{o.id}}</td>
-      <td>{{o.cardname}}</td>
-    </tr>
-  </tbody>
-  </table>
+<div style="width:500px;">
+  <form #updateform="ngForm" (ngSubmit)="onsubmit(updateform.value)">
+          <fieldset border="1px">
+          <legend>Update Info</legend>
+            <label for="fname">First name:
+            <input type="text" id="fname" [(ngModel)]="fname" name="fname" ngModel>
+            </label>
+            <br>
+          
+            <label for="lname">Last name:
+            <input type="text" id="lname" [(ngModel)]="lname" name="lname" ngModel>
+            </label>
+            <br>
+          
+            <label for="email">E-mail:
+            <input type="email" id="email" [(ngModel)]="email" name="email" ngModel>
+            </label>
+            <br>
+            
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+            </fieldset>
+  </form>
+  <div>
+  <br>
+  <h5>Delete Your Account</h5>
+  <input type="submit" (click)="delete()" value="Delete account">
+  
+  <br>
+  <br>
 
 <p style="color:blue;">{{message}}</p>

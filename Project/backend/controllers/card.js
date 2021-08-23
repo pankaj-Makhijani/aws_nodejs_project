@@ -5,6 +5,7 @@ require('dotenv').config('./.env');
 const path = require('path')
 const db = require('../models');
 const fs = require('fs');
+const activitylog=require("../config/logger3")
 
 const port = process.env.PORT || 3000;
 
@@ -25,6 +26,7 @@ exports.addcard = async (req,res) => {
 								return res.json({"msg":"certificate already Exists in your Profile"})
 						}).then(card => {
 						// logger.log('info',card)
+						activitylog.info("user id "+ req.params.id + "added card id" + req.body.cid + " in their profile") 
 						return res.json({"msg":"certificate added to your Profile Successfully"})
 					})
 			}
@@ -62,6 +64,7 @@ exports.removecard = (req,res) => {
 						return res.json({"msg":"Error occured while removing certificate"})
 				}).then(card => {
 				// logger.log('info',card)
+				activitylog.info("user id "+ req.params.id + "removed card id" + req.body.cid + " from their profile") 
 				return res.json({"msg":"certificate removed successfully"})
 			})
 			})
@@ -77,6 +80,7 @@ exports.createcard = (req,res) => {
 			return res.json({"msg":"error creating certificate"})
 	}).then(card => {
 	// logger.log('info',card)
+	activitylog.info("card created with name " + req.body.cname) 
 	return res.json({'msg':'certificate created successfully'})
 })
 	 logger.log('info',`Post request on create card route http://localhost:${port}/api-cards/createcard`,' IP address ',req.ip);
@@ -99,6 +103,7 @@ exports.deletecardbyid = (req,res) => {
 			id:req.body.cardid
 		}
 	}).then(card => {
+	activitylog.info("card deleted with id " + req.body.cardid) 
 		res.json({'msg':'certificate deleted successfully'})
 	 }).catch((error) => { 
 		 console.log(error)
@@ -156,6 +161,7 @@ exports.getallcards = (req,res) => {
 		]
 	})
 	.then((cards) => {
+	activitylog.info("Admin fetched all cards") 
 		return res.send(cards);
 	  })
 	  .catch((err) => {

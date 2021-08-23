@@ -4,12 +4,13 @@ import { Router } from '@angular/router';
 import { ImageUploadService } from '../image-upload.service';
 
 @Component({
-  selector: 'app-userprofile',
-  templateUrl: './userprofile.component.html',
-  styleUrls: ['./userprofile.component.css']
+  selector: 'app-certificate',
+  templateUrl: './certificate.component.html',
+  styleUrls: ['./certificate.component.css']
 })
-export class UserprofileComponent implements OnInit {
+export class CertificateComponent implements OnInit {
 
+  
   constructor(private router:Router,private http:HttpClient,private imageUploadService: ImageUploadService){}
   imageObj: File;
   accaction:boolean=true;
@@ -17,6 +18,10 @@ export class UserprofileComponent implements OnInit {
   imageUrl: string;
   isuser:boolean=false;
   isadmin:boolean=false;
+  mngupload:boolean=true;
+  mngavail:boolean=false;
+  mngaddcert:boolean=false;
+  mngrmvcert:boolean=false;
   message:any;
   fname:any;
   lname:any;
@@ -28,7 +33,6 @@ export class UserprofileComponent implements OnInit {
   imgselected:boolean=false;
   objarray2:any[]=[];
   objid2:any[]=[];
-  objname2:any[]=[];
   // totalusers:any;
   arrlength2:any;
   ngOnInit(): void {
@@ -55,23 +59,46 @@ export class UserprofileComponent implements OnInit {
           window.open("/signin", "_self");
         }
 
-        this.http.get(`http://localhost:3000/api/getcardbyid/${this.id}`)
+        this.http.get(`http://localhost:3000/api-cards/getallcards`)
         .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
-        console.log(y.cards)
-        for(var i = 0; i <= y.cards.length; i++) {
-          var obj = y.cards[i];
+        console.log(y)
+        for(var i = 0; i <= y.length; i++) {
+          var obj = y[i];
           this.arrlength2=i;
           this.objarray2.push(obj)
           this.objid2.push(obj.id)
-          this.objname2.push(obj.cardname)
         }
-        console.log(this.objid2)
-        console.log(this.objname2)
       })
   }
   
-  
+  manageupload(){
+    this.mngupload=true;
+    this.mngavail=false;
+    this.mngaddcert=false;
+    this.mngrmvcert=false;
+  }
+
+  manageavail(){
+    this.mngupload=false;
+    this.mngavail=true;
+    this.mngaddcert=false;
+    this.mngrmvcert=false;
+  }
+
+  manageaddcert(){
+    this.mngupload=false;
+    this.mngavail=false;
+    this.mngaddcert=true;
+    this.mngrmvcert=false;
+  }
+
+  managermvcert(){
+    this.mngupload=false;
+    this.mngavail=false;
+    this.mngaddcert=false;
+    this.mngrmvcert=true;
+  }
   
   oncardsubmit(addcardform:any){
     console.log(addcardform)
@@ -306,4 +333,5 @@ mngacc(){
   this.accaction=true;
   this.certaction=false;
 }
+
 }

@@ -2,6 +2,7 @@
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 require("dotenv").config("./.env");
+const activitylog=require("../config/logger3")
 
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
@@ -18,6 +19,7 @@ AWS.config.update({
  /* In case you want to validate your file type */
  const fileFilter = (req, file, cb) => {
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+      activitylog.info("user with email "+req.profile.id+" uploaded image to s3") 
      cb(null, true);
     } else {
      cb(new Error('Wrong file type, only upload JPEG and/or PNG !'), 

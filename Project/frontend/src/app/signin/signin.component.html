@@ -1,27 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:1px solid black;">
+<nav class="navbar navbar-expand-lg navbar-light bg-success" style="border-bottom:1px solid black;">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/" >Signup</a>
+        <a class="nav-link text-white" routerLink="/" >Signup</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signin" >Sign In</a>
+        <a class="nav-link text-white" routerLink="/signin" >Sign In</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/profile" *ngIf="active">User Profile</a>
+        <a class="nav-link text-white" routerLink="/profile" *ngIf="active">User Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/admin" *ngIf="active">Admin Dashboard</a>
+        <a class="nav-link text-white" routerLink="/admin" *ngIf="active">Admin Dashboard</a>
       </li>
     </ul>
   </div>
 </nav>
+<div id="login-box">
 
-<div>
-<h3>Signin Form</h3>
+  <div class="left">
+<div class="alert alert-danger" role="alert" style="width: 300px !important; padding: 10px !important;" *ngIf="message">
+  <p>{{message || ""}}</p>
+</div>
+    <h1>Sign In</h1>
+
 <form ngNativeValidate #signinform="ngForm" (ngSubmit)="onsubmit(signinform.value)">
 
   <label for="email">E-mail:
@@ -36,6 +41,6 @@
   
   <input type="submit" value="Submit">
   <input type="submit" value="Reset">
-  <p>{{message || ""}}</p>
 </form>
+  </div>
 </div>

@@ -1,176 +1,311 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:1px solid black;">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-success"
+  style="border-bottom: 1px solid black"
+>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/" *ngIf="active">Signup</a>
+        <a class="nav-link text-white" routerLink="/" *ngIf="!active">Signup</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signin" *ngIf="active">Sign In</a>
+        <a class="nav-link text-white" routerLink="/signin" *ngIf="!active">Sign In</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" routerLink="/signin" (click)="signout()" *ngIf="active">Sign Out</a>
-        </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/profile" *ngIf="active">User Profile</a>
+        <a
+          class="nav-link text-white"
+          routerLink="/signin"
+          (click)="signout()"
+          *ngIf="active"
+          >Sign Out</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/admin" *ngIf="active">Admin Dashboard</a>
+        <a class="nav-link text-white" routerLink="/profile" *ngIf="active"
+          >Home</a
+        >
+      </li>
+            <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/account" *ngIf="active"
+          >Account</a
+        >
+      </li>
+
+              <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/certificate" *ngIf="active"
+          >Certificate</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/admin" *ngIf="active"
+          >Admin Panel</a
+        >
       </li>
     </ul>
   </div>
 </nav>
 
-<h1>Welcome {{fname || ""}} {{lname || ""}}</h1>
-<p>Your E-mail is {{email || "user@example.com"}}</p>
-
-<h3>Create New User</h3>
-<form ngNativeValidate #signupform="ngForm" (ngSubmit)="onsubmit2(signupform.value)">
-  <label for="fname">First name:
-  <input type="text" id="fname" name="fname" minlength="4" ngModel required>
-  </label>
+<div class="m-3 p-3" style="float: left;">
+  <h5 style="text-align: center;">User Actions</h5>
+  <input type="submit" value="Create User" (click)="managecreateuser()">
+  <br>
+  <input type="submit" value="Update User" (click)="manageupdateuser()">
+  <br>
+  <input type="submit" value="Delete User" (click)="managedeleteuser()">
+  <br>
+  <input type="submit" value="Get Users" (click)="managegetuser()">
   <br>
 
-  
-  <label for="lname">Last name:
-  <input type="text" id="lname" name="lname" minlength="4" required ngModel>
-  </label>
+  <h5 style="text-align: center;">Certificates Actions</h5>
+  <input type="submit" value="Create Certificate" (click)="managecreatcert()">
   <br>
-
-  <label for="email">E-mail:
-  <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}" required ngModel>
-  </label>
+  <input type="submit" value="Delete Certificates" (click)="managedeletecert()">
   <br>
-
-  <label for="pass">Password:
-  <input type="password" id="pass" name="pass" ngModel minlength="8" required>
-  </label>
+  <input type="submit" value="Get Certificates" (click)="managegetcert()">
   <br>
-
-  <label for="role">Role:
-  <input type="number" id="role" name="role" ngModel required>
-  </label>
-  <br>
-  
-  <input type="submit" value="Submit">
-  <input type="submit" value="Reset">
-</form>
-
-<h3>Update User role</h3>
-<form #updateform="ngForm" (ngSubmit)="onsubmit1(updateform.value)">
-        
-
-        <label for="uid">User id:
-          <input type="number" id="uid" name="uid" ngModel>
-          </label>
-          <br>
-
-          <label for="role">role:
-          <input type="number" id="role" name="role" min="0" max="1" ngModel>
-          </label>
-          <br>
-          
-          <input type="submit" value="Submit">
-          <input type="submit" value="Reset">
-</form>
-
-<br>
+</div>
+<div class="m-3 p-3" style="float: left;">
 
 
-<h5>Create New Certification</h5>
-<form ngNativeValidate #cardform="ngForm" (ngSubmit)="oncardsubmit(cardform.value)">
+  <div *ngIf="mngcreateuser">
+    <h3>Create New User</h3>
+    <form
+      ngNativeValidate
+      #signupform="ngForm"
+      (ngSubmit)="onsubmit2(signupform.value)"
+    >
+      <label for="fname"
+        >First name:
+        <input type="text" id="fname" name="fname" minlength="4" ngModel required />
+      </label>
+      <br />
+    
+      <label for="lname"
+        >Last name:
+        <input type="text" id="lname" name="lname" minlength="4" required ngModel />
+      </label>
+      <br />
+    
+      <label for="email"
+        >E-mail:
+        <input
+          type="email"
+          id="email"
+          name="email"
+          pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}"
+          required
+          ngModel
+        />
+      </label>
+      <br />
+    
+      <label for="pass"
+        >Password:
+        <input
+          type="password"
+          id="pass"
+          name="pass"
+          ngModel
+          minlength="8"
+          required
+        />
+      </label>
+      <br />
+    
+      <label for="user">
+        <input type="radio" id="user" name="role" ngModel value="0" />User:
+      </label>
+      <label for="admin">
+        <input type="radio" id="admin" name="role" ngModel value="1" />Admin:
+      </label>
+      <br />
+    
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </div>
 
-  <label for="cname">Create Certificate:
-  <input type="text" id="cname" name="cname" required ngModel>
-  </label>
-  <input type="submit" value="Submit">
-</form>
-<br>
-<br>
+  <div *ngIf="mngupdateuser">
+    <h3>Update User role</h3>
+    <form #updateform="ngForm" (ngSubmit)="onsubmit1(updateform.value)">
+      <label for="uid"
+        >User id:
+        <input type="number" id="uid" name="uid" ngModel />
+      </label>
+      <br />
+    
+      <label for="user">
+        <input type="radio" id="user" name="role" ngModel value="0" />User:
+      </label>
+      <label for="admin">
+        <input type="radio" id="admin" name="role" ngModel value="1" />Admin:
+      </label>
+      <br />
+    
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+    </div>
 
-<h5>Delete any Certification</h5>
-<form ngNativeValidate #carddeleteform="ngForm" (ngSubmit)="oncarddelete(carddeleteform.value)">
+  <div *ngIf="mngdeleteuser">
+    <h5>Delete any user by ID</h5>
+    <form #deleteform="ngForm" (ngSubmit)="onsubmit(deleteform.value)">
+      <label for="id"
+        >User ID:
+        <input type="number" id="id" name="id" ngModel />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
 
-  <label for="cardid">Delete Certificate:
-  <input type="number" id="cardid" name="cardid" required ngModel>
-  </label>
-  <input type="submit" value="Submit">
-</form>
-<br>
-<br>
+  <div *ngIf="mnggetuser">  
+    <h5> All Users</h5>
+    
+    <div>
+      <p *ngIf="noofusers">
+        There are {{ noofusers }} Users stored in the database
+      </p>
+      <table
+        class="table"
+        border="1"
+        cellspacing="0"
+        style="width: 800px"
+        *ngIf="arrlength"
+      >
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">E-MAIL</th>
+            <th scope="col">First-Name</th>
+            <th scope="col">Last-Name</th>
+            <th scope="col">Role(Higher Role indicates Higher Authority)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let o of objarray">
+            <th scope="row">{{ o.id }}</th>
+            <td>{{ o.email }}</td>
+            <td>{{ o.firstname }}</td>
+            <td>{{ o.lastname }}</td>
+            <td>{{ o.role }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
 
-<h5>Delete any user by ID</h5>
-<form #deleteform="ngForm" (ngSubmit)="onsubmit(deleteform.value)">
-    <label for="id">User ID:
-        <input type="number" id="id" name="id" ngModel>
+    
+    <div *ngIf="mngcreatecert">
+      <h5>Create New Certification</h5>
+      <form
+        ngNativeValidate
+        #cardform="ngForm"
+        (ngSubmit)="oncardsubmit(cardform.value)"
+      >
+        <label for="cname"
+          >Create Certificate:
+          <input type="text" id="cname" name="cname" required ngModel />
         </label>
-        <input type="submit" value="Submit">
-</form>
-<br>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
 
-<h5>Get All Users</h5>
-<button (click)="onclick()">Get all Users</button>
-<br>
-<br>
-
-<div>
-<p *ngIf="noofusers">There are {{noofusers}} Users stored in the database</p>
-<table class="table" border="1" cellspacing="0" style="width:800px;" *ngIf="arrlength">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">E-MAIL</th>
-        <th scope="col">First-Name</th>
-        <th scope="col">Last-Name</th>
-        <th scope="col">Role(Higher Role indicates Higher Authority)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let o of objarray">
-        <th scope="row">{{o.id}}</th>
-        <td>{{o.email}}</td>
-        <td>{{o.firstname}}</td>
-        <td>{{o.lastname}}</td>
-        <td>{{o.role}}</td>
-      </tr>
-    </tbody>
-  </table>
+    
+    <div *ngIf="mngdeletecert">
+    <h5>Delete any Certification</h5>
+    <form
+      ngNativeValidate
+      #carddeleteform="ngForm"
+      (ngSubmit)="oncarddelete(carddeleteform.value)"
+    >
+      <label for="cardid"
+        >Delete Certificate:
+        <input type="number" id="cardid" name="cardid" required ngModel />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+    </div>
+    
+    <div *ngIf="mnggetcert">
+    <h5>All Certification Details</h5>
+    <div>
+      <p *ngIf="totalusers">There are {{ totalusers }} Users having Certificates</p>
+      <table
+        class="table"
+        border="1"
+        cellspacing="0"
+        *ngIf="arrlength2"
+        style="width: 800px"
+      >
+        <thead>
+          <tr>
+            <th scope="col">Certificate ID</th>
+            <th scope="col">Certificate Name</th>
+            <th scope="col">No of Users</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">E-mail ID</th>
+            <th scope="col">User ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let o of objarray2">
+            <th scope="row">{{ o.id }}</th>
+            <td>{{ o.cardname }}</td>
+            <td>{{ o.users.length }}</td>
+            <td>
+              <table>
+                <tr *ngFor="let q of o.users">
+                  {{
+                    q.firstname
+                  }}
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table>
+                <tr *ngFor="let q of o.users">
+                  {{
+                    q.lastname
+                  }}
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table>
+                <tr *ngFor="let q of o.users">
+                  {{
+                    q.email
+                  }}
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table>
+                <tr *ngFor="let q of o.users">
+                  {{
+                    q.id
+                  }}
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br />
+    </div>
+    <span style="color: blue">{{ message }}</span>
 </div>
-
-<h5>Get All Certification Details</h5>
-<button (click)="ongetalldetails()">Get All Certification</button>
-<div>
-<p *ngIf="totalusers">There are {{totalusers}} Users having Certificates</p>
-  <table class="table" border="1" cellspacing="0" *ngIf="arrlength2" style="width:800px;">
-    <thead>
-      <tr>
-        <th scope="col">Certificate ID</th>
-        <th scope="col">Certificate Name</th>
-        <th scope="col">No of Users</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">E-mail ID</th>
-        <th scope="col">User ID</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let o of objarray2">
-
-        <th scope="row">{{o.id}}</th>
-        <td>{{o.cardname}}</td>
-        <td>{{o.users.length}}</td>
-        <td><table><tr *ngFor="let q of o.users">{{q.firstname}}</tr></table></td>
-        <td><table><tr *ngFor="let q of o.users">{{q.lastname}}</tr></table></td>
-        <td><table><tr *ngFor="let q of o.users">{{q.email}}</tr></table></td>
-        <td><table><tr *ngFor="let q of o.users">{{q.id}}</tr></table></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<br>
-<span style="color:blue;">{{message}}</span>
 
 

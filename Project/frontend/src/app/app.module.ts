@@ -9,6 +9,8 @@ import { SigninComponent } from './signin/signin.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { AccountComponent } from './account/account.component';
+import { CertificateComponent } from './certificate/certificate.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     SignupComponent,
     SigninComponent,
     AdmindashboardComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    AccountComponent,
+    CertificateComponent
   ],
   imports: [
     BrowserModule,

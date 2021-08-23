@@ -1,14 +1,15 @@
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ImageUploadService } from '../image-upload.service';
-
 @Component({
-  selector: 'app-userprofile',
-  templateUrl: './userprofile.component.html',
-  styleUrls: ['./userprofile.component.css']
+  selector: 'app-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.css']
 })
-export class UserprofileComponent implements OnInit {
+export class AccountComponent implements OnInit {
+
 
   constructor(private router:Router,private http:HttpClient,private imageUploadService: ImageUploadService){}
   imageObj: File;
@@ -28,7 +29,6 @@ export class UserprofileComponent implements OnInit {
   imgselected:boolean=false;
   objarray2:any[]=[];
   objid2:any[]=[];
-  objname2:any[]=[];
   // totalusers:any;
   arrlength2:any;
   ngOnInit(): void {
@@ -55,19 +55,16 @@ export class UserprofileComponent implements OnInit {
           window.open("/signin", "_self");
         }
 
-        this.http.get(`http://localhost:3000/api/getcardbyid/${this.id}`)
+        this.http.get(`http://localhost:3000/api-cards/getallcards`)
         .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
-        console.log(y.cards)
-        for(var i = 0; i <= y.cards.length; i++) {
-          var obj = y.cards[i];
+        console.log(y)
+        for(var i = 0; i <= y.length; i++) {
+          var obj = y[i];
           this.arrlength2=i;
           this.objarray2.push(obj)
           this.objid2.push(obj.id)
-          this.objname2.push(obj.cardname)
         }
-        console.log(this.objid2)
-        console.log(this.objname2)
       })
   }
   
