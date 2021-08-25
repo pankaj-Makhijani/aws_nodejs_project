@@ -19,13 +19,18 @@ AWS.config.update({
  /* In case you want to validate your file type */
  const fileFilter = (req, file, cb) => {
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-      activitylog.info("user with email "+req.profile.id+" uploaded image to s3") 
+      activitylog.info("user with id "+req.profile.id+" uploaded image to s3") 
      cb(null, true);
     } else {
+      activitylog.error("Wrong file type error user with id "+req.profile.id) 
      cb(new Error('Wrong file type, only upload JPEG and/or PNG !'), 
      false);
     }
    };
+
+   const filename = (fn,ln) => {
+    return fn+ln;
+   }
 
    const upload = multer({
    fileFilter: fileFilter,
@@ -36,7 +41,9 @@ AWS.config.update({
     key: function(req, file, cb) {
       /*I'm using Date.now() to make sure my file has a unique name*/
       d=Date.now();
-      x=req.profile.firstname+req.profile.lastname;
+      fname=req.profile.firstname;
+      lname=req.profile.lastname;
+      x=filename(fname,lname)
       // console.log( x)
       // console.log( file.originalname)
       // console.log( file.mimetype)

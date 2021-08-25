@@ -18,6 +18,7 @@ export class CertificateComponent implements OnInit {
   imageUrl: string;
   isuser:boolean=false;
   isadmin:boolean=false;
+  ishr:boolean=false;
   mngupload:boolean=true;
   mngavail:boolean=false;
   mngaddcert:boolean=false;
@@ -49,10 +50,17 @@ export class CertificateComponent implements OnInit {
       if(this.role==1){
         this.isadmin=true;
         this.isuser=true;
+        this.ishr=true
       }
       if(this.role==0){
         this.isadmin=false;
         this.isuser=true;
+        this.ishr=false;
+      }
+      if(this.role==2){
+        this.isadmin=false;
+        this.isuser=true;
+        this.ishr=true;
       }
         }
         if(!localStorage.getItem("jwt")){
@@ -120,6 +128,7 @@ export class CertificateComponent implements OnInit {
         var y=JSON.parse(JSON.stringify(res));
         this.message=y.msg;
         console.log(res);
+        this.ngOnInit();
         // console.log(typeof res);
       },(err)=>{
         if(err.status>400) {
@@ -156,6 +165,7 @@ export class CertificateComponent implements OnInit {
         var y=JSON.parse(JSON.stringify(res));
         this.message=y.msg;
         console.log(res);
+        this.ngOnInit();
         // console.log(typeof res);
       },(err)=>{
         if(err.status>400) {
@@ -235,6 +245,7 @@ export class CertificateComponent implements OnInit {
       this.lname=updateform.lname;
       this.username=updateform.fname +" "+ updateform.lname;
       this.email=updateform.email;
+      this.ngOnInit();
       // console.log(typeof res);
     },(err)=>{
       var res="You are not authorized to perform this action"
@@ -295,8 +306,11 @@ export class CertificateComponent implements OnInit {
       this.message=res;
       }
       else{
+        var x:any = localStorage.getItem("jwt")
+        x=JSON.parse(x)
+        var id=x.user.id;
         localStorage.removeItem("jwt")
-        this.http.get("http://localhost:3000/api/signout").subscribe(res=>{
+        this.http.get(`http://localhost:3000/api/${id}/signout`).subscribe(res=>{
         // console.log(typeof res);
         // console.log(res);
         this.message=JSON.parse(JSON.stringify(res)).message;

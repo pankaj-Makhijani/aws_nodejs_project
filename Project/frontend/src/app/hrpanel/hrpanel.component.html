@@ -62,20 +62,10 @@
 
 <div class="m-3 p-3" style="float: left;">
   <h5 style="text-align: center;">User Actions</h5>
-  <input type="submit" value="Create User" (click)="managecreateuser()">
-  <br>
-  <input type="submit" value="Update User" (click)="manageupdateuser()">
-  <br>
-  <input type="submit" value="Delete User" (click)="managedeleteuser()">
-  <br>
   <input type="submit" value="Get Users" (click)="managegetuser()">
   <br>
 
   <h5 style="text-align: center;">Certificates Actions</h5>
-  <input type="submit" value="Create Certificate" (click)="managecreatcert()">
-  <br>
-  <input type="submit" value="Delete Certificates" (click)="managedeletecert()">
-  <br>
   <input type="submit" value="Get Certificates" (click)="managegetcert()">
   <br>
 </div>
@@ -120,24 +110,21 @@
           type="password"
           id="pass"
           name="pass"
-          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" title="Password must be alphanumeric and of 8 characters"
-          required
           ngModel
+          minlength="8"
+          required
         />
       </label>
       <br />
     
-      <label for="user" >
-        <input class="p-2 m-2" type="radio" id="user" name="role" ngModel value="0" />User
+      <label for="user">
+        <input type="radio" id="user" name="role" ngModel value="0" />User:
       </label>
-      <br>
-
       <label for="hr">
-        <input class="p-2 m-2" type="radio" id="hr" name="role" ngModel value="2" />Hr
+        <input type="radio" id="hr" name="role" ngModel value="2" />Hr:
       </label>
-      <br>
       <label for="admin">
-        <input class="p-2 m-2" type="radio" id="admin" name="role" ngModel value="1" />Admin
+        <input type="radio" id="admin" name="role" ngModel value="1" />Admin:
       </label>
       <br />
     
@@ -155,17 +142,12 @@
         <input type="number" id="uid" name="uid" ngModel />
       </label>
       <br />
-      <label for="user" >
-        <input class="p-2 m-2" type="radio" id="user" name="role" ngModel value="0" />User
+    
+      <label for="user">
+        <input type="radio" id="user" name="role" ngModel value="0" />User:
       </label>
-      <br>
-
-      <label for="hr">
-        <input class="p-2 m-2" type="radio" id="hr" name="role" ngModel value="2" />Hr
-      </label>
-      <br>
       <label for="admin">
-        <input class="p-2 m-2" type="radio" id="admin" name="role" ngModel value="1" />Admin
+        <input type="radio" id="admin" name="role" ngModel value="1" />Admin:
       </label>
       <br />
     
@@ -193,9 +175,6 @@
     <h5> All Users</h5>
     
     <div>
-      <p *ngIf="noofusers">
-        There are {{ noofusers }} Users stored in the database
-      </p>
       <table
         class="table"
         border="1"
@@ -209,18 +188,14 @@
             <th scope="col">E-MAIL</th>
             <th scope="col">First-Name</th>
             <th scope="col">Last-Name</th>
-            <th scope="col">Role</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let o of objarray">
-            <th scope="row">{{ o.id }}</th>
-            <td>{{ o.email }}</td>
-            <td>{{ o.firstname }}</td>
-            <td>{{ o.lastname }}</td>
-            <td *ngIf="o.role==0">User</td>
-            <td *ngIf="o.role==2">Hr</td>
-            <td *ngIf="o.role==1">Admin</td>
+            <th scope="row" *ngIf="o.role==0">{{ o.id }}</th>
+            <td *ngIf="o.role==0">{{ o.email }}</td>
+            <td *ngIf="o.role==0">{{ o.firstname }}</td>
+            <td *ngIf="o.role==0">{{ o.lastname }}</td>
           </tr>
         </tbody>
       </table>

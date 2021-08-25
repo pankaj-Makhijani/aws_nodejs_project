@@ -45,12 +45,13 @@ exports.getpresignedurl = async (req,res) => {
       req.signedurl=url;
       // console.log(req);
       // return res.json({"url":url})
-      activitylog.info("url sent to user id"+req.profile.id) 
+      activitylog.info("url sent to user id "+req.profile.id) 
       res.send({ image: url });
     }
     catch(err){
-      console.log(err)
+      // console.log(err)
       logger.log("error", err);
+      activitylog.info("Error occured during presignedurl of user id "+req.profile.id) 
     }
     mylogger.info(`Request on getpresignedurl route` +
     "from IP address " +

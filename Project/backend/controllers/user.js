@@ -45,7 +45,8 @@ AWS.config.update({
 				}
   })
     .catch((error) => {
-      console.log(error)
+      // console.log(error)
+      activitylog.error("Error occured during getcardbyid on user id"+req.params.id)
     })
     .then((user) => {
       activitylog.info("user id "+user.id+" made request on getcardbyid route") 
@@ -77,8 +78,10 @@ exports.getuserbyid = (req, res) => {
     },
   })
     .catch((error) => {
-      console.log(error)
+      // console.log(error)
       logger.log("error", error);
+      activitylog.error("Error occured during getuserbyid on user id"+req.params.id)
+
       return res.json({ error: "Data does not exist" });
     })
     .then((user) => {
@@ -103,7 +106,8 @@ exports.deleteuserbyidunauth = (req, res) => {
     },
   })
     .catch((error) => {
-      console.log(error)
+      // console.log(error)
+      activitylog.error("Error occured during deleting account on user id "+req.params.id)
       logger.log("error", error);
       return res.json({ error: "delete action unsuccessful" });
     })
@@ -130,11 +134,12 @@ exports.deleteuserbyid = (req, res) => {
     },
   })
   .then((user) => {
-    activitylog.info("user id "+req.body.id+" deleted their acount") 
+    activitylog.info("user id "+req.body.id+" deleted their account") 
     return res.json({ msg: "data deleted successfully" }).status(200);
   })
     .catch((error) => {
-      console.log(error)
+      // console.log(error)
+      activitylog.error("Error occured during deleting account on user id "+req.body.id)
       logger.log("error", error);
       // console.log(req.body)
       return res.json({ err: "delete action unsuccessful" }).status(404);
@@ -170,6 +175,7 @@ exports.updateuserbyidunauth = (req, res) => {
   )
     .then((user) => {
       if(user==0){
+        activitylog.error("No such user id " + req.body.uid +" exists while updating account")
         return res.json({"error":"No such user exists"})
       }
       // console.log(user);
@@ -177,7 +183,8 @@ exports.updateuserbyidunauth = (req, res) => {
       return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
-      console.log(error)
+      // console.log(error)
+      activitylog.error("Error occured " + error.errors[0].message + " while updating user details of user id "+req.body.uid)
       logger.log("error", error);
       return res.json({ "error": error.errors[0].message});
       
@@ -211,6 +218,7 @@ exports.updateanyuserbyid = (req, res) => {
   )
     .then((user) => {
       if(user==0){
+        activitylog.error("No such user id " + req.body.uid +" exists while updating account")
         return res.json({"msg":"No such user exists"})
       }
       // console.log(user);
@@ -218,8 +226,9 @@ exports.updateanyuserbyid = (req, res) => {
       return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
-      console.log(error)
+      // console.log(error)
       logger.log("error", error);
+      activitylog.error("Error occured " + error.errors[0].message + " while updating user details of user id "+req.body.uid)
       return res.json({ "msg": error.errors[0].message});
       
     });
@@ -255,6 +264,7 @@ exports.updateuserbyid = (req, res) => {
   )
     .then((user) => {
       if(user==0){
+        activitylog.error("No such user id " + req.profile.id +" exists while updating account")
         return res.json({"msg":"No such user exists"})
       }
       // console.log(user);
@@ -262,7 +272,8 @@ exports.updateuserbyid = (req, res) => {
       return res.json({ msg: "data updated successfully" });
     })
     .catch((error) => {
-      console.log(error)
+      // console.log(error)
+      activitylog.error("Error occured " + error.errors[0].message + " while updating user details of user id "+req.body.uid)
       logger.log("error", error);
       return res.json({ "msg": error.errors[0].message});
       
@@ -354,64 +365,23 @@ exports.advancedsignup = async (req, res) => {
       };
       sqs.sendMessage(params, function (err, data) {
         if (err) {
-      console.log(err)
+      // console.log(err)
           logger.log("error", err);
+       activitylog.error("sqs service error while signup of user "+email)
+
         } else {
           logger.log(
             "info",
             "Data moved to Queue Successfully"+
             data.MessageId
           );
+       activitylog.info("sqs service success while signup of user "+email)
+
         }
       });
     }
 
  /* sqs end*/
-
- /* s3 start*/
-  // function uploadToS3(bucketName, keyPrefix, filePath) {
-  //      // ex: /path/to/my-picture.png becomes my-picture.png
-  //      var fileName = path.basename(filePath);
-  //      var fileStream = fs.createReadStream(filePath);
-
-  //      // If you want to save to "my-bucket/{prefix}/{filename}"
-  //      //                    ex: "my-bucket/my-pictures-folder/my-picture.png"
-  //      var keyName = path.join(keyPrefix, fileName);
-
-  //      // We wrap this in a promise so that we can handle a fileStream error
-  //      // since it can happen *before* s3 actually reads the first 'data' event
-  //      return new Promise(function(resolve, reject) {
-  //          fileStream.once('error', reject);
-  //          s3.upload(
-  //              {
-  //                  //user can upload objects but cannot view them (storing objects privately in bucket)
-  //                  // Bucket: bucketName,
-  //                  // Key: keyName,
-  //                  // Body: fileStream,
-  //                  // ContentType:'image/jpeg',
-  //                  // ACL:'private'
-
-  //                  //If we want user to upload the object and want to provide the public link to view the image (storing objects privately in bucket)
-  //                  Bucket:'baburaoapte',
-  //                  Key: keyName,
-  //                  Body: fileStream,
-  //                  ContentType:'image/jpeg',
-  //                  ACL:'public-read'
-  //              }
-  //          ).promise().then(resolve, reject);
-  //      });
-  //  }
-
-  //  await uploadToS3(process.env.BUCKET_NAME, req.body.fname, req.body.file).then(function (result) {
-  //      console.log("Uploaded to s3:", result);
-  //      console.log("Download Your Uploaded Item Here "+ result.Location);
-  //       req.profile.Location=result.Location;
-  //       console.log(req.body.file)
-  //    }).catch(function (err) {
-  //     logger.log('error','Upload to s3 failed ',err.toString());
-  //    });
-
- /* s3 end*/
 
  /* mail start*/
 
@@ -425,11 +395,12 @@ exports.advancedsignup = async (req, res) => {
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       logger.log("error", error);
-      console.log(error);
+      // console.log(error);
+      activitylog.error("Error occured while noifying admin on signup user "+email)
     } else {
-      console.log("Email sent: " + info.response);
+      // console.log("Email sent: " + info.response);
       logger.log('info',"Email sent: " + info.response)
-
+   activitylog.error("Success while noifying admin on signup user "+email)
     }
   });
 
@@ -438,7 +409,8 @@ exports.advancedsignup = async (req, res) => {
 
       }).catch((error) => {
         // console.log(error.errors[0].message);
-        console.log(error)
+        // console.log(error)
+        activitylog.error("Error occured " + error.errors[0].message + " while admin creating user of user email "+req.body.email)
         logger.log('error',error)
         return res.json({ "error": error.errors[0].message});
       })
@@ -463,7 +435,8 @@ exports.signup = async (req, res,next) => {
     next();
     }).catch((error) => {
         // console.log(error.errors[0].message);
-        console.log(error)
+        // console.log(error)
+        activitylog.error("Error occured " + error.errors[0].message + " while creating user details of user email "+req.body.email)
         logger.log('error',error)
         return res.json({ "error": error.errors[0].message});
       })
@@ -478,6 +451,7 @@ exports.findallusers = (req, res) => {
   if(req.profile.role!==0){
     user.findAll()
     .catch((error) => {
+      activitylog.error("No data exists in DB userid " + req.profile.id)
       logger.log("error", error);
       return res.json({ error: "No data exists" });
     })
@@ -507,6 +481,7 @@ exports.signin = (req,res) => {
   })
   .catch((error) => {
     logger.log("error", error);
+    activitylog.error("Error occured during signin email " + req.body.email)
     // console.log(error)
     return res.json({ "err": "Some Error occured during sigin" });
   })
@@ -531,7 +506,7 @@ exports.signin = (req,res) => {
         }
 
         else{
-          console.log(err)
+          // console.log(err)
           logger.log("error", err);
     activitylog.info("user with email "+req.body.email+" signed in") 
           return res.json({"err":"Password does not match"})
@@ -608,11 +583,13 @@ exports.isAdmin = (req, res, next) => {
 
 exports.signout = (req, res) => {
   res.clearCookie("token");
+  let id=req.params.id;
+  // console.log(id);
   logger.log(
     "info",
     `get request on signout route http://localhost:${port}/api/signout`+"from IP address "+req.ip
   );
-  activitylog.info("user signed out" + "from IP address " +
+  activitylog.info("user id "+id+" signed out " + "from IP address " +
   req.ip) 
   mylogger.info(`Request on Signout route` +
   "from IP address " +

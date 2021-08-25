@@ -18,6 +18,7 @@ export class AccountComponent implements OnInit {
   imageUrl: string;
   isuser:boolean=false;
   isadmin:boolean=false;
+  ishr:boolean=false;
   message:any;
   fname:any;
   lname:any;
@@ -45,10 +46,17 @@ export class AccountComponent implements OnInit {
       if(this.role==1){
         this.isadmin=true;
         this.isuser=true;
+        this.ishr=true
       }
       if(this.role==0){
         this.isadmin=false;
         this.isuser=true;
+        this.ishr=false;
+      }
+      if(this.role==2){
+        this.isadmin=false;
+        this.isuser=true;
+        this.ishr=true;
       }
         }
         if(!localStorage.getItem("jwt")){
@@ -265,8 +273,11 @@ export class AccountComponent implements OnInit {
       this.message=res;
       }
       else{
+        var x:any = localStorage.getItem("jwt")
+        x=JSON.parse(x)
+        var id=x.user.id;
         localStorage.removeItem("jwt")
-        this.http.get("http://localhost:3000/api/signout").subscribe(res=>{
+        this.http.get(`http://localhost:3000/api/${id}/signout`).subscribe(res=>{
         // console.log(typeof res);
         // console.log(res);
         this.message=JSON.parse(JSON.stringify(res)).message;

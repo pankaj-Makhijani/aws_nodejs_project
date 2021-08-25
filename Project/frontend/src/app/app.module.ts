@@ -11,6 +11,7 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { AccountComponent } from './account/account.component';
 import { CertificateComponent } from './certificate/certificate.component';
+import { HrpanelComponent } from './hrpanel/hrpanel.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CertificateComponent } from './certificate/certificate.component';
     AdmindashboardComponent,
     UserprofileComponent,
     AccountComponent,
-    CertificateComponent
+    CertificateComponent,
+    HrpanelComponent
   ],
   imports: [
     BrowserModule,

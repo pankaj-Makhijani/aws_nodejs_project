@@ -15,6 +15,15 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ">
+          <li class="nav-item">
+        <a
+          class="nav-link text-white"
+          routerLink="/signin"
+          (click)="signout()"
+          *ngIf="active"
+          >Sign Out</a
+        >
+      </li>
       <li class="nav-item active ">
         <a class="nav-link text-white" routerLink="/">Signup</a>
       </li>
@@ -22,13 +31,18 @@
         <a class="nav-link text-white" routerLink="/signin">Sign In</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/profile" *ngIf="active"
+        <a class="nav-link text-white" routerLink="/profile" *ngIf="isuser"
           >User Profile</a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/admin" *ngIf="active"
+        <a class="nav-link text-white" routerLink="/admin" *ngIf="isadmin"
           >Admin Dashboard</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/hrpanel" *ngIf="ishr"
+          >hrpanel</a
         >
       </li>
     </ul>
@@ -79,7 +93,7 @@
           type="email"
           id="email"
           name="email"
-          pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}"
+          pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}" title="for e.g nmmodi@gmail.com"
           required
           ngModel
         />
@@ -91,10 +105,9 @@
         <input
           type="password"
           id="pass"
-          name="pass"
-          ngModel
-          minlength="8"
+          name="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" title="Password must be alphanumeric and of 8 characters"
           required
+          ngModel
         />
       </label>
       <br />

@@ -25,7 +25,7 @@ router.param('id',finduserbyid)
 // Auth Routes for signup,sigin,signout
 router.post('/signup',signup,sqs);
 router.post('/signin',signin)
-router.get('/signout',signout)
+router.get('/:id/signout',signout)
 
 
 

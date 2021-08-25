@@ -3,18 +3,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admindashboard',
-  templateUrl: './admindashboard.component.html',
-  styleUrls: ['./admindashboard.component.css']
+  selector: 'app-hrpanel',
+  templateUrl: './hrpanel.component.html',
+  styleUrls: ['./hrpanel.component.css']
 })
-export class AdmindashboardComponent implements OnInit {
+export class HrpanelComponent implements OnInit {
 
   constructor(private router:Router,private http:HttpClient){}
   imageObj: File;
-  mngcreateuser:boolean=true;
+  mngcreateuser:boolean=false;
   mngupdateuser:boolean=false;
   mngdeleteuser:boolean=false;
-  mnggetuser:boolean=false;
+  mnggetuser:boolean=true;
   mngcreatecert:boolean=false;
   mngdeletecert:boolean=false;
   mnggetcert:boolean=false;
@@ -46,9 +46,8 @@ export class AdmindashboardComponent implements OnInit {
   imgselected:boolean=true;
   ngOnInit(): void {
         if(localStorage.getItem("jwt")){
-          var w:any = localStorage.getItem("jwt")
-          
       this.active=true;
+      var w:any = localStorage.getItem("jwt")
       w=JSON.parse(w)
       this.fname=w.user.firstname;
       this.lname=w.user.lastname;
@@ -66,13 +65,11 @@ export class AdmindashboardComponent implements OnInit {
         this.isadmin=false;
         this.ishr=false;
         this.isuser=true;
-        window.open("/profile", "_self");
       }
       if(this.role==2){
         this.isadmin=false;
         this.ishr=true;
         this.isuser=true;
-        window.open("/hrpanel", "_self");
       }
 
     //fetch all users from backend
@@ -171,13 +168,12 @@ export class AdmindashboardComponent implements OnInit {
         }
         if(!localStorage.getItem("jwt")){
           window.open("/signin", "_self");
-        }  
+        }
+
+        
   }
   
-
   managecreateuser(){
-    this.message="";
-  
     this.mngcreateuser=true
     this.mngupdateuser=false;
   this.mngdeleteuser=false;
@@ -188,8 +184,6 @@ export class AdmindashboardComponent implements OnInit {
   }
 
   manageupdateuser(){
-    this.message="";
-
     this.mngcreateuser=false
     this.mngupdateuser=true;
   this.mngdeleteuser=false;
@@ -200,8 +194,6 @@ export class AdmindashboardComponent implements OnInit {
   }
 
   managedeleteuser(){
-    this.message="";
-
     this.mngcreateuser=false;
     this.mngupdateuser=false;
   this.mngdeleteuser=true;
@@ -212,8 +204,6 @@ export class AdmindashboardComponent implements OnInit {
   }
 
   managegetuser(){
-    this.message="";
-
     this.mngcreateuser=false;
     this.mngupdateuser=false;
   this.mngdeleteuser=false;
@@ -224,7 +214,6 @@ export class AdmindashboardComponent implements OnInit {
   }
 
   managecreatcert(){
-    this.message="";
     this.mngcreateuser=false;
     this.mngupdateuser=false;
   this.mngdeleteuser=false;
@@ -235,7 +224,6 @@ export class AdmindashboardComponent implements OnInit {
   }
 
   managedeletecert(){
-    this.message="";
     this.mngcreateuser=false;
     this.mngupdateuser=false;
   this.mngdeleteuser=false;
@@ -246,7 +234,6 @@ export class AdmindashboardComponent implements OnInit {
   }
 
   managegetcert(){
-    this.message="";
     this.mngcreateuser=false;
     this.mngupdateuser=false;
   this.mngdeleteuser=false;
@@ -277,7 +264,6 @@ export class AdmindashboardComponent implements OnInit {
           var y=JSON.parse(JSON.stringify(res));
           this.message=y.msg;
           console.log(res);
-          this.ngOnInit();
           // console.log(typeof res);
         },(err)=>{
           if(err.status>400) {
