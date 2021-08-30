@@ -41,6 +41,7 @@ db.sequelize.sync()
 })
 .catch(() => { 
 	logger.log('error','Database Connection error'); 
+	mylogger.error("Database Connection error")
 	activitylog.error("Database connection error")
 	// mylogger.error(`Database Connection error`);	
 })

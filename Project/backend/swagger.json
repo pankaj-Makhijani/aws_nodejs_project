@@ -15,6 +15,9 @@
       {
         "name": "Users",
         "description": "API for interacting with the users in the system"
+      },{
+        "name":"certificates",
+        "description": "API for interacting with the certificates in the system"
       }
     ],
     "schemes": [
@@ -149,6 +152,118 @@
             }
           }
         }
+      },
+      "/createcard":{
+        "post":{
+          "tags":[
+            "certificates"
+          ],
+          "summary": "Create new certificate in system",
+          "parameters": [
+            {
+              "name": "cname",
+              "in": "body",
+              "schema": {
+                "$ref": "#/definitions/createcertificates"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+        }
+      },
+      "/{id}/removecard":{
+        "post":{
+          "tags":[
+            "certificates"
+          ],
+          "summary": "Remove certificate from user profile",
+          "parameters": [
+            {
+              
+              "name": "cid",
+              "in": "body",
+              "schema": {
+                "$ref": "#/definitions/removecertificates"
+              }
+            },{
+              "name": "id",
+            "in": "path",
+            "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+      }
+      },
+      "/{id}/addcard":{
+        "post":{
+          "tags":[
+            "certificates"
+          ],
+          "summary": "Add certificate to user profile",
+          "parameters": [
+            {
+              
+              "name": "cid",
+              "in": "body",
+              "schema": {
+                "$ref": "#/definitions/profilecertificates"
+              }
+            },{
+              "name": "id",
+            "in": "path",
+            "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+      }
+      },
+      "/deletecardbyid":{
+        "post":{
+          "tags":[
+            "certificates"
+          ],
+          "summary": "Delete certificate from system",
+          "parameters": [
+            {
+              
+              "name": "cardid",
+              "in": "body",
+              "schema": {
+                "$ref": "#/definitions/deletecertificates"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+      }
+      },
+      "/getallcards":{
+        "get":{
+          "tags":[
+            "certificates"
+          ],
+          "summary": "Get all certficates details",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+      }
       }
     },
     "definitions": {
@@ -211,6 +326,36 @@
             "uniqueItems": true,
             "length":"2 to 16",
             "Not In":"Root/Admin"
+          }
+        }
+      },
+      "createcertificates":{
+        "required":[
+          "cname"
+        ],
+        "properties":{
+          "cname":{
+            "type":"string"
+          }
+        }
+      },
+      "profilecertificates":{
+        "required":[
+          "cid"
+        ],
+        "properties":{
+          "cid":{
+            "type":"number"
+          }
+        }
+      },
+      "deletecertificates":{
+        "required":[
+          "cardid"
+        ],
+        "properties":{
+          "cardid":{
+            "type":"number"
           }
         }
       }

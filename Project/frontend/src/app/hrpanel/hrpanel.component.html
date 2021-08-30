@@ -35,7 +35,7 @@
           >Home</a
         >
       </li>
-            <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link text-white" routerLink="/account" *ngIf="isuser"
           >Account</a
         >
@@ -184,18 +184,14 @@
       >
         <thead>
           <tr>
-            <th scope="col">ID</th>
             <th scope="col">E-MAIL</th>
-            <th scope="col">First-Name</th>
-            <th scope="col">Last-Name</th>
+            <th scope="col">Full Name</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let o of objarray">
-            <th scope="row" *ngIf="o.role==0">{{ o.id }}</th>
             <td *ngIf="o.role==0">{{ o.email }}</td>
-            <td *ngIf="o.role==0">{{ o.firstname }}</td>
-            <td *ngIf="o.role==0">{{ o.lastname }}</td>
+            <td *ngIf="o.role==0">{{ o.firstname }} {{ o.lastname }}</td>
           </tr>
         </tbody>
       </table>
@@ -253,32 +249,22 @@
       >
         <thead>
           <tr>
-            <th scope="col">Certificate ID</th>
             <th scope="col">Certificate Name</th>
             <th scope="col">No of Users</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Full Name</th>
             <th scope="col">E-mail ID</th>
-            <th scope="col">User ID</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let o of objarray2">
-            <th scope="row">{{ o.id }}</th>
             <td>{{ o.cardname }}</td>
             <td>{{ o.users.length }}</td>
             <td>
-              <table>
+              <table  style="width:250px;">
                 <tr *ngFor="let q of o.users">
                   {{
                     q.firstname
-                  }}
-                </tr>
-              </table>
-            </td>
-            <td>
-              <table>
-                <tr *ngFor="let q of o.users">
+                  }} 
                   {{
                     q.lastname
                   }}
@@ -290,15 +276,6 @@
                 <tr *ngFor="let q of o.users">
                   {{
                     q.email
-                  }}
-                </tr>
-              </table>
-            </td>
-            <td>
-              <table>
-                <tr *ngFor="let q of o.users">
-                  {{
-                    q.id
                   }}
                 </tr>
               </table>

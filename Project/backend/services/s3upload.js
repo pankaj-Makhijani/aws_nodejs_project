@@ -1,8 +1,19 @@
-
+const { user } = require("../models");
+const logger = require("../config/logger");
+const mylogger=require("../config/logger2")
+const S3 = require("aws-sdk/clients/s3");
+require("dotenv").config("../.env");
+const path = require("path");
+var jwt = require("jsonwebtoken");
+var expressJwt = require("express-jwt");
+const nodemailer = require("nodemailer");
+const fs = require("fs");
+// Load the AWS SDK for Node.js
+var AWS = require("aws-sdk");
+const activitylog=require("../config/logger3")
 const multer = require('multer');
 const multerS3 = require('multer-s3');
-require("dotenv").config("./.env");
-const activitylog=require("../config/logger3")
+
 
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
@@ -32,26 +43,53 @@ AWS.config.update({
     return fn+ln;
    }
 
-   const upload = multer({
-   fileFilter: fileFilter,
-   storage: multerS3({
-    acl: 'private',
-    s3,
-    bucket: process.env.BUCKET_NAME,
-    key: function(req, file, cb) {
-      /*I'm using Date.now() to make sure my file has a unique name*/
-      d=Date.now();
-      fname=req.profile.firstname;
-      lname=req.profile.lastname;
-      x=filename(fname,lname)
-      // console.log( x)
-      // console.log( file.originalname)
-      // console.log( file.mimetype)
-      req.file = (x || d)+".jpeg";
-      // console.log( req.file)
-      cb(null, (x || d)+".jpeg");
-     }
-    })
-   });
+   exports.sets3params = (req,res,next) => {
+    req.BUCKET_NAME=process.env.BUCKET_NAME;
+    req.S3EXPIRES=Number(String(process.env.URL_EXPIRE)) || 1000
+    next()
+   }
 
-   module.exports = upload;
+   exports.upload =  multer({
+      fileFilter: fileFilter,
+      storage: multerS3({
+       acl: 'private',
+       s3,
+       bucket: process.env.BUCKET_NAME,
+       key: function(req, file, cb) {
+         /*I'm using Date.now() to make sure my file has a unique name*/
+         d=Date.now();
+         fname=req.profile.firstname;
+         lname=req.profile.lastname;
+         x=filename(fname,lname)
+         // console.log( x)
+         // console.log( file.originalname)
+         // console.log( file.mimetype)
+         req.file = (x || d)+".jpeg";
+         // console.log( req.file)
+         cb(null, (x || d)+".jpeg");
+        }
+       })
+      })
+ 
+  exports.getpresignedurl = async (req,res) => {
+      try{
+        const url=await s3.getSignedUrlPromise('getObject',{
+          Bucket:req.BUCKET_NAME,
+          Key:req.file,
+          Expires:req.S3EXPIRES,
+        });
+        req.signedurl=url;
+        // console.log(req);
+        // return res.json({"url":url})
+        activitylog.info("url sent to user id "+req.profile.id) 
+        res.send({ image: url });
+      }
+      catch(err){
+        // console.log(err)
+        logger.log("error", err);
+        activitylog.info("Error occured during presignedurl of user id "+req.profile.id) 
+      }
+      mylogger.info(`Request on getpresignedurl route` +
+      "from IP address " +
+      req.ip);
+      }

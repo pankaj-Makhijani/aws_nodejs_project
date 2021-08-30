@@ -1,4 +1,4 @@
-const { user,usercard,card } = require("../models");
+const { user,usercard,card,system_logs,activity_logs } = require("../models");
 
 const logger = require("../config/logger");
 const mylogger=require("../config/logger2")
@@ -26,6 +26,15 @@ var transporter = nodemailer.createTransport({
   },
 });
 
+var mysql = require('mysql2');
+ 
+// create a connection variable with the required details
+var con = mysql.createConnection({
+  host: process.env.DB_HOST, // ip address of server running mysql
+  user: process.env.DB_USER, // user name to your mysql database
+  password: process.env.DB_PASSWORD, // corresponding password
+  database: process.env.DB_NAME // use the specified database
+});
 
 AWS.config.update({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -134,6 +143,7 @@ exports.deleteuserbyid = (req, res) => {
     },
   })
   .then((user) => {
+    
     activitylog.info("user id "+req.body.id+" deleted their account") 
     return res.json({ msg: "data deleted successfully" }).status(200);
   })
@@ -606,3 +616,26 @@ exports.isSignedIn = expressJwt({
   algorithms: ['HS256'],
   userProperty: "auth"
 })
+
+
+
+exports.getsystemlogs = (req,res) => {
+  con.query("SELECT * from system_logs",function(error,result,fields)
+		{	
+      if(error){
+      return res.json({'msg':'Error retrieving system logs'}).status(200)
+      }
+      return res.json(result).status(200)
+    })
+}
+
+
+exports.getactivitylogs = (req,res) => {
+  con.query("SELECT * from activity_logs",function(error,result,fields)
+		{	
+      if(error){
+      return res.json({'msg':'Error retrieving activity logs'}).status(200)
+      }
+      return res.json(result).status(200)
+    })
+}

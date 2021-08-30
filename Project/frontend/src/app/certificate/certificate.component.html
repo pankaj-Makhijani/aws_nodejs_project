@@ -47,77 +47,80 @@
   <input type="submit" value="Remove" (click)="managermvcert()">
   <br>
 </div>
+
 <div class="m-3 p-3" style="float: left;">
 
-<div *ngIf="mngupload">
-<h5>Upload Certificate</h5>
-<input (change)="onImagePicked($event)" ngf-pattern="'.jpeg,.jpg'" placeholder="Upload Image" 
-type="file" />
-<button class="bg-success text-white" (click)="onImageUpload()" [disabled]="!imgselected">Upload Image</button>
+  <div *ngIf="mngupload">
+    <h5>Upload Certificate</h5>
+    <input (change)="onImagePicked($event)" ngf-pattern="'.jpeg,.jpg'" placeholder="Upload Image" type="file" />
+    <button class="bg-success text-white" (click)="onImageUpload()" [disabled]="!imgselected">Upload Image</button>
 
- <div *ngIf="imageUrl">
-  Preview Image from AWS
-  <br />
-  <img width="200px" src="{{imageUrl}}" 
-  />
-  <br/>
-  <a href="{{imageUrl}}" download>Download</a>
- </div>
+    <div *ngIf="imageUrl">
+      Preview Image from AWS
+      <br />
+      <img width="200px" src="{{imageUrl}}" />
+      <br/>
+      <a href="{{imageUrl}}" download>Download</a>
+    </div>
 
- <br>
-<p style="color:blue;">{{message}}</p>
+    <br>
+    <p style="color:blue;">{{message}}</p>
 
-</div>
+  </div>
 
-<div *ngIf="mngavail">
+  <div *ngIf="mngavail">
 
-  <h5 *ngIf="objarray2.length<=0">There are no Certificates Created by Admin as of now</h5>
-  <h5 *ngIf="objarray2.length>0">List of Available certificates</h5>
-  <table class="table" border="1" cellspacing="0" style="width:500px;" *ngIf="objarray2.length>0">
-    <thead>
-    <tr>
-      <th>Certificate ID</th>
-      <th>Certificate Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let o of objarray2">
-      <td>{{o.id}}</td>
-      <td>{{o.cardname}}</td>
-    </tr>
-  </tbody>
-  </table>
-</div>
+    <h5 *ngIf="objarray2.length<=0">There are no Certificates Created by Admin as of now</h5>
+    <h5 *ngIf="objarray2.length>0">List of Available certificates</h5>
+    <table class="table" border="1" cellspacing="0" style="width:500px;" *ngIf="objarray2.length>0">
+      <thead>
+        <tr>
+          <th>Certificate ID</th>
+          <th>Certificate Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let o of objarray2">
+        <td>{{o.id}}</td>
+        <td>{{o.cardname}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<div *ngIf="mngaddcert">
+  <div *ngIf="mngaddcert">
 
-  <h5>Add Certification in Your Profile</h5>
-  <form #addcardform="ngForm" (ngSubmit)="oncardsubmit(addcardform.value)">
-      
-      <label for="cid">Certificate ID:
-          <input type="number" id="cid" name="cid" ngModel>
-          </label>
-          <input type="submit" value="Submit">
-  </form>
+    <h5>Add Certification in Your Profile</h5>
+      <form #addcardform="ngForm" (ngSubmit)="oncardsubmit(addcardform.value)">
+        <label for="cid">Certificate ID:
+        </label>
+        <select name="cid" id="cid" [(ngModel)]="selected" (change)='onOptionsSelected($event)'>
+    
+        <option *ngFor="let o of objarray2" [value]="o.id">{{o.cardname}}</option>
+        </select>
+        <input type="submit" value="Submit">
+      </form>
   <br>
-<p style="color:blue;">{{message}}</p>
+  <p style="color:blue;">{{message}}</p>
   
 </div>
 
 <div *ngIf="mngrmvcert">
 
   <h5>Remove Certification from Your Profile</h5>
-  
-  <form #removecardform="ngForm" (ngSubmit)="onremovecardsubmit(removecardform.value)">
-      
+        <form #removecardform="ngForm" (ngSubmit)="onremovecardsubmit(removecardform.value)">
       <label for="cid">Certificate ID:
-          <input type="number" id="cid" name="cid" ngModel>
-          </label>
-          <input type="submit" value="Submit">
-  </form>
+      </label>
+      <select name="cid" id="cid" [(ngModel)]="removeselected" (change)='onOptionsSelected2($event)'>
+    
+    <option *ngFor="let o of objarray3" 
+    [value]="o.id">{{o.cardname}}</option>
+    </select>
+    <input type="submit" value="Submit">
+    </form>
   <br>
 
-<p style="color:blue;">{{message}}</p>
+  <p style="color:blue;">{{message}}</p>
 </div>
 
   

@@ -18,16 +18,24 @@ export class AdmindashboardComponent implements OnInit {
   mngcreatecert:boolean=false;
   mngdeletecert:boolean=false;
   mnggetcert:boolean=false;
+  mnggetlogs:boolean=false;
 
   isuser:boolean=false;
   isadmin:boolean=false;
   ishr:boolean=false;
-
+  logsarray1:any[]=[];
+  logslength1:any;
+  logsarray2:any[]=[];
+  logslength2:any;
   emailarray:string[]=[];
   idarray:string[]=[];
   objarray:any[]=[];
   arrlength:any;
   objarray2:any[]=[];
+  certarray:any[]=[];
+  users:any[]=[];
+  certname:any;
+  certlength:any;
   totalusers:any;
   arrlength2:any;
   imageUrl: string;
@@ -43,6 +51,9 @@ export class AdmindashboardComponent implements OnInit {
   role:any;
   token:any;
   noofusers:any;
+  selected:any;
+  selected2:any;
+  removeselected:any;
   imgselected:boolean=true;
   ngOnInit(): void {
         if(localStorage.getItem("jwt")){
@@ -167,6 +178,38 @@ export class AdmindashboardComponent implements OnInit {
     
     //fetch all certificates from backend
 
+    //fetch all system logs
+    this.logsarray1=[];
+    this.logslength1=0;
+     this.http.get(`http://localhost:3000/api/getactivitylogs`)
+     .subscribe(res=>{
+       var y=JSON.parse(JSON.stringify(res));
+       console.log(y)
+       this.logsarray1=[];
+       this.logslength1=0;
+       if(y.length==0){
+       this.logslength1=0;
+         this.message="There aren't any logs stored in the Database"
+       }
+       else{
+         for(var i = 0; i <= y.length; i++) {
+           var obj = y[i];
+           this.logslength1=i;
+           this.logsarray1.push(obj)
+       }
+       console.log(this.logsarray1)
+       }
+   }),(err)=>{
+       if(err.status>400) {
+         console.log(err.status)
+         var res="You are not authorized to perform this action"
+         this.message=res;
+         }
+   }
+    //fetch all system logs
+    //fetch all activity logs
+
+    //fetch all activity logs
 
         }
         if(!localStorage.getItem("jwt")){
@@ -185,6 +228,7 @@ export class AdmindashboardComponent implements OnInit {
   this.mngcreatecert=false;
   this.mngdeletecert=false;
   this.mnggetcert=false;
+  this.mnggetlogs=false;
   }
 
   manageupdateuser(){
@@ -209,6 +253,7 @@ export class AdmindashboardComponent implements OnInit {
   this.mngcreatecert=false;
   this.mngdeletecert=false;
   this.mnggetcert=false;
+  this.mnggetlogs=false;
   }
 
   managegetuser(){
@@ -221,6 +266,7 @@ export class AdmindashboardComponent implements OnInit {
   this.mngcreatecert=false;
   this.mngdeletecert=false;
   this.mnggetcert=false;
+  this.mnggetlogs=false;
   }
 
   managecreatcert(){
@@ -232,21 +278,26 @@ export class AdmindashboardComponent implements OnInit {
   this.mngcreatecert=true;
   this.mngdeletecert=false;
   this.mnggetcert=false;
+  this.mnggetlogs=false;
   }
 
   managedeletecert(){
     this.message="";
+    this.removeselected=""
     this.mngcreateuser=false;
     this.mngupdateuser=false;
   this.mngdeleteuser=false;
   this.mnggetuser=false;
   this.mngcreatecert=false;
   this.mngdeletecert=true;
+  this.mnggetlogs=false;
   this.mnggetcert=false;
   }
 
   managegetcert(){
     this.message="";
+    this.removeselected=""
+
     this.mngcreateuser=false;
     this.mngupdateuser=false;
   this.mngdeleteuser=false;
@@ -254,39 +305,112 @@ export class AdmindashboardComponent implements OnInit {
   this.mngcreatecert=false;
   this.mngdeletecert=false;
   this.mnggetcert=true;
+  this.mnggetlogs=false;
   }
 
+  managegetlogs(){
+    this.message="";
+    this.mngcreateuser=false;
+    this.mngupdateuser=false;
+  this.mngdeleteuser=false;
+  this.mnggetuser=false;
+  this.mngcreatecert=false;
+  this.mngdeletecert=false;
+  this.mnggetlogs=true;
+  this.mnggetcert=false;
+  }
+
+  public onOptionsSelected(event) {
+    const value = event.target.value;
+    this.selected = value;
+    console.log(value);
+ }
+
+ public onOptionsSelected2(event) {
+  const value = event.target.value;
+  this.selected2 = value;
+  console.log(value);
+}
+
+public onOptionsSelected3(event) {
+  const cardid = event.target.value;
+  this.removeselected = cardid;
+  console.log(cardid);
+  // this.certarray=[];
+  //    this.certlength=0;
+  //     this.http.get(`http://localhost:3000/api-cards/${cardid}/getallcards`)
+  //     .subscribe(res=>{
+  //       var y=JSON.parse(JSON.stringify(res));
+  //       console.log(y)
+  //       this.certarray=[];
+  //       this.certlength=0;
+  //       this.users=[];
+  //       this.certname="";
+  //       // this.noofusers=0;
+        
+  //         this.noofusers=y.length;
+  //         for(var i = 0; i <= y.length; i++) {
+  //           var obj = y[i];
+  //           this.certlength=i;
+  //           this.certname=obj.cardname;
+  //           this.users.push(obj.users);
+  //           console.log(this.users)
+  //           // console.log(certname)
+  //           this.certarray.push(obj)
+  //       }
+        
+        
+
+  //     },(err)=>{
+  //       if(err.status>400) {
+  //         console.log(err.status)
+  //         var res="You are not authorized to perform this action"
+  //         this.message=res;
+  //         }
+  //   })
+
+}
+
   onsubmit(deleteform:any){
-    console.log(deleteform)
+    deleteform.id=this.selected2;
+    
+
+
     if(localStorage.getItem("jwt")){
-      var r=confirm("Are You sure you want to delete this account")
-      if(r==true){
-        var x2:any = localStorage.getItem("jwt")
-        x2=JSON.parse(x2)
-        var token=x2.token;
-        var id=x2.user.id;
-        console.log(token)
-  
-        var reqHeader = new HttpHeaders({ 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-       });
-  
-        this.http.post(`http://localhost:3000/api/deleteuser/${id}`,deleteform,{ headers: reqHeader })
-        .subscribe(res=>{
-          var y=JSON.parse(JSON.stringify(res));
-          this.message=y.msg;
-          console.log(res);
-          this.ngOnInit();
-          // console.log(typeof res);
-        },(err)=>{
-          if(err.status>400) {
-          console.log(err.status)
-          var res="You are not authorized to perform this action"
-          this.message=res;
-          }
-      })
+      if(deleteform.id==undefined){
+        this.message="Please select user"
       }
+      else{
+        var r=confirm("Are You sure you want to delete this account")
+        if(r==true){
+          var x2:any = localStorage.getItem("jwt")
+          x2=JSON.parse(x2)
+          var token=x2.token;
+          var id=x2.user.id;
+          console.log(token)
+    
+          var reqHeader = new HttpHeaders({ 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+         });
+    
+          this.http.post(`http://localhost:3000/api/deleteuser/${id}`,deleteform,{ headers: reqHeader })
+          .subscribe(res=>{
+            var y=JSON.parse(JSON.stringify(res));
+            this.message=y.msg;
+            console.log(res);
+            this.ngOnInit();
+            // console.log(typeof res);
+          },(err)=>{
+            if(err.status>400) {
+            console.log(err.status)
+            var res="You are not authorized to perform this action"
+            this.message=res;
+            }
+        })
+        }
+      }
+
     }
     if(!localStorage.getItem("jwt")){
       var res="You must be logged in first in order to perform Delete User operation"
@@ -371,8 +495,9 @@ export class AdmindashboardComponent implements OnInit {
 
   oncarddelete(carddeleteform:any){
     this.message="";
+    carddeleteform.cardid=this.removeselected
     console.log(carddeleteform)
-    this.http.post(`http://localhost:3000/api-cards/${this.id}/deletecardbyid`, carddeleteform)
+    this.http.post(`http://localhost:3000/api-cards/deletecardbyid`, carddeleteform)
     .subscribe(res => {
         this.message = JSON.parse(JSON.stringify(res)).msg;
         this.ngOnInit();
@@ -461,8 +586,9 @@ export class AdmindashboardComponent implements OnInit {
 
 
   async onsubmit1(updateform:any){
+    updateform.uid=this.selected;
     console.log(updateform)
-
+    this.message="";
     var x2:any = localStorage.getItem("jwt")
     x2=JSON.parse(x2)
     var token=x2.token;

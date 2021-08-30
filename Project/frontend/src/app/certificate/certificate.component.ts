@@ -29,6 +29,8 @@ export class CertificateComponent implements OnInit {
   username:any;
   email:any;
   id:any;
+  selected:any;
+  removeselected:any;
   role:any;
   token:any;
   imgselected:boolean=false;
@@ -36,6 +38,11 @@ export class CertificateComponent implements OnInit {
   objid2:any[]=[];
   // totalusers:any;
   arrlength2:any;
+  objarray3:any[]=[];
+  objid3:any[]=[];
+  objname3:any[]=[];
+  // totalusers:any;
+  arrlength3:any;
   ngOnInit(): void {
         if(localStorage.getItem("jwt")){
       var w:any = localStorage.getItem("jwt")
@@ -66,7 +73,7 @@ export class CertificateComponent implements OnInit {
         if(!localStorage.getItem("jwt")){
           window.open("/signin", "_self");
         }
-
+        this.objarray2=[];
         this.http.get(`http://localhost:3000/api-cards/getallcards`)
         .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
@@ -78,9 +85,28 @@ export class CertificateComponent implements OnInit {
           this.objid2.push(obj.id)
         }
       })
+
+      this.http.get(`http://localhost:3000/api/getcardbyid/${this.id}`)
+      .subscribe(res=>{
+      var z=JSON.parse(JSON.stringify(res));
+      console.log(z.cards)
+      this.objarray3=[];
+      this.objid3=[];
+      this.objname3=[];
+      for(var i = 0; i <= z.cards.length; i++) {
+        var obj = z.cards[i];
+        this.arrlength3=i;
+        this.objarray3.push(obj)
+        this.objid3.push(obj.id)
+        this.objname3.push(obj.cardname)
+      }
+      console.log(this.objid3)
+      console.log(this.objname3)
+    })
   }
   
   manageupload(){
+    this.message=""
     this.mngupload=true;
     this.mngavail=false;
     this.mngaddcert=false;
@@ -88,6 +114,8 @@ export class CertificateComponent implements OnInit {
   }
 
   manageavail(){
+    this.message=""
+
     this.mngupload=false;
     this.mngavail=true;
     this.mngaddcert=false;
@@ -95,6 +123,7 @@ export class CertificateComponent implements OnInit {
   }
 
   manageaddcert(){
+    this.message=""
     this.mngupload=false;
     this.mngavail=false;
     this.mngaddcert=true;
@@ -102,12 +131,26 @@ export class CertificateComponent implements OnInit {
   }
 
   managermvcert(){
+    this.message=""
     this.mngupload=false;
     this.mngavail=false;
     this.mngaddcert=false;
     this.mngrmvcert=true;
   }
   
+  public onOptionsSelected(event) {
+    const value = event.target.value;
+    this.selected = value;
+    console.log(value);
+ }
+
+
+ public onOptionsSelected2(event) {
+  const value = event.target.value;
+  this.removeselected = value;
+  console.log(value);
+}
+
   oncardsubmit(addcardform:any){
     console.log(addcardform)
     if(localStorage.getItem("jwt")){
@@ -116,6 +159,8 @@ export class CertificateComponent implements OnInit {
       var token=x2.token;
       var id=x2.user.id;
       console.log(token)
+      addcardform.cid=this.selected
+      console.log(addcardform)
 
       var reqHeader = new HttpHeaders({ 
         'Content-Type': 'application/json',
@@ -153,6 +198,7 @@ export class CertificateComponent implements OnInit {
       var token=x2.token;
       var id=x2.user.id;
       console.log(token)
+      removecardform.cid=this.removeselected
 
       var reqHeader = new HttpHeaders({ 
         'Content-Type': 'application/json',

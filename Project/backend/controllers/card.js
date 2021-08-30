@@ -44,15 +44,22 @@ exports.removecard = (req,res) => {
 		id:req.body.cid
 		}
 	}).catch((err) => {
-		return res.json({"msg":"No such certificate Exists "})
+		return res.json({"msg":" Error occured while removing certificate "})
 	}).then((data) => {
+		if(data==null)
+		{
+			return res.json({"msg":"No such certificate exists"})
+		}
 		user.findOne({
 			where:{
 				id:req.params.id
 				}
 			}).catch((err) => {
-				return res.json({"msg":"No such User Exists "})
+				return res.json({"msg":"Error occured while removing certificate from user profile "})
 			}).then((user) => {
+				if(user==null){
+					return res.json({"msg":"No such user exists"})
+				}
 				usercard.destroy({
 					where: {
 						cardid:req.body.cid,
@@ -63,6 +70,10 @@ exports.removecard = (req,res) => {
 						console.log(error)
 						return res.json({"msg":"Error occured while removing certificate"})
 				}).then(card => {
+					if(card==0)
+					{
+						return res.json({"msg":"No such certificate exists in your Profile"})
+					}
 				// logger.log('info',card)
 				activitylog.info("user id "+ req.params.id + "removed card id" + req.body.cid + " from their profile") 
 				return res.json({"msg":"certificate removed successfully"})
@@ -98,18 +109,30 @@ exports.createcard = (req,res) => {
 // }
 
 exports.deletecardbyid = (req,res) => {
-	card.destroy({
-		where: {
+	card.findOne({
+		where:{
 			id:req.body.cardid
 		}
-	}).then(card => {
-	activitylog.info("card deleted with id " + req.body.cardid) 
-		res.json({'msg':'certificate deleted successfully'})
-	 }).catch((error) => { 
-		 console.log(error)
-		logger.log('error',error);
-		return res.json({'msg':'certificate delete action unsuccessful'})
-	 })
+	}).then((card) => {
+		if(card==null){
+			return res.json({'msg':'No such certificate exists'})
+		}
+		card.destroy({
+			where: {
+				id:req.body.cardid
+			}
+		}).then(card => {
+		activitylog.info("card deleted with id " + req.body.cardid) 
+			return res.json({'msg':'certificate deleted successfully'})
+		 }).catch((error) => { 
+			 console.log(error)
+			logger.log('error',error);
+			return res.json({'msg':'certificate delete action unsuccessful'})
+		 })
+	}).catch((error) => {
+		return res.json({'mesg':'Error while deletiing certificate'})
+	})
+
 	 logger.log('info',`delete request on deletecard route http://localhost:${port}/api-cards/deletecardbyid/:id`,' IP address ',req.ip);
 }
 
@@ -146,6 +169,32 @@ exports.deletecardbyid = (req,res) => {
 // 	}).then(users => { res.json(users) })
 // 	logger.log('info',`Get request on find all users route http://localhost:${port}/api-cards/getallcards`,' IP address ',req.ip)
 // }
+
+exports.getonecard = (req,res) => {
+	card.findAll({
+		where:{
+			id:req.params.cardid
+		},
+		include:[
+			{
+				model:user,
+				as:'users',
+				attributes:["id","firstname","lastname","email"],
+				through:{
+					attributes:[],
+				}
+			}
+		]
+	})
+	.then((cards) => {
+	activitylog.info("Admin fetched all cards") 
+		return res.send(cards);
+	  })
+	  .catch((err) => {
+		  console.log(err)
+		return res.send({"error":"error retrieving certificate data"})
+	  });
+}
 
 exports.getallcards = (req,res) => {
 	card.findAll({
