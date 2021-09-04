@@ -43,6 +43,7 @@ export class HrpanelComponent implements OnInit {
   role:any;
   token:any;
   noofusers:any;
+  roles:any;
   imgselected:boolean=true;
   ngOnInit(): void {
         if(localStorage.getItem("jwt")){
@@ -56,20 +57,35 @@ export class HrpanelComponent implements OnInit {
       this.role=w.user.role;
       this.id=w.user.id;
       this.token=w.token;
-      if(this.role==1){
+      this.roles=w.user.rolename
+      if(this.roles.includes('admin')){
         this.isadmin=true;
-        this.isuser=true;
+      }
+
+      if(this.roles.includes('hr')){
         this.ishr=true;
       }
-      if(this.role==0){
-        this.isadmin=false;
-        this.ishr=false;
+      
+      if(this.roles.includes('user')){
         this.isuser=true;
       }
-      if(this.role==2){
-        this.isadmin=false;
-        this.ishr=true;
-        this.isuser=true;
+
+      // console.log(this.ishr)
+      // console.log(this.isadmin)
+      // console.log(this.isuser)
+      if(!this.roles.includes('hr')){
+        // alert("some bug")
+        if(this.roles.includes('admin')){
+          window.open("/admin", "_self");
+        }
+
+        else if(this.roles.includes('user'))
+          window.open("/profile", "_self");
+
+        else{
+          window.open("/account", "_self");
+        }
+
       }
 
     //fetch all users from backend
@@ -88,10 +104,12 @@ export class HrpanelComponent implements OnInit {
      
      this.objarray=[];
      this.arrlength=0;
-      this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
+     this.message=""
+      this.http.get(`http://localhost:3000/api/${id}/findallusersbyhr`,{ headers: reqHeader })
       .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
         console.log(y)
+        this.message=y.msg;
         this.objarray=[];
         this.arrlength=0;
         // this.noofusers=0;
@@ -100,7 +118,7 @@ export class HrpanelComponent implements OnInit {
         }
         else{
           this.noofusers=y.length;
-          for(var i = 0; i <= y.length; i++) {
+          for(var i = 0; i < y.length; i++) {
             var obj = y[i];
             this.arrlength=i;
             this.objarray.push(obj)
@@ -134,7 +152,7 @@ export class HrpanelComponent implements OnInit {
    this.objarray2=[];
    this.arrlength2=0;
     // this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
-    this.http.get(`http://localhost:3000/api-cards/getallcards`,{ headers: reqHeader })
+    this.http.get(`http://localhost:3000/api-cards/getallcardsbyhr`,{ headers: reqHeader })
     .subscribe(res=>{
       var y=JSON.parse(JSON.stringify(res));
       console.log(y)
@@ -147,7 +165,7 @@ export class HrpanelComponent implements OnInit {
       }
       else{
         this.totalusers=0;
-        for(var i = 0; i <= y.length; i++) {
+        for(var i = 0; i < y.length; i++) {
           var obj = y[i];
           this.arrlength2=i;
           this.objarray2.push(obj)
@@ -167,256 +185,25 @@ export class HrpanelComponent implements OnInit {
 
         }
         if(!localStorage.getItem("jwt")){
+          this.active=false
           window.open("/signin", "_self");
         }
 
         
   }
   
-  managecreateuser(){
-    this.mngcreateuser=true
-    this.mngupdateuser=false;
-  this.mngdeleteuser=false;
-  this.mnggetuser=false;
-  this.mngcreatecert=false;
-  this.mngdeletecert=false;
-  this.mnggetcert=false;
-  }
-
-  manageupdateuser(){
-    this.mngcreateuser=false
-    this.mngupdateuser=true;
-  this.mngdeleteuser=false;
-  this.mnggetuser=false;
-  this.mngcreatecert=false;
-  this.mngdeletecert=false;
-  this.mnggetcert=false;
-  }
-
-  managedeleteuser(){
-    this.mngcreateuser=false;
-    this.mngupdateuser=false;
-  this.mngdeleteuser=true;
-  this.mnggetuser=false;
-  this.mngcreatecert=false;
-  this.mngdeletecert=false;
-  this.mnggetcert=false;
-  }
 
   managegetuser(){
-    this.mngcreateuser=false;
-    this.mngupdateuser=false;
-  this.mngdeleteuser=false;
   this.mnggetuser=true;
-  this.mngcreatecert=false;
-  this.mngdeletecert=false;
   this.mnggetcert=false;
+  this.ngOnInit();
   }
 
-  managecreatcert(){
-    this.mngcreateuser=false;
-    this.mngupdateuser=false;
-  this.mngdeleteuser=false;
-  this.mnggetuser=false;
-  this.mngcreatecert=true;
-  this.mngdeletecert=false;
-  this.mnggetcert=false;
-  }
-
-  managedeletecert(){
-    this.mngcreateuser=false;
-    this.mngupdateuser=false;
-  this.mngdeleteuser=false;
-  this.mnggetuser=false;
-  this.mngcreatecert=false;
-  this.mngdeletecert=true;
-  this.mnggetcert=false;
-  }
 
   managegetcert(){
-    this.mngcreateuser=false;
-    this.mngupdateuser=false;
-  this.mngdeleteuser=false;
   this.mnggetuser=false;
-  this.mngcreatecert=false;
-  this.mngdeletecert=false;
   this.mnggetcert=true;
-  }
-
-  onsubmit(deleteform:any){
-    console.log(deleteform)
-    if(localStorage.getItem("jwt")){
-      var r=confirm("Are You sure you want to delete this account")
-      if(r==true){
-        var x2:any = localStorage.getItem("jwt")
-        x2=JSON.parse(x2)
-        var token=x2.token;
-        var id=x2.user.id;
-        console.log(token)
-  
-        var reqHeader = new HttpHeaders({ 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-       });
-  
-        this.http.post(`http://localhost:3000/api/deleteuser/${id}`,deleteform,{ headers: reqHeader })
-        .subscribe(res=>{
-          var y=JSON.parse(JSON.stringify(res));
-          this.message=y.msg;
-          console.log(res);
-          // console.log(typeof res);
-        },(err)=>{
-          if(err.status>400) {
-          console.log(err.status)
-          var res="You are not authorized to perform this action"
-          this.message=res;
-          }
-      })
-      }
-    }
-    if(!localStorage.getItem("jwt")){
-      var res="You must be logged in first in order to perform Delete User operation"
-      console.log(res)
-    this.message=res;
-    }
-  }
-  
-
-  async onsubmit2(signupform:any){
-    console.log(signupform)
-    
-
-    await this.http.post("http://localhost:3000/api/advancedsignup",signupform)
-    .subscribe(res=>{
-      this.message=JSON.parse(JSON.stringify(res)).msg || JSON.parse(JSON.stringify(res)).error;
-      this.ngOnInit();
-    })
-    
-  }
-
-  // onclick(){
-  //   if(localStorage.getItem("jwt")){
-  //     var x:any = localStorage.getItem("jwt")
-  //     x=JSON.parse(x)
-  //     var id=x.user.id;
-  //     this.username=x.user.firstname
-  //     var token=x.token;
-  //     console.log(id)
-  //     console.log(token)
-
-  //     var reqHeader = new HttpHeaders({ 
-  //       'Content-Type': 'application/json',
-  //       'Authorization': `Bearer ${token}`
-  //    });
-  //    this.objarray=[];
-  //    this.arrlength=0;
-  //     this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
-  //     .subscribe(res=>{
-  //       var y=JSON.parse(JSON.stringify(res));
-  //       console.log(y)
-  //       this.objarray=[];
-  //       this.arrlength=0;
-  //       // this.noofusers=0;
-  //       if(y.length==0){
-  //         this.noofusers="no";
-  //       }
-  //       else{
-  //         this.noofusers=y.length;
-  //         for(var i = 0; i <= y.length; i++) {
-  //           var obj = y[i];
-  //           this.arrlength=i;
-  //           this.objarray.push(obj)
-  //       }
-  //       }
-
-  //     },(err)=>{
-  //       if(err.status>400) {
-  //         console.log(err.status)
-  //         var res="You are not authorized to perform this action"
-  //         this.message=res;
-  //         }
-  //   })
-  //   }
-  //   if(!localStorage.getItem("jwt")){
-  //    var res="You must be logged in first in order to perform Find all users operation"
-  //    console.log(res)
-  //   this.message=res;
-  //   }
-  // }
-
-  oncardsubmit(cardform:any){
-    this.message="";
-    this.http.post(`http://localhost:3000/api-cards/createcard`, cardform)
-    .subscribe(res => {
-        this.message = JSON.parse(JSON.stringify(res)).msg;
-        this.ngOnInit();
-      }),(err)=>{
-        this.message = "Cannot create card";
-      }
-  }
-
-  oncarddelete(carddeleteform:any){
-    this.message="";
-    console.log(carddeleteform)
-    this.http.post(`http://localhost:3000/api-cards/${this.id}/deletecardbyid`, carddeleteform)
-    .subscribe(res => {
-        this.message = JSON.parse(JSON.stringify(res)).msg;
-        this.ngOnInit();
-      })
-  }
-
-  ongetalldetails(){
-    this.message="";
-    if(localStorage.getItem("jwt")){
-      var x:any = localStorage.getItem("jwt")
-      x=JSON.parse(x)
-      var id=x.user.id;
-      this.username=x.user.firstname
-      var token=x.token;
-      // console.log(id)
-      // console.log(token)
-
-      var reqHeader = new HttpHeaders({ 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-     });
-     
-     this.objarray2=[];
-     this.arrlength2=0;
-      // this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
-      this.http.get(`http://localhost:3000/api-cards/getallcards`,{ headers: reqHeader })
-      .subscribe(res=>{
-        var y=JSON.parse(JSON.stringify(res));
-        console.log(y)
-        this.objarray2=[];
-        this.arrlength2=0;
-        if(y.length==0){
-        this.arrlength2=0;
-          this.totalusers=undefined
-          this.message="There aren't any certificates stored in the Database"
-        }
-        else{
-          this.totalusers=0;
-          for(var i = 0; i <= y.length; i++) {
-            var obj = y[i];
-            this.arrlength2=i;
-            this.objarray2.push(obj)
-            this.totalusers=this.totalusers+obj.users.length;
-        }
-        }
-    }),(err)=>{
-        if(err.status>400) {
-          console.log(err.status)
-          var res="You are not authorized to perform this action"
-          this.message=res;
-          }
-    }
-    }
-    if(!localStorage.getItem("jwt")){
-     var res="You must be logged in first in order to perform Find all users operation"
-     console.log(res)
-    this.message=res;
-    }
+  this.ngOnInit();
   }
 
   signout(){
@@ -444,32 +231,4 @@ export class HrpanelComponent implements OnInit {
     
   }
 
-
-
-  async onsubmit1(updateform:any){
-    console.log(updateform)
-
-    var x2:any = localStorage.getItem("jwt")
-    x2=JSON.parse(x2)
-    var token=x2.token;
-    
-
-    var reqHeader = await new HttpHeaders({ 
-      'Authorization': `Bearer ${token}`
-   });
-
-
-   
-    // await this.http.post(`http://localhost:3000/api/tempupdateuserbyid/${this.id}`,updateform)
-    await this.http.post(`http://localhost:3000/api/${this.id}/updateanyuserbyid`,updateform)
-    .subscribe(res=>{
-      var y=JSON.parse(JSON.stringify(res));
-      this.message=y.msg;
-      console.log(res);
-      this.ngOnInit();
-    },(err)=>{
-      var res="You are not authorized to perform this action"
-      this.message=err;
-  }) 
-  }
 }

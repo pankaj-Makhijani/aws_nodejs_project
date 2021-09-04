@@ -32,7 +32,7 @@
       "application/x-www-form-urlencoded"
     ],
     "paths": {
-      "/": {
+      "/":{
         "get": {
           "tags": [
             "Users"
@@ -43,7 +43,9 @@
               "description": "OK"
             }
           }
-        },
+        }
+      },
+      "/signup": {
         "post": {
           "tags": [
             "Users"

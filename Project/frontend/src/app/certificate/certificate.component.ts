@@ -13,6 +13,7 @@ export class CertificateComponent implements OnInit {
   
   constructor(private router:Router,private http:HttpClient,private imageUploadService: ImageUploadService){}
   imageObj: File;
+  active:boolean=false;
   accaction:boolean=true;
   certaction:boolean=false;
   imageUrl: string;
@@ -42,9 +43,11 @@ export class CertificateComponent implements OnInit {
   objid3:any[]=[];
   objname3:any[]=[];
   // totalusers:any;
+  roles:any;
   arrlength3:any;
   ngOnInit(): void {
         if(localStorage.getItem("jwt")){
+          this.active=true
       var w:any = localStorage.getItem("jwt")
       w=JSON.parse(w)
       this.fname=w.user.firstname;
@@ -52,25 +55,43 @@ export class CertificateComponent implements OnInit {
       this.username=w.user.firstname +" "+ w.user.lastname;
       this.email=w.user.email;
       this.role=w.user.role;
+      this.roles=w.user.rolename;
       this.id=w.user.id;
       this.token=w.token;
-      if(this.role==1){
+
+      if(this.roles.includes('admin')){
         this.isadmin=true;
-        this.isuser=true;
-        this.ishr=true
       }
-      if(this.role==0){
-        this.isadmin=false;
-        this.isuser=true;
-        this.ishr=false;
-      }
-      if(this.role==2){
-        this.isadmin=false;
-        this.isuser=true;
+
+      if(this.roles.includes('hr')){
         this.ishr=true;
       }
+      
+      if(this.roles.includes('user')){
+        this.isuser=true;
+      }
+
+      // console.log(this.ishr)
+      // console.log(this.isadmin)
+      // console.log(this.isuser)
+
+
+      if(!this.roles.includes('user')){
+        if(this.roles.includes('admin'))
+          window.open("/admin", "_self");
+
+        else if(this.roles.includes('hr'))
+          window.open("/hr", "_self");
+
+        else{
+          alert("you dont have any role")
+          window.open("/account", "_self");
+        }
+      }
+
         }
         if(!localStorage.getItem("jwt")){
+          this.active=false
           window.open("/signin", "_self");
         }
         this.objarray2=[];
@@ -78,7 +99,7 @@ export class CertificateComponent implements OnInit {
         .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
         console.log(y)
-        for(var i = 0; i <= y.length; i++) {
+        for(var i = 0; i < y.length; i++) {
           var obj = y[i];
           this.arrlength2=i;
           this.objarray2.push(obj)
@@ -93,7 +114,7 @@ export class CertificateComponent implements OnInit {
       this.objarray3=[];
       this.objid3=[];
       this.objname3=[];
-      for(var i = 0; i <= z.cards.length; i++) {
+      for(var i = 0; i < z.cards.length; i++) {
         var obj = z.cards[i];
         this.arrlength3=i;
         this.objarray3.push(obj)
@@ -120,6 +141,8 @@ export class CertificateComponent implements OnInit {
     this.mngavail=true;
     this.mngaddcert=false;
     this.mngrmvcert=false;
+  this.ngOnInit();
+
   }
 
   manageaddcert(){
@@ -128,6 +151,8 @@ export class CertificateComponent implements OnInit {
     this.mngavail=false;
     this.mngaddcert=true;
     this.mngrmvcert=false;
+  this.ngOnInit();
+
   }
 
   managermvcert(){
@@ -136,6 +161,8 @@ export class CertificateComponent implements OnInit {
     this.mngavail=false;
     this.mngaddcert=false;
     this.mngrmvcert=true;
+  this.ngOnInit();
+
   }
   
   public onOptionsSelected(event) {

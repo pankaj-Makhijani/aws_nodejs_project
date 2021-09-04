@@ -1,7 +1,7 @@
 const express = require('express')
-const {defaultroute} = require('../controllers/user')
+const {defaultroute, isHr, isAuthenticated, isSignedIn} = require('../controllers/user')
 const router = express.Router()
-const { createcard,getcardbyid,deletecardbyid,updatecard,getallcards,findallcardsbyname, addcard, removecard, getonecard } = require("../controllers/card")
+const { createcard,getcardbyid,deletecardbyid,updatecard,getallcards,findallcardsbyname, addcard, removecard, getonecard, getallcardsbyhr } = require("../controllers/card")
 const { user } = require('../models/user')
 
 router.post('/createcard',createcard)
@@ -12,7 +12,8 @@ router.post('/:id/removecard',removecard)
 router.post('/deletecardbyid',deletecardbyid)
 // router.get('/findcardbyid/:id',getcardbyid);
 router.get('/getallcards',getallcards)
-router.get('/:cardid/getallcards',getonecard)
+router.get('/getallcardsbyhr',isSignedIn,isAuthenticated,isHr,getallcardsbyhr)
+router.get('/:cid/getonecard',getonecard)
 
 // router.post('/findallcardbyname/:cname',findallcardsbyname)
 

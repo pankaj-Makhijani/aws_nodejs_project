@@ -1,4 +1,4 @@
-const { user,usercard,card,system_logs,activity_logs } = require("../models");
+const { user,usercard,role,userroles,card,system_logs,activity_logs } = require("../models");
 
 const logger = require("../config/logger");
 const mylogger=require("../config/logger2")
@@ -211,35 +211,190 @@ exports.updateuserbyidunauth = (req, res) => {
   req.ip);
 };
 
+exports.getrolebyuserid = async (req,res) => {
+  await user.findOne({
+    where:{
+      id:req.params.id
+    },
+		include:[
+			{
+				model:role,
+        as:'roles',
+				attributes:["role"],
+        through:{
+					attributes:[],
+				}
+			}
+		]
+	})
+    .then((users) => {
+      activitylog.info("Admin user id "+req.profile.id+" fetched all users") 
+      res.send(users);
+    })
+    .catch((error) => {
+      console.log(error)
+      activitylog.error("No data exists in DB userid " + req.profile.id)
+      logger.log("error", error);
+      return res.json({ error: "No data exists" });
+    });
+  logger.log(
+    "info",
+    `get request on finall users route http://localhost:${port}/api/findallusers`+"from IP address "+req.ip
+  );
+  mylogger.info(`Get request on findallusers route` +
+  "from IP address " +
+  req.ip);
+}
 
-exports.updateanyuserbyid = (req, res) => {
+exports.updateanyuser = async (req,res) => {
   var { uid, fname, lname, email } = req.body;
-  // var records = [[fname,lname,email,uid]];
-  // if(records[0][0]!=null)
-  // {
-  // console.log(req.headers);
+ 
   user.update(
     {
-      role:req.body.role
+      firstname: fname,
+      lastname: lname,
+      email: email,
     },
     {
-      where: { id: req.body.uid },
+      where: { id:uid },
     }
-  )
+  ).then((data) => {
+    if(data==0){
+      return res.json({"msg":"No such user exists"})
+    }
+    return res.json({"msg":"Data updated successfully"})
+  })
+  .catch((err)=>{
+    return res.json({"msg":"Error updating user info"})
+  })
+}
+
+exports.createrole = async (req,res) => {
+  // var {role} = req.body;
+  
+      role.create({
+      role:req.body.role
+      })
+      .then((data) => {
+      return res.json({"msg":"Role created successfully"})
+      })
+    .catch((err) => {
+    return res.json({"msg":"This role already Exists"})
+  })
+
+}
+
+exports.deleterole = async (req,res) => {
+  // var {role} = req.body;
+  role.destroy({
+    where: {
+      role:req.body.role
+    }
+  })
+  .then((data) => {
+    return res.json({"msg":"Role deleted successfully"})
+  })
+  .catch((err) => {
+    return res.json({"msg":"Error occured while deleting role"})
+  })
+}
+
+exports.getanyuserinfobyid = async (req,res) => {
+  user.findOne({
+    where:{
+      id:req.params.id
+    }
+  })
+  .then((data)=>{
+    if(data==null){
+      return res.json({"msg":"No such user exists"})
+    }
+    return res.json(data)
+  })
+  .catch((err) => {
+    return res.json({"msg":"error retrieiving user info"})
+  })
+}
+
+exports.removerolefromuser = (req, res) => {
+  var { uid, fname, lname, email,roles } = req.body;
+
+  user.findOne({
+    where:{
+      id:req.body.uid
+    }
+  })
     .then((user) => {
+      
+      // console.log(user)
       if(user==0){
         activitylog.error("No such user id " + req.body.uid +" exists while updating account")
         return res.json({"msg":"No such user exists"})
       }
-      // console.log(user);
-      activitylog.info("user id "+req.body.uid+" role has been updated to " + req.body.role) 
-      return res.json({ msg: "data updated successfully" });
+      userroles.destroy({
+        where: {
+      userid:req.body.uid, 
+          rolename:req.body.roles
+        }
+      }).then((role) => {
+        // console.log(role)
+        return res.json({"msg":"role revoked from user"})
+      }).catch((error) => {return res.json({"msg":"Error updating user role"})})
     })
     .catch((error) => {
-      // console.log(error)
+      console.log(error)
       logger.log("error", error);
-      activitylog.error("Error occured " + error.errors[0].message + " while updating user details of user id "+req.body.uid)
-      return res.json({ "msg": error.errors[0].message});
+      activitylog.error("Error occured " + error + " while updating user details of user id "+req.body.uid)
+      return res.json({ "msg": "Error updating user role"});
+      
+    });
+  // }
+  logger.log(
+    "info",
+    `Post request on update user by id route http://localhost:${port}/api/updateuserbyid`+
+    "from IP address "+
+    req.ip
+  );
+  mylogger.info(`Post request on updateanyuserbyid route` +
+  "from IP address " +
+  req.ip);
+};
+
+exports.updateanyuserbyid = (req, res) => {
+  var { uid, fname, lname, email,roles } = req.body;
+
+  user.findOne({
+    where:{
+      id:req.body.uid
+    }
+  })
+    .then((user) => {
+      
+      // console.log(user)
+      if(user==0){
+        activitylog.error("No such user id " + req.body.uid +" exists while updating account")
+        return res.json({"msg":"No such user exists"})
+      }
+      role.findOne({
+        where: {
+          role:roles
+        }
+      }).then((role) => {
+        // console.log(role)
+        userroles.create({
+        userid:user.id,
+        rolename:role.dataValues.role
+      }).then(() => {
+        activitylog.info("user id "+req.body.uid+" role has been updated to " + req.body.role) 
+        return res.json({ msg: "data updated successfully" });
+      }).catch((error) => {return res.json({"msg":"This role is already assigned to this user"})})
+      }).catch((error) => {return res.json({"msg":"No such role Exists in DB"})})
+    })
+    .catch((error) => {
+      console.log(error)
+      logger.log("error", error);
+      activitylog.error("Error occured " + error + " while updating user details of user id "+req.body.uid)
+      return res.json({ "msg": "Error updating user role"});
       
     });
   // }
@@ -347,79 +502,48 @@ const saltRounds = 10;
 //   })
 // }
 
-exports.advancedsignup = async (req, res) => {
-  var { fname, lname, email, file,pass,role } = req.body;
+exports.getroles = (req,res) => {
+  role.findAll().then((roles) => {
+    if(roles!=[]){
+      return res.send(roles)
+    }
+  }).catch((error) => {
+      activity_logs.error(error);
+  })
+}
+exports.advancedsignup = async (req, res,next) => {
+  var { fname, lname, email, file,pass,roles } = req.body;
   const fileName = req.body.file;
+  console.log(roles)
   bcrypt.hash(pass, saltRounds, async (err,   hash) => {
     await user.create({
       firstname: fname,
       lastname: lname,
       email: email,
-      role:role,
+      // role:role,
       password:hash
     }).then((user) => {
-      activitylog.info("Admin created new user "+req.body.fname+" having role "+req.body.role) 
-       /* sqs start*/
-
-    {
-      // Create an SQS service object
-      var sqs = new AWS.SQS({ apiVersion: "2012-11-05" });
-      var params = {
-        // Remove DelaySeconds parameter and value for FIFO queues
-        DelaySeconds: 10,
-        //send user email in queue body
-        MessageBody: email,
-        // MessageDeduplicationId: "TheWhistler",  // Required for FIFO queues
-        // MessageGroupId: "Group1",  // Required for FIFO queues
-        QueueUrl: process.env.QUEUE_URL,
-      };
-      sqs.sendMessage(params, function (err, data) {
-        if (err) {
-      // console.log(err)
-          logger.log("error", err);
-       activitylog.error("sqs service error while signup of user "+email)
-
-        } else {
-          logger.log(
-            "info",
-            "Data moved to Queue Successfully"+
-            data.MessageId
-          );
-       activitylog.info("sqs service success while signup of user "+email)
-
+      role.findOne({
+        where: {
+          role:roles
         }
-      });
-    }
-
- /* sqs end*/
-
- /* mail start*/
-
-  var mailOptions = {
-    from: process.env.MAIL_SENDER,
-    to: process.env.MAIL_RECEIVER,
-    subject: "New user Registered",
-    text: `Hello admin, New user named ${fname} ${lname} just registered onto your application. View Database for more information`,
-  };
-
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      logger.log("error", error);
-      // console.log(error);
-      activitylog.error("Error occured while noifying admin on signup user "+email)
-    } else {
-      // console.log("Email sent: " + info.response);
-      logger.log('info',"Email sent: " + info.response)
-   activitylog.error("Success while noifying admin on signup user "+email)
-    }
-  });
-
- /* mail end*/
-        return res.json({"msg":"user Created Successfully"})
-
+      }).then((role) => {
+        // console.log(role)
+        userroles.create({
+        userid:user.id,
+        rolename:role.dataValues.role
+      }).then(() => next()).catch() 
+      }).catch((error) => {return res.json({"error":"Error creating user having user role"})})
+      activitylog.info("Admin created new user "+req.body.fname+" having role "+req.body.role) 
+      // next();
       }).catch((error) => {
         // console.log(error.errors[0].message);
         // console.log(error)
+        if(error.errors[0].message=="users.users_email_unique must be unique"){
+          error.errors[0].message="E-mail id already Exists in DB"
+        return res.json({ "error": error.errors[0].message});
+
+        }
         activitylog.error("Error occured " + error.errors[0].message + " while admin creating user of user email "+req.body.email)
         logger.log('error',error)
         return res.json({ "error": error.errors[0].message});
@@ -434,42 +558,105 @@ exports.advancedsignup = async (req, res) => {
 exports.signup = async (req, res,next) => {
   var { fname, lname, email, file,pass } = req.body;
   const fileName = req.body.file;
-  bcrypt.hash(pass, saltRounds, async (err,   hash) => {
-    await user.create({
-      firstname: fname,
-      lastname: lname,
-      email: email,
-      password:hash
-    }).then((user) => {
-    activitylog.info("New user signed up having name"+req.body.fname+" "+req.body.lname);  
-    next();
-    }).catch((error) => {
-        // console.log(error.errors[0].message);
-        // console.log(error)
-        activitylog.error("Error occured " + error.errors[0].message + " while creating user details of user email "+req.body.email)
-        logger.log('error',error)
-        return res.json({ "error": error.errors[0].message});
-      })
-    })
+      bcrypt.hash(pass, saltRounds, async (err,   hash) => {
+        await user.create({
+          firstname: fname,
+          lastname: lname,
+          email: email,
+          password:hash
+        }).then((data) => {
+          role.findOne({
+            where: {
+              role:"user"
+            }
+          }).then((role) => {
+            // console.log(role)
+            userroles.create({
+            userid:data.id,
+            rolename:role.dataValues.role
+          }).then(() => next()).catch() 
+          }).catch((error) => {return res.json({"error":"Error creating user having user role"})})
+          
+        activitylog.info("New user signed up having name"+req.body.fname+" "+req.body.lname);  
+        // next();
+        }).catch((error) => {
+            // console.log(error.errors[0].message);
+            // console.log(error)
+            if(error.errors[0].message=="users.users_email_unique must be unique"){
+              error.errors[0].message="E-mail already Exists in DB"
+            return res.json({ "error": error.errors[0].message});
+    
+            }
+            activitylog.error("Error occured " + error.errors[0].message + " while creating user details of user email "+req.body.email)
+            logger.log('error',error)
+            return res.json({ "error": error.errors[0].message});
+          })
+        })
+    
+
   logger.log("info",`Post request on createuser route http://localhost:${port}/api/`);
   mylogger.info(`Post request on Signup route` +
   "from IP address " +
   req.ip);
 };
 
-exports.findallusers = (req, res) => {
-  if(req.profile.role!==0){
-    user.findAll()
+exports.findallusers = async (req, res) => {
+  // var {userroles}=require('../models/UserRole') 
+  await user.findAll({
+		include:[
+			{
+				model:role,
+        as:'roles',
+				attributes:["role"],
+        through:{
+					attributes:[],
+				}
+			}
+		]
+	})
+    .then((users) => {
+      activitylog.info("Admin user id "+req.profile.id+" fetched all users") 
+      res.send(users);
+    })
     .catch((error) => {
+      console.log(error)
       activitylog.error("No data exists in DB userid " + req.profile.id)
       logger.log("error", error);
       return res.json({ error: "No data exists" });
-    })
-    .then((users) => {
-      activitylog.info("user id "+req.profile.id+" fetched all users") 
-      res.json(users);
     });
-  }
+  logger.log(
+    "info",
+    `get request on finall users route http://localhost:${port}/api/findallusers`+"from IP address "+req.ip
+  );
+  mylogger.info(`Get request on findallusers route` +
+  "from IP address " +
+  req.ip);
+};
+
+exports.findallusersbyhr = async (req, res) => {
+  // var {userroles}=require('../models/UserRole') 
+  await user.findAll({
+		include:[
+			{
+				model:role,
+        as:'roles',
+				attributes:["role"],
+        through:{
+					attributes:[],
+				}
+			}
+		]
+	})
+    .then((users) => {
+      activitylog.info("Hr having user id "+req.profile.id+" fetched all users") 
+      res.send(users);
+    })
+    .catch((error) => {
+      console.log(error)
+      activitylog.error("No data exists in DB userid " + req.profile.id)
+      logger.log("error", error);
+      return res.json({ error: "No data exists" });
+    });
   logger.log(
     "info",
     `get request on finall users route http://localhost:${port}/api/findallusers`+"from IP address "+req.ip
@@ -484,44 +671,61 @@ exports.findallusers = (req, res) => {
 // }
 
 exports.signin = (req,res) => {
+  var usersroles=[];
   user.findOne({
     where:{
       email:req.body.email,
     }
+  })
+  .then((user) => {
+    // console.log(user)
+    if(user==null){
+      activitylog.info("user with email "+req.body.email+" attempted to signin") 
+    return res.json({ "err": "No such E-mail Exists" });
+    }
+    userroles.findAll({
+      attributes: ['rolename'],
+      where:{
+        userid:user.dataValues.id
+      }
+    }).then((data) => {
+      data.forEach(d => {
+        usersroles.push(d.dataValues.rolename)
+      });
+      user.rolename=usersroles;
+      // console.log(usersroles)
+
+      bcrypt.compare(req.body.pass,user.password,(err,data) => {
+        if(data==true)
+          {
+            activitylog.info("user with email "+req.body.email+" attempted to signin") 
+            //create token
+            const token = jwt.sign({ id: user.id }, process.env.SECRET,{expiresIn:'2h'});
+            //put token in cookie
+            let d=new Date();
+            res.cookie("token", token, { expire: d.setTime(d.getTime() + (2*60*60*1000)),httpOnly: false});
+        
+            //send response to front end
+            const { id, firstname,lastname, email,role,rolename } = user;
+            return res.json({ token, user: { id, firstname, lastname, email,role,rolename } });
+          }
+  
+          else{
+            // console.log(err)
+            logger.log("error", err);
+      activitylog.info("user with email "+req.body.email+" signed in") 
+            return res.json({"err":"Password does not match"})
+          }
+      })
+
+    }).catch((error) => {return res.json({"err":"Some error occured during signin"})})
+    
   })
   .catch((error) => {
     logger.log("error", error);
     activitylog.error("Error occured during signin email " + req.body.email)
     // console.log(error)
     return res.json({ "err": "Some Error occured during sigin" });
-  })
-  .then((user) => {
-    if(user==null){
-      activitylog.info("user with email "+req.body.email+" attempted to signin") 
-    return res.json({ "err": "No such E-mail Exists" });
-    }
-    bcrypt.compare(req.body.pass,user.password,(err,data) => {
-      if(data==true)
-        {
-          activitylog.info("user with email "+req.body.email+" attempted to signin") 
-          //create token
-          const token = jwt.sign({ id: user.id }, process.env.SECRET,{expiresIn:'2h'});
-          //put token in cookie
-          let d=new Date();
-          res.cookie("token", token, { expire: d.setTime(d.getTime() + (2*60*60*1000)),httpOnly: false});
-      
-          //send response to front end
-          const { id, firstname,lastname, email,role } = user;
-          return res.json({ token, user: { id, firstname, lastname, email,role } });
-        }
-
-        else{
-          // console.log(err)
-          logger.log("error", err);
-    activitylog.info("user with email "+req.body.email+" signed in") 
-          return res.json({"err":"Password does not match"})
-        }
-    })
   });
   mylogger.info(`Post request on Signin route` +
   "from IP address " +
@@ -530,6 +734,8 @@ exports.signin = (req,res) => {
 
 //middleware
 exports.finduserbyid = (req, res, next,id) => {
+  var usersroles=[];
+
   user.findOne({
     where:{
       id:req.params.id
@@ -539,9 +745,22 @@ exports.finduserbyid = (req, res, next,id) => {
     logger.log("error", error);
     return res.json(err) 
     })
-  .then((user) => {
+  .then(async (user) => {
+    // console.log(user)
+    await userroles.findAll({
+      attributes: ['rolename'],
+      where:{
+        userid:user.dataValues.id
+      }
+    }).then((data) => {
+      data.forEach(d => {
+        usersroles.push(d.dataValues.rolename)
+      });
+    }).catch((error) => {return res.json({"err":"Some error occured during signin"})})
     req.profile = user;
-    // console.log(req)
+    req.profile.dataValues.rolename=usersroles;
+
+    // console.log(req.profile.dataValues)
     next();
   })
   mylogger.info(`Get Request on finduserbyid route` +
@@ -577,18 +796,42 @@ exports.isAuthenticated = (err,req, res, next) => {
   next();
 };
 
-exports.isAdmin = (req, res, next) => {
-  if (req.profile.role === 0) {
+exports.isAdmin = async (req, res, next) => {
+  var usersroles;
+  usersroles=req.profile.dataValues.rolename
+  console.log(usersroles)
+
+  if((usersroles).includes('admin')){
+    mylogger.info(`Request on isAdmin route` +
+    "from IP address " +
+    req.ip);
+    next();
+  }
+  else if(!(usersroles).includes('admin')){
     logger.log("error", "You are not ADMIN, Access denied");
-    return res.status(403).json({
-      error: "You are not ADMIN, Access denied"
+    return res.json({
+      "msg": "You are not ADMIN, Access denied"
     });
   }
-  mylogger.info(`Request on isAdmin route` +
-  "from IP address " +
-  req.ip);
-  next();
+};
 
+exports.isHr = async (req, res, next) => {
+  var usersroles;
+  usersroles=req.profile.dataValues.rolename
+  console.log(usersroles)
+
+  if((usersroles).includes('hr')){
+    mylogger.info(`Request on isHr route` +
+    "from IP address " +
+    req.ip);
+    next();
+  }
+  else if(!(usersroles).includes('hr')){
+    logger.log("error", "You are not Hr, Access denied");
+    return res.json({
+      "msg": "You are not Hr, Access denied"
+    });
+  }
 };
 
 exports.signout = (req, res) => {

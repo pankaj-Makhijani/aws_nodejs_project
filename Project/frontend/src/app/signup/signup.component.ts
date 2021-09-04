@@ -12,9 +12,7 @@ export class SignupComponent implements OnInit{
   constructor(private router:Router,private http:HttpClient){}
 
   active:boolean=false;
-    isuser:boolean=false;
-  isadmin:boolean=false;
-  ishr:boolean=false;
+  roles:any;
   message:any;
   w:any;
   role:any;
@@ -24,23 +22,18 @@ export class SignupComponent implements OnInit{
       var w:any = localStorage.getItem("jwt")
       w=JSON.parse(w)
       this.role=w.user.role
-      if(this.role==0){
-        this.isuser=true;
-        this.isadmin=false;
-        this.ishr=false;
-        window.open("/profile", "_self");
-      }
-      else if(this.role==1){
-        this.isuser=true;
-        this.isadmin=true;
-        this.ishr=false;            
+      this.roles=w.user.rolename
+      console.log(this.roles);
+      if(this.roles.includes('admin')){
         window.open("/admin", "_self");
       }
-      else if(this.role==2){
-        this.isuser=true;
-        this.isadmin=false;
-        this.ishr=true;
+
+      else if(this.roles.includes('hr')){
         window.open("/hrpanel", "_self");
+      }
+      
+      else if(this.roles.includes('user')){
+        window.open("/profile", "_self");
       }
 
     }
@@ -60,30 +53,6 @@ export class SignupComponent implements OnInit{
         window.open("/signin", "_self");
       }
     })
-  }
-
-  signout(){
-    if(typeof window!=="undefined")
-    {
-      if(!localStorage.getItem("jwt")){
-        var res="You must be logged in first in order to perform signout operation"
-        console.log(res)
-      this.message=res;
-      }
-      else if(localStorage.getItem("jwt")){
-        var x:any = localStorage.getItem("jwt")
-        x=JSON.parse(x)
-        var id=x.user.id;
-        localStorage.removeItem("jwt")
-        this.http.get(`http://localhost:3000/api/${id}/signout`).subscribe(res=>{
-        // console.log(typeof res);
-        // console.log(res);
-        this.message=JSON.parse(JSON.stringify(res)).message;
-        window.open("/signin", "_self");
-      })
-      }
-    }
-    
   }
 
 }

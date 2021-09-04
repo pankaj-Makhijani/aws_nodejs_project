@@ -36,6 +36,9 @@ db.Sequelize = Sequelize;
 
 db.user = require("./user")(sequelize, Sequelize);
 db.card = require("./card")(sequelize, Sequelize);
+db.role = require("./role")(sequelize, Sequelize);
+
+
 
 db.user.belongsToMany(db.card, {
   through: "usercard",
@@ -47,5 +50,15 @@ db.card.belongsToMany(db.user, {
   as: "users",
   foreignKey: "cardid",
 });
+db.user.belongsToMany(db.role,{
+  through:"userroles",
+  as:"roles",
+ foreignKey:"userid"
+})
+db.role.belongsToMany(db.user,{
+  through:"userroles",
+  as:"users",
+  foreignKey:"rolename",
+})
 
 module.exports = db;

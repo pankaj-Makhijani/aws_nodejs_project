@@ -7,15 +7,5 @@ module.exports =(sequelize,DataTypes) => {
             allowNull:false,
         }
     })
-
-    // card.associate = models => {
-    //     // card.belongsTo(models.User,{
-    //     //     foreignKey:{
-    //     //         allowNull:false
-    //     //     },onDelete:'cascade'
-    //     // })
-
-    //     card.belongsToMany(models.user, { through: 'usercard',as:'cardid' });
-    // }
     return card;
 }

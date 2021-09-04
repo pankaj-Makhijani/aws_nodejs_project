@@ -15,12 +15,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link text-white" routerLink="/" *ngIf="!active">Signup</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/signin" *ngIf="!active">Sign In</a>
-      </li>
+     
       <li class="nav-item">
         <a
           class="nav-link text-white"
@@ -36,7 +31,7 @@
         >
       </li>
             <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/account" *ngIf="isuser"
+        <a class="nav-link text-white" routerLink="/account" *ngIf="active"
           >Account</a
         >
       </li>
@@ -70,6 +65,8 @@
   <br>
   <input type="submit" value="Get Users" (click)="managegetuser()">
   <br>
+  <br>
+
 
   <h5 style="text-align: center;">Certificates Actions</h5>
   <input type="submit" value="Create Certificate" (click)="managecreatcert()">
@@ -78,6 +75,18 @@
   <br>
   <input type="submit" value="Get Certificates" (click)="managegetcert()">
   <br>
+  <br>
+
+
+  <h5 style="text-align: center;">Roles Actions</h5>
+  <input type="submit" value="Create Role" (click)="managecreaterole()">
+  <br>
+  <input type="submit" value="Delete Role" (click)="managedeleterole()">
+  <br>
+  <input type="submit" value="Assign/Revoke" (click)="manageupdaterole()">
+  <br>
+  <br>
+
 
     <h5 style="text-align: center;">Logs Action</h5>
   <input type="submit" value="Activity logs" (click)="managegetlogs()">
@@ -130,20 +139,13 @@
         />
       </label>
       <br />
-    
-      <label for="user" >
-        <input class="p-2 m-2" type="radio" id="user" name="role" ngModel value="0" />User
+    <div *ngFor="let r of rolesarray">
+          <label for="{{r}}" >
+        <input class="p-2 m-2" type="radio" id="{{r}}" name="roles" ngModel value="{{r}}" />{{r}}
       </label>
-      <br>
+    </div>
 
-      <label for="hr">
-        <input class="p-2 m-2" type="radio" id="hr" name="role" ngModel value="2" />Hr
-      </label>
       <br>
-      <label for="admin">
-        <input class="p-2 m-2" type="radio" id="admin" name="role" ngModel value="1" />Admin
-      </label>
-      <br />
     
       <input type="submit" value="Submit" />
       <input type="reset" value="Reset" />
@@ -152,37 +154,43 @@
   </div>
 
   <div *ngIf="mngupdateuser">
-    <h3>Update User role</h3>
-    <form ngNativeValidate #updateform="ngForm" (ngSubmit)="onsubmit1(updateform.value)">
-      <label for="uid">User: 
-      </label>
-      <select name="uid" id="uid" [(ngModel)]="selected" (change)='onOptionsSelected($event)'>
-    
-    <option *ngFor="let o of objarray" 
-    [value]="o.id">{{o.firstname}} {{o.lastname}}</option>
-    </select>
 
-      <br />
-      <label for="user" >
-        <input class="p-2 m-2" type="radio" id="user" name="role" ngModel value="0" selected />User
-      </label>
+    <div style="width:500px;">
+      <h3>Update User Info</h3>
+      <form #updateanyuserform="ngForm" (ngSubmit)="onupdatesubmit(updateanyuserform.value)">
+              
+        <label for="uid">User: 
+        </label>
+        <select name="uid" id="uid" [(ngModel)]="updateselected" (change)='onupdateSelected($event)'>
+      
+      <option *ngFor="let o of objarray" 
+      [value]="o.id">{{o.firstname}} {{o.lastname}}</option>
+      </select>
       <br>
+                <label for="fname">First name:
+                <input type="text" id="fname" [(ngModel)]="updatefirstname" name="fname" ngModel>
+                </label>
+                <br>
+              
+                <label for="lname">Last name:
+                <input type="text" id="lname" [(ngModel)]="updatelastname" name="lname" ngModel>
+                </label>
+                <br>
+              
+                <label for="email">E-mail:
+                <input type="email" id="email" [(ngModel)]="updateemail" name="email" ngModel>
+                </label>
+                <br>
+                
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
 
-      <label for="hr">
-        <input class="p-2 m-2" type="radio" id="hr" name="role" ngModel value="2" />Hr
-      </label>
+      </form>
       <br>
-      <label for="admin">
-        <input class="p-2 m-2" type="radio" id="admin" name="role" ngModel value="1" />Admin
-      </label>
-      <br />
-
-    <input type="submit" value="Submit">
-    </form>
-
-        <span style="color: blue">{{ message }}</span>
+      <span style="color: blue">{{ message }}</span>
 
     </div>
+  </div>
 
   <div *ngIf="mngdeleteuser">
     <h5>Delete any user by ID</h5>
@@ -253,9 +261,15 @@
           <tr *ngFor="let o of objarray">
             <td>{{ o.email }}</td>
             <td>{{ o.firstname }} {{o.lastname}}</td>
-            <td *ngIf="o.role==0">User</td>
-            <td *ngIf="o.role==2">Hr, User</td>
-            <td *ngIf="o.role==1">Admin, Hr, User</td>
+            <td>
+              <table style="width:100px;">
+                <tr *ngFor="let role of o.roles">
+                  {{
+                    role.role
+                  }}
+                </tr>
+              </table>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -368,6 +382,65 @@
     </div>
     
   <div *ngIf="mnggetcert">
+
+<h5>Get Single Certification Detail</h5>
+          <form ngNativeValidate #getcertificateform="ngForm" (ngSubmit)="ongetcertificate(getcertificateform.value)">
+      <label for="cid">Certificate: 
+      </label>
+      <select name="cid" id="cid" [(ngModel)]="selectedcertficate" (change)='onOptionsCertificate($event)'>
+    
+    <option *ngFor="let o of objarray2" 
+    [value]="o.id">{{o.cardname}}</option>
+    </select>
+
+    <input type="submit" value="Submit">
+    </form>
+
+        <span style="color: blue">{{ message }}</span>
+
+          <table
+        class="table"
+        border="1"
+        cellspacing="0"
+        *ngIf="nofcertusers"
+        style="width: 800px"
+      >
+        <thead>
+          <tr>
+            <th scope="col">Certificate Name</th>
+            <th scope="col">No of Users</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">E-mail ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ certname }}</td>
+            <td>{{ nofcertusers }}</td>
+            <td>
+              <table style="width:250px;">
+                <tr *ngFor="let user of users">
+                  {{
+                    user.firstname
+                  }} {{
+                    user.lastname
+                  }}
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table>
+                <tr *ngFor="let user of users">
+                  {{
+                    user.email
+                  }}
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<br>
     <h5>All Certification Details</h5>
     
     <div>
@@ -417,6 +490,79 @@
       </table>
     </div>
     <br />
+  </div>
+
+  <div *ngIf="mngcreaterole">
+    <h3>Create Role</h3>
+    <form ngNativeValidate #rolecreateform="ngForm" (ngSubmit)="onrolecreateform(rolecreateform.value)">
+      <label for="role">Role
+        <input type="text" id="role" name="role" required ngModel />
+      </label>
+
+    <input type="submit" value="Submit">
+    </form>
+    <br>
+    <span style="color: blue">{{ message }}</span>
+  </div>
+
+  <div *ngIf="mngdeleterole">
+    <h3>Delete Role</h3>
+    <form ngNativeValidate #roledeleteform="ngForm" (ngSubmit)="onroledeleteform(roledeleteform.value)">
+      <label for="role">Role:
+      </label>
+      <select name="role" id="role" [(ngModel)]="roleselected" (change)='onRoleSelected($event)'>
+    
+    <option *ngFor="let r of rolesarray"
+    [value]="r">{{r}}</option>
+    </select>
+
+    <input type="submit" value="Submit">
+    </form>
+    <br>
+    <span style="color: blue">{{ message }}</span>
+
+  </div>
+
+  <div *ngIf="mngupdaterole">
+    <h3>Assign Role to user</h3>
+    <form ngNativeValidate #updateform="ngForm" (ngSubmit)="onsubmit1(updateform.value)">
+      <label for="uid">User: 
+      </label>
+      <select name="uid" id="uid" [(ngModel)]="selected" (change)='onOptionsSelected($event)'>
+    
+    <option *ngFor="let o of objarray"
+    [value]="o.id">{{o.firstname}} {{o.lastname}}</option>
+    </select>
+
+    <div *ngFor="let r of rolesarray">
+          <label for="{{r}}" >
+        <input class="p-2 m-2" type="radio" id="{{r}}" name="roles" ngModel value="{{r}}" />{{r}}
+      </label>
+    </div>
+
+    <input type="submit" value="Submit">
+    </form>
+
+        <span style="color: blue">{{ message }}</span>
+<br>
+    <h3>Remove Role from user</h3>
+    <form ngNativeValidate #revokeroleform="ngForm" (ngSubmit)="revokeRole(revokeroleform.value)">
+      <label for="uid">User: 
+      </label>
+      <select name="uid" id="uid" [(ngModel)]="revokeselected" (change)='onRevokeUserSelected($event)'>
+    
+    <option *ngFor="let o of objarray" 
+    [value]="o.id">{{o.firstname}} {{o.lastname}}</option>
+    </select>
+
+    <div *ngFor="let r of rolesrevokearray">
+          <label for="{{r.role}}" >
+        <input class="p-2 m-2" type="radio" id="{{r.role}}" name="roles" ngModel value="{{r.role}}" />{{r.role}}
+      </label>
+    </div>
+<br>
+    <input type="submit" value="Submit">
+    </form>
   </div>
 </div>
 

@@ -171,10 +171,34 @@ exports.deletecardbyid = (req,res) => {
 // }
 
 exports.getonecard = (req,res) => {
-	card.findAll({
+	card.findOne({
 		where:{
-			id:req.params.cardid
+			id:req.params.cid
 		},
+		include:[
+			{
+				model:user,
+				as:'users',
+				attributes:["id","firstname","lastname","email"],
+				through:{
+					attributes:[],
+				}
+			}
+		]
+	})
+	.then((cards) => {
+		// if()
+	activitylog.info("Admin fetched all cards") 
+		return res.send(cards);
+	  })
+	  .catch((err) => {
+		  console.log(err)
+		return res.json({"error":"error retrieving certificate data"})
+	  });
+}
+
+exports.getallcards = (req,res) => {
+	card.findAll({
 		include:[
 			{
 				model:user,
@@ -196,7 +220,7 @@ exports.getonecard = (req,res) => {
 	  });
 }
 
-exports.getallcards = (req,res) => {
+exports.getallcardsbyhr = (req,res) => {
 	card.findAll({
 		include:[
 			{
