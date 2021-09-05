@@ -1,6 +1,7 @@
+//File for storing activity logs in mysql using flexlogger npm package
+
 const FlexLogger = require('flex-logger')
 require("dotenv").config("../.env");
-
 
 const db='mysql';
 const host=process.env.DB_HOST;

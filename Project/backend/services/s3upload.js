@@ -1,13 +1,5 @@
-const { user } = require("../models");
-const logger = require("../config/logger");
-const mylogger=require("../config/logger2")
-const S3 = require("aws-sdk/clients/s3");
 require("dotenv").config("../.env");
-const path = require("path");
-var jwt = require("jsonwebtoken");
-var expressJwt = require("express-jwt");
-const nodemailer = require("nodemailer");
-const fs = require("fs");
+
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 const activitylog=require("../config/logger3")
@@ -79,17 +71,10 @@ AWS.config.update({
           Expires:req.S3EXPIRES,
         });
         req.signedurl=url;
-        // console.log(req);
-        // return res.json({"url":url})
         activitylog.info("url sent to user id "+req.profile.id) 
         res.send({ image: url });
       }
       catch(err){
-        // console.log(err)
-        logger.log("error", err);
         activitylog.info("Error occured during presignedurl of user id "+req.profile.id) 
       }
-      mylogger.info(`Request on getpresignedurl route` +
-      "from IP address " +
-      req.ip);
       }

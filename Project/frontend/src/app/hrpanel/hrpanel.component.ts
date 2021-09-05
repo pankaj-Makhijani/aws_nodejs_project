@@ -94,8 +94,8 @@ export class HrpanelComponent implements OnInit {
       var id=x.user.id;
       this.username=x.user.firstname
       var token=x.token;
-      console.log(id)
-      console.log(token)
+      //console.log(id)
+      ////console.log(token)
 
       var reqHeader = new HttpHeaders({ 
         'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ export class HrpanelComponent implements OnInit {
       this.http.get(`http://localhost:3000/api/${id}/findallusersbyhr`,{ headers: reqHeader })
       .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
-        console.log(y)
+        ////console.log(y)
         this.message=y.msg;
         this.objarray=[];
         this.arrlength=0;
@@ -127,7 +127,7 @@ export class HrpanelComponent implements OnInit {
 
       },(err)=>{
         if(err.status>400) {
-          console.log(err.status)
+          ////console.log(err.status)
           var res="You are not authorized to perform this action"
           this.message=res;
           }
@@ -141,8 +141,8 @@ export class HrpanelComponent implements OnInit {
     var id=x.user.id;
     this.username=x.user.firstname
     var token=x.token;
-    // console.log(id)
-    // console.log(token)
+    // //console.log(id)
+    // //console.log(token)
 
     var reqHeader = new HttpHeaders({ 
       'Content-Type': 'application/json',
@@ -152,10 +152,10 @@ export class HrpanelComponent implements OnInit {
    this.objarray2=[];
    this.arrlength2=0;
     // this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
-    this.http.get(`http://localhost:3000/api-cards/getallcardsbyhr`,{ headers: reqHeader })
+    this.http.get(`http://localhost:3000/api-cards/${this.id}/getallcardsbyhr`,{ headers: reqHeader })
     .subscribe(res=>{
       var y=JSON.parse(JSON.stringify(res));
-      console.log(y)
+      //console.log(y)
       this.objarray2=[];
       this.arrlength2=0;
       if(y.length==0){
@@ -174,7 +174,7 @@ export class HrpanelComponent implements OnInit {
       }
   }),(err)=>{
       if(err.status>400) {
-        console.log(err.status)
+        //console.log(err.status)
         var res="You are not authorized to perform this action"
         this.message=res;
         }
@@ -211,7 +211,7 @@ export class HrpanelComponent implements OnInit {
     {
       if(!localStorage.getItem("jwt")){
         var res="You must be logged in first in order to perform signout operation"
-        console.log(res)
+        //console.log(res)
       this.message=res;
       }
       else if(localStorage.getItem("jwt")){
@@ -220,8 +220,8 @@ export class HrpanelComponent implements OnInit {
         var id=x.user.id;
         localStorage.removeItem("jwt")
         this.http.get(`http://localhost:3000/api/${id}/signout`).subscribe(res=>{
-        // console.log(typeof res);
-        // console.log(res);
+        // //console.log(typeof res);
+        // //console.log(res);
         this.arrlength=0;
         this.message=JSON.parse(JSON.stringify(res)).message;
         window.open("/signin", "_self");

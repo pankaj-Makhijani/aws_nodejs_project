@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit{
       w=JSON.parse(w)
       this.role=w.user.role
       this.roles=w.user.rolename
-      console.log(this.roles);
+      //console.log(this.roles);
       if(this.roles.includes('admin')){
         window.open("/admin", "_self");
       }
@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit{
   }
 
   async onsubmit(signupform:any){
-    console.log(signupform)
+    //console.log(signupform)
     
 
     await this.http.post("http://localhost:3000/api/signup",signupform)

@@ -1,21 +1,10 @@
-const { user } = require("../models");
-const logger = require("../config/logger");
-const mylogger=require("../config/logger2")
 const activitylog=require("../config/logger3")
-const S3 = require("aws-sdk/clients/s3");
 require("dotenv").config("./.env");
-const path = require("path");
-var jwt = require("jsonwebtoken");
-var expressJwt = require("express-jwt");
+
 const nodemailer = require("nodemailer");
-const fs = require("fs");
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 
-//creating s3 bucket
-const s3 = new AWS.S3();
-
-const port = process.env.PORT || 3000;
 //Authorozing or initializing nodemailer
 var transporter = nodemailer.createTransport({
   service: process.env.MAIL_SERVICE,
@@ -52,15 +41,8 @@ exports.sqs = (req,res) =>
    };
    sqs.sendMessage(params, function (err, data) {
      if (err) {
-  //  console.log(err)
-       logger.log("error", err);
        activitylog.error("sqs service error while signup of user "+email)
      } else {
-       logger.log(
-         "info",
-         "Data moved to Queue Successfully"+
-         data.MessageId
-       );
        activitylog.info("sqs service success while signup of user "+email)
      }
    });
@@ -79,17 +61,12 @@ var mailOptions = {
 
 transporter.sendMail(mailOptions, function (error, info) {
  if (error) {
-   logger.log("error", error);
-  //  console.log(error);
   activitylog.error("Error occured while noifying admin on signup user "+email)
  } else {
-  //  console.log("Email sent: " + info.response);
-   logger.log('info',"Email sent: " + info.response)
    activitylog.error("Success while noifying admin on signup user "+email)
  }
 });
 
 /* mail end*/
      return res.json({"msg":"user Created Successfully"})
-
    }

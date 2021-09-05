@@ -60,9 +60,9 @@ export class AccountComponent implements OnInit {
         this.isuser=true;
       }
 
-      // console.log(this.ishr)
-      // console.log(this.isadmin)
-      // console.log(this.isuser)
+      // //console.log(this.ishr)
+      // //console.log(this.isadmin)
+      // //console.log(this.isuser)
 
 
       if(!this.roles.includes('user') && this.roles.includes('admin')){
@@ -86,7 +86,7 @@ export class AccountComponent implements OnInit {
   
 
   async onsubmit(updateform:any){
-    console.log(updateform)
+    //console.log(updateform)
 
     var x2:any = localStorage.getItem("jwt")
     x2=JSON.parse(x2)
@@ -104,12 +104,12 @@ export class AccountComponent implements OnInit {
     .subscribe(res=>{
       var y=JSON.parse(JSON.stringify(res));
       this.message=y.msg;
-      console.log(res);
+      //console.log(res);
       this.fname=updateform.fname;
       this.lname=updateform.lname;
       this.username=updateform.fname +" "+ updateform.lname;
       this.email=updateform.email;
-      // console.log(typeof res);
+      // //console.log(typeof res);
     },(err)=>{
       var res="You are not authorized to perform this action"
       this.message=err;
@@ -124,19 +124,19 @@ export class AccountComponent implements OnInit {
         x2=JSON.parse(x2)
         var token=x2.token;
         var id=x2.user.id;
-        console.log(token)
+        //console.log(token)
   
   
         this.http.delete(`http://localhost:3000/api/tempdeleteuser/${id}`)
         .subscribe(res=>{
           var y=JSON.parse(JSON.stringify(res)).msg;
           this.message=y;
-          console.log(res);
-          console.log(y.status)
+          //console.log(res);
+          //console.log(y.status)
           localStorage.removeItem("jwt")
           this.http.get("http://localhost:3000/api/signout")
           window.open("/signin", "_self");
-          // console.log(typeof res);
+          // //console.log(typeof res);
         },(err)=>{
           var y=JSON.parse(JSON.stringify(res)).err;
           this.message=y;
@@ -146,7 +146,7 @@ export class AccountComponent implements OnInit {
 
     if(!localStorage.getItem("jwt")){
         var res="You must be logged in first in order to perform delete operation"
-        console.log(res)
+        //console.log(res)
       this.message=res;
       }
   }
@@ -162,10 +162,10 @@ export class AccountComponent implements OnInit {
             return item.includes('name=token')
           }).length
         ) {
-          console.log("hello not jwt")
+          //console.log("hello not jwt")
         }
         var res="You must be logged in first in order to perform signout operation"
-        console.log(res)
+        //console.log(res)
       this.message=res;
       }
       else{
@@ -174,8 +174,8 @@ export class AccountComponent implements OnInit {
         var id=x.user.id;
         localStorage.removeItem("jwt")
         this.http.get(`http://localhost:3000/api/${id}/signout`).subscribe(res=>{
-        // console.log(typeof res);
-        // console.log(res);
+        // //console.log(typeof res);
+        // //console.log(res);
         this.message=JSON.parse(JSON.stringify(res)).message;
         window.open("/signin", "_self");
       })

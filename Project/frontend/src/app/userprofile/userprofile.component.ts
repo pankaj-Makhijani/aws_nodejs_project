@@ -105,7 +105,7 @@ export class UserprofileComponent implements OnInit {
       if(!localStorage.getItem("jwt")){
         
         var res="You must be logged in first in order to perform signout operation"
-        console.log(res)
+        //console.log(res)
       this.message=res;
       }
       else{

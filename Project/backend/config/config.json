@@ -2,9 +2,10 @@
   "development": {
     "username": "admin",
     "password": "12345678",
-    "database": "database2",
+    "database": "database3",
     "host": "database1.c1qjgwutucsh.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "test": {
     "username": "root",

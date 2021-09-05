@@ -123,8 +123,8 @@ export class AdmindashboardComponent implements OnInit {
       var id=x.user.id;
       this.username=x.user.firstname
       var token=x.token;
-      //////////console.log(id)
-      //////////console.log(token)
+      ////////////console.log(id)
+      ////////////console.log(token)
 
       var reqHeader = new HttpHeaders({ 
         'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ export class AdmindashboardComponent implements OnInit {
       this.http.get(`http://localhost:3000/api/${id}/findallusers`,{ headers: reqHeader })
       .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
-        //////////console.log(y)
+        ////////////console.log(y)
         this.message=y.msg;
         this.objarray=[];
         this.arrlength=0;
@@ -148,7 +148,7 @@ export class AdmindashboardComponent implements OnInit {
         else{
           this.noofusers=y.length;
           for(var i = 0; i < y.length; i++) {
-            var obj = y[i];
+            var obj = y[i]; 
             this.arrlength=i;
             this.objarray.push(obj)
         }
@@ -156,7 +156,7 @@ export class AdmindashboardComponent implements OnInit {
 
       },(err)=>{
         if(err.status>400) {
-          //////////console.log(err.status)
+          ////////////console.log(err.status)
           var res="You are not authorized to perform this action"
           this.message=res;
           }
@@ -170,8 +170,8 @@ export class AdmindashboardComponent implements OnInit {
     var id=x.user.id;
     this.username=x.user.firstname
     var token=x.token;
-    // //////////console.log(id)
-    // //////////console.log(token)
+    // ////////////console.log(id)
+    // ////////////console.log(token)
 
     var reqHeader = new HttpHeaders({ 
       'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ export class AdmindashboardComponent implements OnInit {
     this.http.get(`http://localhost:3000/api-cards/getallcards`,{ headers: reqHeader })
     .subscribe(res=>{
       var y=JSON.parse(JSON.stringify(res));
-      //////////console.log(y)
+      ////////////console.log(y)
       this.objarray2=[];
       this.arrlength2=0;
       if(y.length==0){
@@ -203,7 +203,7 @@ export class AdmindashboardComponent implements OnInit {
       }
   }),(err)=>{
       if(err.status>400) {
-        //////////console.log(err.status)
+        ////////////console.log(err.status)
         var res="You are not authorized to perform this action"
         this.message=res;
         }
@@ -217,7 +217,7 @@ export class AdmindashboardComponent implements OnInit {
      this.http.get(`http://localhost:3000/api/getactivitylogs`)
      .subscribe(res=>{
        var y=JSON.parse(JSON.stringify(res));
-      //  //////////console.log(y)
+      //  ////////////console.log(y)
        this.logsarray1=[];
        this.logslength1=0;
        if(y.length==0){
@@ -230,11 +230,11 @@ export class AdmindashboardComponent implements OnInit {
            this.logslength1=i;
            this.logsarray1.push(obj)
        }
-      //  //////////console.log(this.logsarray1)
+      //  ////////////console.log(this.logsarray1)
        }
    }),(err)=>{
        if(err.status>400) {
-         //////////console.log(err.status)
+         ////////////console.log(err.status)
          var res="You are not authorized to perform this action"
          this.message=res;
          }
@@ -247,13 +247,13 @@ export class AdmindashboardComponent implements OnInit {
      this.http.get(`http://localhost:3000/api/getroles`)
      .subscribe(res=>{
        var y=JSON.parse(JSON.stringify(res));
-       //////////console.log(y)
+       ////////////console.log(y)
        this.rolesarray=[];
        if(y.length!=0){
         for(var i = 0; i < y.length; i++) {
           this.rolesarray.push(y[i].role)
       }
-      //////////console.log(this.rolesarray) 
+      ////////////console.log(this.rolesarray) 
       }
    })
     //fetch all roles
@@ -295,6 +295,7 @@ export class AdmindashboardComponent implements OnInit {
   this.mngcreatecert=false;
   this.mngdeletecert=false;
   this.mnggetcert=false;
+  this.mnggetlogs=false;
   this.ngOnInit();
 
   }
@@ -458,39 +459,39 @@ export class AdmindashboardComponent implements OnInit {
   public onOptionsSelected(event) {
     const value = event.target.value;
     this.selected = value;
-    ////////////console.log(value);
+    //////////////console.log(value);
  }
 
  public onOptionsSelected2(event) {
   const value = event.target.value;
   this.selected2 = value;
-  ////////////console.log(value);
+  //////////////console.log(value);
 }
 
 public onRoleChecked(event) {
   const value=event.target.value
-  ////////////console.log(event.target)
+  //////////////console.log(event.target)
 }
 
 public onOptionsCertificate(event) {
   const value = event.target.value;
   this.selectedcertficate = value;
-  ////////////console.log(value);
+  //////////////console.log(value);
 }
 
 public onOptionsSelected3(event) {
   const cardid = event.target.value;
   this.removeselected = cardid;
-  // ////////////console.log(cardid);
+  // //////////////console.log(cardid);
 }
 
 public onupdateSelected(event) {
   const value = event.target.value;
   this.message=""
-  // ////////////console.log(value);
+  // //////////////console.log(value);
   this.http.get(`http://localhost:3000/api/${value}/getanyuserinfobyid`)
     .subscribe(res=>{
-      ////////////console.log(res)
+      //////////////console.log(res)
       var y=JSON.parse(JSON.stringify(res));
       this.updatefirstname=y.firstname;
       this.updatelastname=y.lastname;
@@ -502,7 +503,7 @@ public onupdateSelected(event) {
 }
 
   async onupdatesubmit(updateanyuserform:any){
-    ////////////console.log(updateanyuserform)
+    //////////////console.log(updateanyuserform)
     this.message="";
 
     var x2:any = localStorage.getItem("jwt")
@@ -513,7 +514,7 @@ public onupdateSelected(event) {
     await this.http.post(`http://localhost:3000/api/${this.id}/updateanyuser`,updateanyuserform)
     .subscribe(res=>{
       var y=JSON.parse(JSON.stringify(res));
-      ////////////console.log(res);
+      //////////////console.log(res);
       this.message=y.msg;
     },(err)=>{
       var res="You are not authorized to perform this action"
@@ -526,20 +527,20 @@ public onRevokeUserSelected(event) {
   this.rolesrevokelength=0
   this.rolesrevokearray=[];
   this.message=""
-  // ////////////console.log(value);
+  // //////////////console.log(value);
   this.http.get(`http://localhost:3000/api/${value}/getrolebyuserid`)
     .subscribe(res=>{
-      ////////////console.log(res)
+      //////////////console.log(res)
       var y=JSON.parse(JSON.stringify(res));
       this.message=y.msg;
-      // ////////////console.log(y.roles.length);
+      // //////////////console.log(y.roles.length);
       this.rolesrevokelength=y.roles.length;
       if(y.roles.length>0){
         for(let i=0;i<y.roles.length;i++){
-          // ////////////console.log(y.roles[i])
+          // //////////////console.log(y.roles[i])
           var obj:any=y.roles[i]
         this.rolesrevokearray.push(obj)
-        ////////////console.log(this.rolesrevokearray)
+        //////////////console.log(this.rolesrevokearray)
   
         }
       }
@@ -563,7 +564,7 @@ ongetcertificate(getcertificateform:any){
           x2=JSON.parse(x2)
           var token=x2.token;
           var id=x2.user.id;
-          ////////////console.log(getcertificateform)
+          //////////////console.log(getcertificateform)
     
     
     this.certarray=[];
@@ -578,24 +579,24 @@ ongetcertificate(getcertificateform:any){
       .subscribe(res=>{
         this.users=[];
         var y=JSON.parse(JSON.stringify(res));
-        //////////console.log(y)
+        ////////////console.log(y)
         this.certname=y.cardname;
         
       
           this.nofcertusers=y.users.length;
           this.users=y.users;
-        //////////console.log(this.users)
+        ////////////console.log(this.users)
         for(let k of this.users){
           k.fullname=k.firstname+" "+k.lastname
           this.usersname.push(k.fullname)
           this.usersemail.push(k.email)
         }
-        //////////console.log(this.usersname)
+        ////////////console.log(this.usersname)
         
 
       },(err)=>{
         if(err.status>400) {
-          //////////console.log(err.status)
+          ////////////console.log(err.status)
           var res="You are not authorized to perform this action"
           this.message=res;
           }
@@ -603,7 +604,7 @@ ongetcertificate(getcertificateform:any){
     }
     if(!localStorage.getItem("jwt")){
       var res="You must be logged in first in order to perform Delete User operation"
-      //////////console.log(res)
+      ////////////console.log(res)
     this.message=res;
     }
 }
@@ -625,7 +626,7 @@ ongetcertificate(getcertificateform:any){
           x2=JSON.parse(x2)
           var token=x2.token;
           var id=x2.user.id;
-          //////////console.log(token)
+          ////////////console.log(token)
     
           var reqHeader = new HttpHeaders({ 
             'Content-Type': 'application/json',
@@ -636,12 +637,12 @@ ongetcertificate(getcertificateform:any){
           .subscribe(res=>{
             var y=JSON.parse(JSON.stringify(res));
             this.message=y.msg;
-            //////////console.log(res);
+            ////////////console.log(res);
             this.ngOnInit();
-            // //////////console.log(typeof res);
+            // ////////////console.log(typeof res);
           },(err)=>{
             if(err.status>400) {
-            //////////console.log(err.status)
+            ////////////console.log(err.status)
             var res="You are not authorized to perform this action"
             this.message=res;
             }
@@ -652,7 +653,7 @@ ongetcertificate(getcertificateform:any){
     }
     if(!localStorage.getItem("jwt")){
       var res="You must be logged in first in order to perform Delete User operation"
-      //////////console.log(res)
+      ////////////console.log(res)
     this.message=res;
     }
   }
@@ -660,13 +661,13 @@ ongetcertificate(getcertificateform:any){
   public onRoleSelected(event){
     const value=event.target.value;
     this.roleselected=value
-    //////////console.log(this.roleselected)
+    ////////////console.log(this.roleselected)
   }
 
 
 
   async onroledeleteform(roledeleteform:any){
-    //////////console.log(roledeleteform)
+    ////////////console.log(roledeleteform)
     this.message="";
 
     await this.http.post(`http://localhost:3000/api/${this.id}/deleterole`,roledeleteform)
@@ -692,21 +693,21 @@ ongetcertificate(getcertificateform:any){
   }
 
   async onsubmit2(signupform:any){
-    //////////console.log(signupform)
+    ////////////console.log(signupform)
     this.message="";
 
 
     await this.http.post("http://localhost:3000/api/advancedsignup",signupform)
     .subscribe(res=>{
       this.message=JSON.parse(JSON.stringify(res)).msg || JSON.parse(JSON.stringify(res)).error;
-      this.ngOnInit();
+      // this.ngOnInit();
     })
     
   }
 
   async onsubmit1(updateform:any){
     updateform.uid=this.selected;
-    //////////console.log(updateform)
+    ////////////console.log(updateform)
     this.message="";
     var x2:any = localStorage.getItem("jwt")
     x2=JSON.parse(x2)
@@ -724,7 +725,7 @@ ongetcertificate(getcertificateform:any){
     .subscribe(res=>{
       var y=JSON.parse(JSON.stringify(res));
       this.message=y.msg;
-      console.log(res);
+      //console.log(res);
 
     },(err)=>{
       var res="You are not authorized to perform this action"
@@ -734,7 +735,7 @@ ongetcertificate(getcertificateform:any){
 
   async revokeRole(revokeRoleform:any){
     revokeRoleform.uid=this.revokeselected;
-    //////////console.log(revokeRoleform)
+    ////////////console.log(revokeRoleform)
     this.message="";
     var x2:any = localStorage.getItem("jwt")
     x2=JSON.parse(x2)
@@ -747,7 +748,7 @@ ongetcertificate(getcertificateform:any){
     .subscribe(res=>{
       var y=JSON.parse(JSON.stringify(res));
       this.message=y.msg;
-      //////////console.log(res);
+      ////////////console.log(res);
 
     },(err)=>{
       var res="You are not authorized to perform this action"
@@ -771,7 +772,7 @@ ongetcertificate(getcertificateform:any){
   oncarddelete(carddeleteform:any){
     this.message="";
     carddeleteform.cardid=this.removeselected
-    //////////console.log(carddeleteform)
+    ////////////console.log(carddeleteform)
     this.http.post(`http://localhost:3000/api-cards/deletecardbyid`, carddeleteform)
     .subscribe(res => {
         this.message = JSON.parse(JSON.stringify(res)).msg;
@@ -789,8 +790,8 @@ ongetcertificate(getcertificateform:any){
       var id=x.user.id;
       this.username=x.user.firstname
       var token=x.token;
-      // //////////console.log(id)
-      // //////////console.log(token)
+      // ////////////console.log(id)
+      // ////////////console.log(token)
 
       var reqHeader = new HttpHeaders({ 
         'Content-Type': 'application/json',
@@ -803,7 +804,7 @@ ongetcertificate(getcertificateform:any){
       this.http.get(`http://localhost:3000/api-cards/getallcards`,{ headers: reqHeader })
       .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
-        //////////console.log(y)
+        ////////////console.log(y)
         this.objarray2=[];
         this.arrlength2=0;
         if(y.length==0){
@@ -822,7 +823,7 @@ ongetcertificate(getcertificateform:any){
         }
     }),(err)=>{
         if(err.status>400) {
-          //////////console.log(err.status)
+          ////////////console.log(err.status)
           var res="Some error occured please try again"
           this.message=res;
           }
@@ -830,7 +831,7 @@ ongetcertificate(getcertificateform:any){
     }
     if(!localStorage.getItem("jwt")){
      var res="You must be logged in first in order to perform Find all users operation"
-     //////////console.log(res)
+     ////////////console.log(res)
     this.message=res;
     }
   }
@@ -840,7 +841,7 @@ ongetcertificate(getcertificateform:any){
     {
       if(!localStorage.getItem("jwt")){
         var res="You must be logged in first in order to perform signout operation"
-        //////////console.log(res)
+        ////////////console.log(res)
       this.message=res;
       }
       else if(localStorage.getItem("jwt")){
@@ -849,8 +850,8 @@ ongetcertificate(getcertificateform:any){
         var id=x.user.id;
         localStorage.removeItem("jwt")
         this.http.get(`http://localhost:3000/api/${id}/signout`).subscribe(res=>{
-        // //////////console.log(typeof res);
-        // //////////console.log(res);
+        // ////////////console.log(typeof res);
+        // ////////////console.log(res);
         this.arrlength=0;
         this.message=JSON.parse(JSON.stringify(res)).message;
         window.open("/signin", "_self");

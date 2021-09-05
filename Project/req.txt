@@ -1,5 +1,0 @@
-Logging - MySQL Database (not file, or NoSQL)
-Authentication and Authorization - JWT Token basedUser Management - Roles (many to many)
-CRUD - Complete CRUD operations, from frontend app (UI/UX is not important at this moment, use a separate page for each operation)
-Swagger - Open API Spec (complete working)
-Private S3 - Access private docs using Presigned URLs, check other approaches.

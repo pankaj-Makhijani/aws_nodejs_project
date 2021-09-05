@@ -46,12 +46,12 @@ export class SigninComponent implements OnInit {
 
 
   onsubmit(signinform:any){
-    console.log(signinform)
+    //console.log(signinform)
 
 
     this.http.post("http://localhost:3000/api/signin",signinform)
     .subscribe(res=>{
-      console.log(res);
+      //console.log(res);
       var x=JSON.parse(JSON.stringify(res))
       if(!x.err){
           localStorage.setItem("jwt", JSON.stringify(res));

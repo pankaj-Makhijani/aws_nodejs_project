@@ -18,6 +18,9 @@
       },{
         "name":"certificates",
         "description": "API for interacting with the certificates in the system"
+      },{
+        "name":"roles",
+        "description": "API for interacting with the roles in the system"
       }
     ],
     "schemes": [
@@ -266,6 +269,123 @@
           "responses": {
           }
       }
+      },
+      "/{id}/createrole":{
+        "post":{
+          "tags":[
+            "roles"
+          ],
+          "summary": "Create new role in system",
+          "parameters": [
+            {
+              "name": "role",
+              "in": "body",
+              "schema": {
+                "$ref": "#/definitions/mngrole"
+              }
+            },{
+              "name": "id",
+            "in": "path",
+            "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+        }
+      },
+      "/{id}/deleterole":{
+        "post":{
+          "tags":[
+            "roles"
+          ],
+          "summary": "Delete role from system",
+          "parameters": [
+            {
+              "name": "role",
+              "in": "body",
+              "schema": {
+                "$ref": "#/definitions/mngrole"
+              }
+            },{
+              "name": "id",
+            "in": "path",
+            "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+        }
+      },
+      "/{id}/updateanyuserbyid":{
+        "post":{
+          "tags":[
+            "roles"
+          ],
+          "summary": "Assign role to user in system",
+          "parameters": [
+            {
+              "name": "role",
+              "in": "body",
+              "schema": {
+                "$ref": "#/definitions/assignrole"
+              }
+            },{
+              "name": "id",
+            "in": "path",
+            "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+        }
+      },
+      "/{id}/removerolefromuser":{
+        "post":{
+          "tags":[
+            "roles"
+          ],
+          "summary": "Revoke role from user",
+          "parameters": [
+            {
+              "name": "role",
+              "in": "body",
+              "schema": {
+                "$ref": "#/definitions/assignrole"
+              }
+            },{
+              "name": "id",
+            "in": "path",
+            "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+        }
+      },
+      "/getroles":{
+        "get":{
+          "tags":[
+            "roles"
+          ],
+          "summary": "Get all roles from the system",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+          }
+      }
       }
     },
     "definitions": {
@@ -358,6 +478,30 @@
         "properties":{
           "cardid":{
             "type":"number"
+          }
+        }
+      },
+      "mngrole":{
+        "required":[
+          "role"
+        ],
+        "properties":{
+          "role":{
+            "type":"string"
+          }
+        }
+      },
+      "assignrole":{
+        "required":[
+          "uid",
+          "roles"
+        ],
+        "properties":{
+          "uid":{
+            "type":"number"
+          },
+          "roles":{
+            "type":"string"
           }
         }
       }

@@ -71,9 +71,9 @@ export class CertificateComponent implements OnInit {
         this.isuser=true;
       }
 
-      // console.log(this.ishr)
-      // console.log(this.isadmin)
-      // console.log(this.isuser)
+      // //console.log(this.ishr)
+      // //console.log(this.isadmin)
+      // //console.log(this.isuser)
 
 
       if(!this.roles.includes('user')){
@@ -84,7 +84,7 @@ export class CertificateComponent implements OnInit {
           window.open("/hr", "_self");
 
         else{
-          alert("you dont have any role")
+          // alert("you dont have any role")
           window.open("/account", "_self");
         }
       }
@@ -98,7 +98,7 @@ export class CertificateComponent implements OnInit {
         this.http.get(`http://localhost:3000/api-cards/getallcards`)
         .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
-        console.log(y)
+        ////console.log(y)
         for(var i = 0; i < y.length; i++) {
           var obj = y[i];
           this.arrlength2=i;
@@ -110,7 +110,7 @@ export class CertificateComponent implements OnInit {
       this.http.get(`http://localhost:3000/api/getcardbyid/${this.id}`)
       .subscribe(res=>{
       var z=JSON.parse(JSON.stringify(res));
-      console.log(z.cards)
+      ////console.log(z.cards)
       this.objarray3=[];
       this.objid3=[];
       this.objname3=[];
@@ -121,8 +121,8 @@ export class CertificateComponent implements OnInit {
         this.objid3.push(obj.id)
         this.objname3.push(obj.cardname)
       }
-      console.log(this.objid3)
-      console.log(this.objname3)
+      ////console.log(this.objid3)
+      ////console.log(this.objname3)
     })
   }
   
@@ -168,26 +168,26 @@ export class CertificateComponent implements OnInit {
   public onOptionsSelected(event) {
     const value = event.target.value;
     this.selected = value;
-    console.log(value);
+    ////console.log(value);
  }
 
 
  public onOptionsSelected2(event) {
   const value = event.target.value;
   this.removeselected = value;
-  console.log(value);
+  ////console.log(value);
 }
 
   oncardsubmit(addcardform:any){
-    console.log(addcardform)
+    ////console.log(addcardform)
     if(localStorage.getItem("jwt")){
       var x2:any = localStorage.getItem("jwt")
       x2=JSON.parse(x2)
       var token=x2.token;
       var id=x2.user.id;
-      console.log(token)
+      ////console.log(token)
       addcardform.cid=this.selected
-      console.log(addcardform)
+      ////console.log(addcardform)
 
       var reqHeader = new HttpHeaders({ 
         'Content-Type': 'application/json',
@@ -199,12 +199,12 @@ export class CertificateComponent implements OnInit {
       .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
         this.message=y.msg;
-        console.log(res);
+        ////console.log(res);
         this.ngOnInit();
-        // console.log(typeof res);
+        // ////console.log(typeof res);
       },(err)=>{
         if(err.status>400) {
-        console.log(err.status)
+        ////console.log(err.status)
         var res="You are not authorized to perform this action"
         this.message=res;
         }
@@ -212,19 +212,19 @@ export class CertificateComponent implements OnInit {
     }
     if(!localStorage.getItem("jwt")){
       var res="You must be logged in first in order to perform Delete User operation"
-      console.log(res)
+      ////console.log(res)
     this.message=res;
     }
   }
 
   onremovecardsubmit(removecardform:any){
-    console.log(removecardform)
+    ////console.log(removecardform)
     if(localStorage.getItem("jwt")){
       var x2:any = localStorage.getItem("jwt")
       x2=JSON.parse(x2)
       var token=x2.token;
       var id=x2.user.id;
-      console.log(token)
+      ////console.log(token)
       removecardform.cid=this.removeselected
 
       var reqHeader = new HttpHeaders({ 
@@ -237,12 +237,12 @@ export class CertificateComponent implements OnInit {
       .subscribe(res=>{
         var y=JSON.parse(JSON.stringify(res));
         this.message=y.msg;
-        console.log(res);
+        ////console.log(res);
         this.ngOnInit();
-        // console.log(typeof res);
+        // ////console.log(typeof res);
       },(err)=>{
         if(err.status>400) {
-        console.log(err.status)
+        ////console.log(err.status)
         var res="You are not authorized to perform this action"
         this.message=res;
         }
@@ -250,7 +250,7 @@ export class CertificateComponent implements OnInit {
     }
     if(!localStorage.getItem("jwt")){
       var res="You must be logged in first in order to perform Delete User operation"
-      console.log(res)
+      ////console.log(res)
     this.message=res;
     }
   }
@@ -259,10 +259,10 @@ export class CertificateComponent implements OnInit {
     
     const FILE = (event.target as HTMLInputElement).files[0];
     this.imageObj = FILE;
-    console.log(this.imageObj)
+    ////console.log(this.imageObj)
     if(this.imageObj==null){
       this.imgselected=false
-      console.log(this.imageObj.type)
+      ////console.log(this.imageObj.type)
       this.message="Please select image before uploading"
     }
     else if(this.imageObj!=null && this.imageObj.type!="image/jpeg"){
@@ -286,16 +286,16 @@ export class CertificateComponent implements OnInit {
        this.imgselected=true;
       const imageForm = new FormData();
       imageForm.append('image', this.imageObj);
-      console.log("Uploading image",imageForm)
+      ////console.log("Uploading image",imageForm)
       this.http.post(`http://localhost:3000/api/upload/${this.id}`, imageForm,{ headers: reqHeader }).subscribe(res => {
         this.imageUrl = JSON.parse(JSON.stringify(res)).image;
-        console.log(this.imageUrl)
+        ////console.log(this.imageUrl)
       });
      }
   }
 
   async onsubmit(updateform:any){
-    console.log(updateform)
+    ////console.log(updateform)
 
     var x2:any = localStorage.getItem("jwt")
     x2=JSON.parse(x2)
@@ -313,13 +313,13 @@ export class CertificateComponent implements OnInit {
     .subscribe(res=>{
       var y=JSON.parse(JSON.stringify(res));
       this.message=y.msg;
-      console.log(res);
+      ////console.log(res);
       this.fname=updateform.fname;
       this.lname=updateform.lname;
       this.username=updateform.fname +" "+ updateform.lname;
       this.email=updateform.email;
       this.ngOnInit();
-      // console.log(typeof res);
+      // ////console.log(typeof res);
     },(err)=>{
       var res="You are not authorized to perform this action"
       this.message=err;
@@ -334,19 +334,19 @@ export class CertificateComponent implements OnInit {
         x2=JSON.parse(x2)
         var token=x2.token;
         var id=x2.user.id;
-        console.log(token)
+        ////console.log(token)
   
   
         this.http.delete(`http://localhost:3000/api/tempdeleteuser/${id}`)
         .subscribe(res=>{
           var y=JSON.parse(JSON.stringify(res)).msg;
           this.message=y;
-          console.log(res);
-          console.log(y.status)
+          ////console.log(res);
+          ////console.log(y.status)
           localStorage.removeItem("jwt")
           this.http.get("http://localhost:3000/api/signout")
           window.open("/signin", "_self");
-          // console.log(typeof res);
+          // //console.log(typeof res);
         },(err)=>{
           var y=JSON.parse(JSON.stringify(res)).err;
           this.message=y;
@@ -356,7 +356,7 @@ export class CertificateComponent implements OnInit {
 
     if(!localStorage.getItem("jwt")){
         var res="You must be logged in first in order to perform delete operation"
-        console.log(res)
+        //console.log(res)
       this.message=res;
       }
   }
@@ -372,10 +372,10 @@ export class CertificateComponent implements OnInit {
             return item.includes('name=token')
           }).length
         ) {
-          console.log("hello not jwt")
+          //console.log("hello not jwt")
         }
         var res="You must be logged in first in order to perform signout operation"
-        console.log(res)
+        //console.log(res)
       this.message=res;
       }
       else{
@@ -384,8 +384,8 @@ export class CertificateComponent implements OnInit {
         var id=x.user.id;
         localStorage.removeItem("jwt")
         this.http.get(`http://localhost:3000/api/${id}/signout`).subscribe(res=>{
-        // console.log(typeof res);
-        // console.log(res);
+        // //console.log(typeof res);
+        // //console.log(res);
         this.message=JSON.parse(JSON.stringify(res)).message;
         window.open("/signin", "_self");
       })

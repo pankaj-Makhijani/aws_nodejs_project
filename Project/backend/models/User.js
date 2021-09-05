@@ -52,10 +52,6 @@ module.exports = (sequelize, DataTypes) => {
           args:true,
           msg:"password should not be empty"
         },
-        // len: {
-        //   args: [4, 25],
-        //   msg: "length should be between 4 to 16", //custom messages
-        // },
       },
     },
     email: {
@@ -72,16 +68,10 @@ module.exports = (sequelize, DataTypes) => {
         msg:"E-mail is required"
           }
         }
-    },
-    role:{
-      type:DataTypes.INTEGER,
-      defaultValue:0
     }
   });
 
-  // user.associate = models => {
-  //     user.belongsToMany(models.card, { through: 'usercard',as:'userid' });
-  // }
+
 
   //Generating a Hash
   user.generatehash = (password) => {
